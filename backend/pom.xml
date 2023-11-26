@@ -11,7 +11,7 @@
 	<groupId>com.nocuntry</groupId>
 	<artifactId>S12G15</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Track</name>
+	<name>S12G15</name>
 	<description>Project S12-G15</description>
 	<properties>
 		<java.version>17</java.version>
@@ -25,7 +25,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-			<version>3.1.4</version>
 		</dependency>
 
 		<dependency>
@@ -42,6 +41,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
