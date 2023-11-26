@@ -1,0 +1,14 @@
+#Aqui colocariamos los archivos de utilidada como constantes de nuestra api
+Ejmplo.
+
+public final class Constant {
+    // API VERSION
+    public static final String API_VERSION = "v1/api";
+    public static final String RESOURCE_AUTH= "/auth";
+    public static final String RESOURCE_REGISTER= "/register";
+    public static final String RESOURCE_USER= "/customers";
+
+    private Constant() {
+        throw new IllegalStateException("Utility Class should not be instantiated!");
+    }
+}
