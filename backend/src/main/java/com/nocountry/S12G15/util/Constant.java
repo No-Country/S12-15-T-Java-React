@@ -1,4 +1,4 @@
-package com.nocuntry.util;
+package com.nocountry.S12G15.util;
 
 import org.springframework.web.bind.annotation.GetMapping;
 

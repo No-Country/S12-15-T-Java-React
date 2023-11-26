@@ -1,4 +1,4 @@
-package com.nocuntry.S12G15;
+package com.nocountry.S12G15;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
