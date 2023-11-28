@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.nio.channels.Channel;
 import java.util.Optional;
 
-import static com.nocountry.util.Constant.API_VERSION;
-import static com.nocountry.util.Constant.RESOURCE_CHANNEL;
+import static com.nocountry.S12G15.util.Constant.API_VERSION;
+import static com.nocountry.S12G15.util.Constant.RESOURCE_CHANNEL;
+
 
 @RestController
 @RequestMapping(value = API_VERSION + RESOURCE_CHANNEL)
