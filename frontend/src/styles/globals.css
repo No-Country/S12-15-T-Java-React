@@ -24,6 +24,9 @@ html {
 	font-family: 'Roboto', sans-serif;
 }
 
+body {
+	background-color: var(--dark-blue);
+}
 a {
 	text-decoration: none;
 	color: var(--blue);
