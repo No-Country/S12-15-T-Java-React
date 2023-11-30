@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pre-commit": "npm --prefix frontend run pre-commit",
-    "prepare": "husky install | chmod ug+x .husky/*"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
