@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
 :root {
 	--black: #1e1e1e;
 	--white: #fafbfc;
@@ -8,6 +8,7 @@
 	--dark-blue: #42526e;
 	--blue: #0052cc;
 	--light-blue: #406df3;
+	--mazarine-blue: #0046af;
 	--light-green: #99f5d1;
 	--red: #fc4d4d;
 	--pink: #ff8686;
@@ -21,6 +22,14 @@
 
 html {
 	font-family: 'Roboto', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: var(--blue);
+}
+a:hover {
+	color: var(--mazarine-blue);
 }
 
 /* Centered container */
