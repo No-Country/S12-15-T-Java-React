@@ -1,47 +1,89 @@
 .nav-gral {
 	width: 100%;
-	height: 100%;
-	padding-left: 48px;
-	padding-right: 48px;
-	padding-top: 16px;
-	padding-bottom: 16px;
-	background: #1e1e1e;
-	justify-content: space-between;
-	align-items: center;
-	display: inline-flex;
-}
-.nav-container {
-}
-.logo {
+	height: 67px;
+	background-color: #1e1e1e;
+	color: #fff;
+	border-radius: 4px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-/* .Track{ estas son las configuraciones de los dropdowns
-color: #FAFBFC;
-font-Size: 32px;
-font-Family: 'Nunito';
-font-Weight: 700;
-word-Wrap: break-word
+.nav-container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 1100px;
+	height: 35px;
+	padding: 16px 48px;
+	gap: 48px;
+	/* border: 1px solid violet; */
 }
-.proyectos{
-    color: #FAFBFC;
-font-Size: 20px;
-font-Family: 'Roboto';
-font-Weight: 500;
-word-Wrap: break-word;
+
+/* Logo (TRACK + IMG) */
+.track {
+	display: flex;
+	justify-content: start;
+	gap: 16px;
+	width: auto;
+	height: auto;
+	position: relative;
+	right: 48px;
+	/* margin-left: 56px; */
+	/* border: 1px solid red; */
 }
-.reciente{
-    color: #FAFBFC;
-font-Size: 20px;
-font-Family: 'Roboto';
-font-Weight: 500;
-word-Wrap: break-word;
+.title {
+	padding: 6px;
 }
-.crear{
-    color: #FAFBFC;
-font-Size: 20px;
-font-Family: 'Roboto';
-font-Weight: 500;
-word-Wrap: break-word;
-} */
+/* DROPDOWNS Y CREAR */
+.dropdowns {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 426px;
+	height: 32px;
+	gap: 32px;
+	position: relative;
+	right: 140px;
+	/* border: 1px solid lightgreen; */
+}
+.proyectos {
+	color: #fafbfc;
+	font-size: 20px;
+	font-family: 'Roboto';
+	font-weight: 500;
+	word-wrap: break-word;
+	background: transparent;
+	border: none;
+}
+.recientes {
+	color: #fafbfc;
+	font-size: 20px;
+	font-family: 'Roboto';
+	font-weight: 500;
+	word-wrap: break-word;
+	background: transparent;
+	border: none;
+}
+.btn-crear {
+	color: #fafbfc;
+	font-size: 20px;
+	font-family: 'Roboto';
+	font-weight: 500;
+	word-wrap: break-word;
+}
+.crear {
+	text-decoration: none;
+	list-style: none;
+	color: #fafbfc;
+}
+.logo-usuario {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logo-usuario img {
+	object-fit: contain;
+}

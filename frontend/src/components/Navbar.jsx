@@ -5,30 +5,34 @@ function Navbar() {
 	return (
 		<div className="nav-gral">
 			<nav className="nav-container">
-				<div className="logo">
-					<img src="Group 1.jpg" alt="Logo" />
-				</div>
-				<div className="title-container">
+				<div className="track">
+					<img src="/images/Logo.png" alt="Logo" />
+
 					<h1 className="title">Track</h1>
 				</div>
-				<select className="proyectos">
-					<option value="Proyectos">Proyectos</option>
-					<option value="opcion2">Opción 1</option>
-					<option value="opcion3">Opción 2</option>
-					<option value="opcion4">Opción 3</option>
-				</select>
-				<select className="recientes">
-					<option value="Recientes">Recientes</option>
-					<option value="opcion2">Opción 1</option>
-					<option value="opcion3">Opción 2</option>
-					<option value="opcion4">Opción 3</option>
-				</select>
-				<div>
-					<Link href="Crear" className="crear">
-						Crear
-					</Link>
+				<div className="dropdowns">
+					<select className="proyectos">
+						<option value="Proyectos">Proyectos</option>
+						<option value="opcion1">Opción 1</option>
+						<option value="opcion2">Opción 2</option>
+						<option value="opcion3">Opción 3</option>
+					</select>
+					<select className="recientes">
+						<option value="Recientes">Recientes</option>
+						<option value="opcion1">Opción 1</option>
+						<option value="opcion2">Opción 2</option>
+						<option value="opcion3">Opción 3</option>
+					</select>
+					<div className="btn-crear">
+						<Link href="Crear" className="crear">
+							Crear
+						</Link>
+					</div>
 				</div>
-				<div></div>
+
+				<div className="logo-usuario">
+					<img src="/images/Usuario.png" alt="" />
+				</div>
 			</nav>
 		</div>
 	);
