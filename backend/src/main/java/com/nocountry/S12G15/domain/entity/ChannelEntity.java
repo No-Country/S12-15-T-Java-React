@@ -1,6 +1,5 @@
 package com.nocountry.S12G15.domain.entity;
 
-import com.nocountry.S12G15.dto.request.ChannelRequestDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,10 +23,5 @@ public class ChannelEntity {
     private BoardEntity boardEntity;
     public enum ChannelStatus{
         ENABLED, DISABLED;
-    }
-    public ChannelEntity modifyChannel(ChannelRequestDTO requestDTO){
-        if(requestDTO.getType() != null || !requestDTO.getType().isEmpty())this.setType(requestDTO.getType().strip());
-        if(requestDTO.getTopic() != null || !requestDTO.getTopic().isEmpty())this.setTopic(requestDTO.getTopic().strip());
-        return this;
     }
 }
