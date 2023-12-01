@@ -7,14 +7,15 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING) //TODO: uses Permission
 public interface TaskMapper {
 
-    @Mapping(source = "subTopic", target = "subTopicDTO")
     @Mapping(source = "description", target = "descriptionDTO")
     @Mapping(source = "name", target = "nameDTO")
-    TaskDTO toGetDto(TaskEntity taskEntity);
+    TaskDTO toGetDto(TaskEntity taskEntity); //TODO: response
 
     @InheritInverseConfiguration
-    TaskEntity toGetEntity(TaskDTO taskDTO);
+    TaskEntity toGetEntity(TaskDTO taskDTO); //TODO: request
+
+    //TODO: lista permissions
 }
