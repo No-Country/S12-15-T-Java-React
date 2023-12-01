@@ -5,8 +5,8 @@ import com.nocountry.S12G15.dto.response.AuthResponse;
 
 public interface AuthService {
 
-    public AuthResponse register(AuthenticationRequest request);
+    AuthResponse register(AuthenticationRequest request);
 
-    public AuthResponse login(AuthenticationRequest request);
+    AuthResponse login(AuthenticationRequest request);
 
 }
