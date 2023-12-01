@@ -59,5 +59,10 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.save(task);
     }
 
+    @Override
+    public TaskDTO updateTask(TaskDTO taskUpdate, String idTask) {
+        return null;
+    }
+
 
 }
