@@ -11,18 +11,14 @@ import java.util.List;
 public class BoardEntity {
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
     private String idBoard;
-
-    @Column(name = "description")
     private String description;
-    @Column(name = "topic")
-    private String topic;
 
-    @Column(name = "notes")
-    @OneToMany(mappedBy = "boardEntity")
-    private List<NoteEntity> noteEntityStringList;
+    /*
+    @OneToMany
+    private List<TaskEntity> tasks;
+    */
 
-    @ManyToOne
-    private UserEntity userEntity;
+    private boolean enabled = true;
 }

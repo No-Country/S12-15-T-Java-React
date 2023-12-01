@@ -32,6 +32,9 @@ public class UserEntity {
     @Column(name="rol",nullable = false,unique = true)
     private RolUser rolUser;
 
+    /*
     @OneToMany(mappedBy = "userEntity")
     private List<BoardEntity> boardEntityList;
+    */
+
 }
