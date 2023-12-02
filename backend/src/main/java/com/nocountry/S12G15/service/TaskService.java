@@ -1,22 +1,23 @@
 package com.nocountry.S12G15.service;
 
 import com.nocountry.S12G15.domain.entity.TaskEntity;
-import com.nocountry.S12G15.dto.TaskDTO;
 import com.nocountry.S12G15.dto.request.PageableDto;
+import com.nocountry.S12G15.dto.request.TaskRequestDTO;
+import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface TaskService {
+    Optional<List<TaskResponseDTO>> findAllTasks();
+    Page<TaskResponseDTO> findAll(PageableDto pageableDto);
 
-    Page<TaskDTO> findAll(PageableDto pageableDto);
+    Optional<TaskResponseDTO> findTaskById(String idTask);
 
-    Optional<TaskDTO> findTaskById(String idTask);//TODO: debe devolver un DTO
-
-    TaskDTO createTask(TaskDTO taskDTO); //TODO: debe usar un DTO
+    TaskResponseDTO createTask(TaskRequestDTO taskDTO);
 
     TaskEntity disabledOneById(String idTask);
 
-    TaskDTO updateTask(TaskDTO taskUpdate, String idTask);
+    TaskResponseDTO updateTask(TaskRequestDTO taskUpdate, String idTask);
 }

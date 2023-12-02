@@ -1,16 +1,18 @@
 package com.nocountry.S12G15.controller.dto;
 
 import com.nocountry.S12G15.domain.entity.TaskEntity;
-import com.nocountry.S12G15.dto.TaskDTO;
 import com.nocountry.S12G15.dto.request.PageableDto;
+import com.nocountry.S12G15.dto.request.TaskRequestDTO;
+import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static com.nocountry.S12G15.util.Constant.API_VERSION;
@@ -23,44 +25,70 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @GetMapping
-    public ResponseEntity<Page<?>> getAllTasks(PageableDto pageableDto){
-        Page<TaskDTO> tasksPage = taskService.findAll(pageableDto);
+    @PostMapping("/new")
+    public ResponseEntity<?> createTask(@RequestBody TaskRequestDTO taskRequestDTO){
 
-        if (tasksPage.hasContent()){
-            return ResponseEntity.ok(tasksPage);
+        try{
+            TaskResponseDTO taskResponseDTO = taskService.createTask(taskRequestDTO);
+            return ResponseEntity.status(HttpStatus.OK).body(taskResponseDTO);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\""+e.getMessage()+"}"));
         }
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<TaskResponseDTO>> getAllTasks(){
+        List<TaskResponseDTO> taskList = taskService.findAllTasks().orElseThrow(null);
+
+        if(!taskList.isEmpty()){
+            return new ResponseEntity<>(taskList, HttpStatus.OK);
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+//    public ResponseEntity<?> getAllTasks(PageableDto pageableDto){
+//
+//        try {
+//            Page<TaskResponseDTO> content = taskService.findAll2();
+//            Map<String, Object> response = Map.of("message", "Listado de Tareas", "data", content.get());
+//            return new ResponseEntity<>(response, HttpStatus.OK);
+//        }catch (Exception e){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\" "+e.getMessage()+"}"));
+//        }
+//    }
 
     @GetMapping("/{idTask}")
     public ResponseEntity<?> getTask(@PathVariable String idTask){
-
-        Optional<TaskDTO> task = taskService.findTaskById(idTask);
-
-        if(task.isPresent()){
-
-            return ResponseEntity.ok(task.get());
+        try{
+        Optional<TaskResponseDTO> task = taskService.findTaskById(idTask);
+            return new ResponseEntity<>(task, HttpStatus.OK);
+        }catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\" "+e.getMessage()+"}"));
         }
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @PutMapping("/{idTask}/disabled")
     public ResponseEntity<?> disabledTaskById(@PathVariable String idTask){
-
-        Optional<TaskDTO> task = taskService.findTaskById(idTask);
-
-        if(task.isPresent()) {
-
+        try{
             TaskEntity actualTask = taskService.disabledOneById(idTask);
             return ResponseEntity.ok(actualTask);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\" "+e.getMessage()+"}"));
 
         }
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 
+    @PutMapping("/{idTask}")
+    public ResponseEntity<?> updateTask(@RequestBody TaskRequestDTO taskUpdate, @PathVariable String idTask){
+        try{
+            TaskResponseDTO actualTask = taskService.updateTask(taskUpdate,idTask);
+            return ResponseEntity.status(HttpStatus.OK).body(actualTask);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\" "+e.getMessage()+"}"));
+
+        }
     }
 
 }

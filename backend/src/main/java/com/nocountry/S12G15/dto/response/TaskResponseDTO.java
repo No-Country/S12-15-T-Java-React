@@ -1,4 +1,4 @@
-package com.nocountry.S12G15.dto;
+package com.nocountry.S12G15.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,18 +9,16 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TaskDTO implements Serializable {
+public class TaskResponseDTO implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
     private String idTask;
 
-    private String nameDTO;
+    private String name;
 
-    private String descriptionDTO;
-
+    private String description;
 }

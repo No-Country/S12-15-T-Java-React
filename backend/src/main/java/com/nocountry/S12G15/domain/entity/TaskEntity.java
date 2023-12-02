@@ -1,15 +1,15 @@
 package com.nocountry.S12G15.domain.entity;
 
+import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.List;
+import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Data
 public class TaskEntity {
     @Id
-    @GeneratedValue(generator = "uuid")
+    @UuidGenerator
     private String idTask;
 
     private String name;
@@ -19,11 +19,14 @@ public class TaskEntity {
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
-//    @ManyToOne
-//    private List<Permission> permissions;
-
     public enum TaskStatus{
         ENABLED, DISABLED;
+    }
+
+    public TaskEntity updateTask(TaskRequestDTO taskReqDTO){
+        if(taskReqDTO.getName()!= null || !taskReqDTO.getName().isEmpty())this.setName(taskReqDTO.getName().strip());
+        if(taskReqDTO.getDescription()!= null || !taskReqDTO.getDescription().isEmpty())this.setDescription(taskReqDTO.getDescription().strip());
+        return this;
     }
 
 }

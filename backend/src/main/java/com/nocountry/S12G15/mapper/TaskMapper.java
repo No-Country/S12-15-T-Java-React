@@ -1,21 +1,22 @@
 package com.nocountry.S12G15.mapper;
 
 import com.nocountry.S12G15.domain.entity.TaskEntity;
-import com.nocountry.S12G15.dto.TaskDTO;
-import org.mapstruct.InheritInverseConfiguration;
+import com.nocountry.S12G15.dto.request.TaskRequestDTO;
+import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING) //TODO: uses Permission
+import java.util.List;
+
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface TaskMapper {
 
-    @Mapping(source = "description", target = "descriptionDTO")
-    @Mapping(source = "name", target = "nameDTO")
-    TaskDTO toGetDto(TaskEntity taskEntity); //TODO: response
+    TaskResponseDTO getTaskDto(TaskEntity taskEntity);
 
-    @InheritInverseConfiguration
-    TaskEntity toGetEntity(TaskDTO taskDTO); //TODO: request
+    TaskEntity getTaskEntity(TaskRequestDTO taskRequestDTO);
 
-    //TODO: lista permissions
+    List<TaskResponseDTO> toTaskDtoList(List<TaskEntity> taskEntityList);
+
+    List<TaskEntity> toTaskEntityList(List<TaskRequestDTO> taskReqDTOList);
+
 }
