@@ -64,6 +64,12 @@ public class BoardController {
         return ResponseEntity.status(HttpStatus.OK).body(enabledBoardDTO);
     }
 
+    @PutMapping("/addTask/{idTask}/toBoard/{idBoard}")
+    public ResponseEntity<BoardDTO> addTaskToBoard(@PathVariable String idBoard, @PathVariable String idTask) {
+        BoardDTO boardDTO = boardService.addTaskToBoard(idBoard, idTask);
+
+        return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
+    }
 
 
 

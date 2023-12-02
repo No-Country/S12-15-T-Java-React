@@ -14,4 +14,7 @@ public interface BoardService {
     BoardDTO  updateBoard(String idBoard, BoardDTO updatedBoardDTO);
     BoardDTO disableBoard(String idBoard);
     BoardDTO enableBoard(String idBoard);
+    BoardDTO addTaskToBoard(String idBoard, String idTask);
+
+
 }

@@ -1,9 +1,13 @@
 package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.BoardEntity;
+import com.nocountry.S12G15.domain.entity.TaskEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
+import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.mapper.BoardMapper;
+import com.nocountry.S12G15.mapper.TaskMapper;
 import com.nocountry.S12G15.persistance.repository.BoardRepository;
+import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +23,10 @@ public class BoardServiceImpl implements BoardService {
     private BoardRepository boardRepository;
     @Autowired
     private BoardMapper boardMapper;
+    @Autowired
+    private TaskRepository taskRepository;
+    @Autowired
+    private TaskMapper taskMapper;
 
 
     @Override
@@ -26,8 +34,8 @@ public class BoardServiceImpl implements BoardService {
 
 
         BoardEntity board = boardMapper.boardDTOToBoard(boardDTO);
+        board.setEnabled(true);
         BoardEntity savedBoard = boardRepository.save(board);
-        savedBoard.setEnabled(true);
 
         return boardMapper.boardToBoardDTO(savedBoard);
     }
@@ -72,6 +80,7 @@ public class BoardServiceImpl implements BoardService {
 
         if (board != null) {
             board.setDescription(updatedBoardDTO.getDescription());
+            board.setBoardName(updatedBoardDTO.getBoardName());
         }
 
         BoardEntity savedBoard = boardRepository.save(board);
@@ -106,5 +115,16 @@ public class BoardServiceImpl implements BoardService {
             System.out.println("It wasn't possible to find a board with the ID: " + idBoard);
             return null;
         }
+    }
+
+    @Override
+    public BoardDTO addTaskToBoard(String idBoard, String idTask) {
+        BoardEntity board = boardRepository.findById(idBoard).orElse(null);
+        TaskEntity task = taskRepository.findById(idTask).orElse(null);
+
+        board.getTasks().add(task);
+        board = boardRepository.save(board);
+
+        return boardMapper.boardToBoardDTO(board);
     }
 }
