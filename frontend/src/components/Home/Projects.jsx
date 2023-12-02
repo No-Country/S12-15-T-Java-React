@@ -3,8 +3,7 @@ import { CardProject } from './CardProject';
 
 import styleProject from '@/styles/home/projects.module.css';
 
-export const Projects = () => {
-	const image = '/images/projects.jpg';
+export const Projects = ({ dataProjects }) => {
 
 	return (
 		<ShapeProjects
@@ -12,7 +11,16 @@ export const Projects = () => {
 			styleHeader={styleProject.header}
 			name="Tus Proyectos"
 		>
-			<CardProject img={image} nameProject={'No Country-S12-15-T-Java-React'} />
+			{
+				dataProjects.map((project) => (
+				<CardProject
+					key={ project.id }  // Agrega una clave única para cada proyecto
+					img={ project.imgProject }
+					dataMembers={ project.members }
+					nameProject={ project.nameProject }
+				/>
+				))
+			}
 		</ShapeProjects>
 	);
 };

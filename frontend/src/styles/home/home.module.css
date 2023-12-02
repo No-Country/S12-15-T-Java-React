@@ -1,0 +1,19 @@
+.home {
+	background-color: var(--dark-blue);
+}
+
+.homeShape {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	/* background-color: var(--dark-blue); */
+}
+
+.homeHello {
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 700;
+	color: var(--white);
+}

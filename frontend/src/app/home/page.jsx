@@ -1,13 +1,14 @@
-import { GuestProjects } from '@/components/Home/GuestProjects';
-import { Projects } from '@/components/Home/Projects';
-import styleHome from '@/styles/home.module.css';
+import { GuestProjects } from '@/components/home/GuestProjects';
+import { Projects } from '@/components/home/Projects';
+import { projects, guests } from '@/app/api/home/route';
+import styleHome from '@/styles/home/home.module.css';
 
 const HomePage = () => {
 	return (
 		<main className={styleHome.homeShape}>
-			<spam>!Hola de nuevo!</spam>
-			<Projects />
-			<GuestProjects />
+			<spam className={styleHome.homeHello}>👋!Hola de nuevo!</spam>
+			<Projects dataProjects={projects} />
+			<GuestProjects dataGuests={guests} />
 		</main>
 	);
 };
