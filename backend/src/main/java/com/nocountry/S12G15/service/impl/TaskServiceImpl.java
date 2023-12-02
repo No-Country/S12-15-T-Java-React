@@ -25,7 +25,7 @@ import java.util.function.Function;
 public class TaskServiceImpl implements TaskService {
 
     private final TaskMapper mapper;
-    private final Utility utility;
+//    private final Utility utility;
     private final TaskRepository taskRepository;
 
     @Override

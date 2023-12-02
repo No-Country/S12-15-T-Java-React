@@ -1,7 +1,6 @@
 package com.nocountry.S12G15.dto.response;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

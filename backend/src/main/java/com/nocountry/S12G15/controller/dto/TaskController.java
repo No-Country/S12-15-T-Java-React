@@ -1,12 +1,10 @@
 package com.nocountry.S12G15.controller.dto;
 
 import com.nocountry.S12G15.domain.entity.TaskEntity;
-import com.nocountry.S12G15.dto.request.PageableDto;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

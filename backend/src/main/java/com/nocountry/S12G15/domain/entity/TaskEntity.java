@@ -20,7 +20,7 @@ public class TaskEntity {
     private TaskStatus status;
 
     public enum TaskStatus{
-        ENABLED, DISABLED;
+        ENABLED, DISABLED
     }
 
     public TaskEntity updateTask(TaskRequestDTO taskReqDTO){
