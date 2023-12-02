@@ -1,14 +1,14 @@
 package com.nocountry.S12G15.service.impl;
 
-import com.nocountry.S12G15.domain.entity.SpaceEntity;
+//import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import com.nocountry.S12G15.domain.entity.UserEntity;
 import com.nocountry.S12G15.dto.request.UserRequestDTO;
-import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
-import com.nocountry.S12G15.mapper.SpaceMapper;
+//import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
+//import com.nocountry.S12G15.mapper.SpaceMapper;
 import com.nocountry.S12G15.mapper.UserMapper;
 import com.nocountry.S12G15.persistance.repository.UserRepository;
 import com.nocountry.S12G15.dto.response.UserResponseDTO;
-import com.nocountry.S12G15.service.SpaceService;
+//import com.nocountry.S12G15.service.SpaceService;
 import com.nocountry.S12G15.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
