@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
    // public final SpaceMapper spaceMapper;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, SpaceService spaceService, SpaceMapper spaceMapper) {
+    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
      //   this.spaceService = spaceService;
