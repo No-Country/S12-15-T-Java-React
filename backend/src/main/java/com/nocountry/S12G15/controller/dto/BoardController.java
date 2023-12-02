@@ -71,8 +71,4 @@ public class BoardController {
         return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
     }
 
-
-
-
-
 }
