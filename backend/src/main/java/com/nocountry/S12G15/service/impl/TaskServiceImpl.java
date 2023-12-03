@@ -62,17 +62,14 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public TaskResponseDTO createTask(TaskRequestDTO taskReqDTO) {
 
-        TaskEntity task;
-        task =mapper.getTaskEntity(taskReqDTO);
-        task.setEnabled(true);
-        TaskEntity savedTask = taskRepository.save(task);
-        return mapper.getTaskDto(savedTask);
-//        TaskEntity taskSlave;
-//        taskSlave = Optional.of(taskReqDTO)
-//                .map(mapper::getTaskEntity)
-//                .map(taskRepository::save)
-//                .orElseThrow(()->new GenericException("Oops ocurrió un error", HttpStatus.BAD_REQUEST));
-//        return mapper.getTaskDto(taskSlave);
+//        return mapper.getTaskDto(taskRepository.save(mapper.getTaskEntity(taskReqDTO)));
+
+        TaskEntity taskSlave;
+        taskSlave = Optional.of(taskReqDTO)
+                .map(mapper::getTaskEntity)
+                .map(taskRepository::save)
+                .orElseThrow(()->new GenericException("Oops ocurrió un error", HttpStatus.BAD_REQUEST));
+        return mapper.getTaskDto(taskSlave);
 
     }
 
@@ -80,7 +77,7 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public TaskEntity disabledOneById(String idTask) {
         TaskEntity task = taskRepository.findById(idTask).orElseThrow(()-> new ObjectNotFoundException("Task Not Found"+ idTask));
-        task.setEnabled(false);
+        task.setStatus(TaskEntity.TaskStatus.DISABLED);
         return taskRepository.save(task);
     }
 

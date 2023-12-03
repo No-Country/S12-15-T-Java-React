@@ -16,7 +16,12 @@ public class TaskEntity {
 
     private String description;
 
-    private boolean enabled;
+    @Enumerated(EnumType.STRING)
+    private TaskStatus status;
+
+    public enum TaskStatus{
+        ENABLED, DISABLED
+    }
 
     public TaskEntity updateTask(TaskRequestDTO taskReqDTO){
         if(taskReqDTO.getName()!= null || !taskReqDTO.getName().isEmpty())this.setName(taskReqDTO.getName().strip());

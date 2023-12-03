@@ -20,6 +20,7 @@ target/
 *.ipr
 /*.properties
 
+/src/main/resources/*.env
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -34,5 +35,5 @@ build/
 .vscode/
 
 ### ENV File ###
-.env
+src/main/resources/.env
 
