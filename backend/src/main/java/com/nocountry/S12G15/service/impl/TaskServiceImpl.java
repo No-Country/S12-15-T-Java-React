@@ -4,14 +4,14 @@ import com.nocountry.S12G15.domain.entity.TaskEntity;
 import com.nocountry.S12G15.dto.request.PageableDto;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
-import com.nocountry.S12G15.exception.GenericException;
+//import com.nocountry.S12G15.exception.GenericException;
 import com.nocountry.S12G15.exception.ObjectNotFoundException;
 import com.nocountry.S12G15.mapper.TaskMapper;
 import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
+//import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,15 +61,16 @@ public class TaskServiceImpl implements TaskService {
     @Override
     @Transactional
     public TaskResponseDTO createTask(TaskRequestDTO taskReqDTO) {
-
-//        return mapper.getTaskDto(taskRepository.save(mapper.getTaskEntity(taskReqDTO)));
-
-        TaskEntity taskSlave;
-        taskSlave = Optional.of(taskReqDTO)
-                .map(mapper::getTaskEntity)
-                .map(taskRepository::save)
-                .orElseThrow(()->new GenericException("Oops ocurrió un error", HttpStatus.BAD_REQUEST));
-        return mapper.getTaskDto(taskSlave);
+        TaskEntity task = mapper.getTaskEntity(taskReqDTO);
+        task.setEnabled(true);
+        TaskEntity savedTask = taskRepository.save(task);
+        return mapper.getTaskDto(savedTask);
+//        TaskEntity taskSlave;
+//        taskSlave = Optional.of(taskReqDTO)
+//                .map(mapper::getTaskEntity)
+//                .map(taskRepository::save)
+//                .orElseThrow(()->new GenericException("Oops ocurrió un error", HttpStatus.BAD_REQUEST));
+//        return mapper.getTaskDto(taskSlave);
 
     }
 
@@ -77,7 +78,8 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public TaskEntity disabledOneById(String idTask) {
         TaskEntity task = taskRepository.findById(idTask).orElseThrow(()-> new ObjectNotFoundException("Task Not Found"+ idTask));
-        task.setStatus(TaskEntity.TaskStatus.DISABLED);
+        task.setEnabled(false);
+//        task.setStatus(TaskEntity.TaskStatus.DISABLED);
         return taskRepository.save(task);
     }
 

@@ -3,6 +3,7 @@ package com.nocountry.S12G15.controller.dto;
 import com.nocountry.S12G15.domain.entity.TaskEntity;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
+import com.nocountry.S12G15.service.BoardService;
 import com.nocountry.S12G15.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
+//import java.util.Map;
 import java.util.Optional;
 
 import static com.nocountry.S12G15.util.Constant.API_VERSION;
@@ -22,12 +23,16 @@ public class TaskController {
 
     @Autowired
     private TaskService taskService;
+    @Autowired
+    private BoardService boardService;
 
-    @PostMapping("/new")
-    public ResponseEntity<?> createTask(@RequestBody TaskRequestDTO taskRequestDTO){
+    @PostMapping("/new/{idBoard}")
+    public ResponseEntity<?> createTask(@RequestBody TaskRequestDTO taskRequestDTO, @PathVariable String idBoard){
 
         try{
             TaskResponseDTO taskResponseDTO = taskService.createTask(taskRequestDTO);
+            String idTask = taskResponseDTO.getIdTask();
+            boardService.addTaskToBoard(idBoard,idTask);
             return ResponseEntity.status(HttpStatus.OK).body(taskResponseDTO);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\""+e.getMessage()+"}"));
