@@ -5,7 +5,7 @@ import styleProject from '@/styles/home/projects.module.css';
 
 export const GuestProjects = () => {
 	const image = '/images/projects.jpg';
-	const imgMember ='/images/user.png';
+	const imgMember = '/images/user.png';
 
 	return (
 		<ShapeProjects
@@ -13,7 +13,11 @@ export const GuestProjects = () => {
 			styleHeader={styleProject.headerGuest}
 			name="Proyectos a los que fuiste invitado"
 		>
-			<CardProject img={image} imgMember={ imgMember } nameProject={'No Country-S12-15-T-Java-React'} />
+			<CardProject
+				img={image}
+				imgMember={imgMember}
+				nameProject={'No Country-S12-15-T-Java-React'}
+			/>
 		</ShapeProjects>
 	);
 };

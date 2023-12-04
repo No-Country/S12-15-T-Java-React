@@ -2,7 +2,7 @@ import styleCard from '@/styles/home/projects.module.css';
 import Image from 'next/image';
 import { MemberProject } from './MemberProject';
 
-export const CardProject = ({ img, nameProject = 'algo', dataMembers}) => {
+export const CardProject = ({ img, nameProject = 'algo', dataMembers }) => {
 	const numberMember = dataMembers ? dataMembers.length : 1;
 	const dataMember = dataMembers ? dataMembers.slice(0, 5) : [];
 
@@ -17,16 +17,17 @@ export const CardProject = ({ img, nameProject = 'algo', dataMembers}) => {
 			/>
 			<div className={styleCard.cardContent}>
 				<main className={styleCard.memberContent}>
-					<span className={ styleCard.cardName }> {nameProject} </span>
+					<span className={styleCard.cardName}> {nameProject} </span>
 					<div className={styleCard.members}>
-						<div className={ styleCard.memberMap }>
-							{
-								dataMember.map((member) =>(
-									<MemberProject key={ member.id } img={ member.imgProject } /> 
-								))
-							}
+						<div className={styleCard.memberMap}>
+							{dataMember.map((member) => (
+								<MemberProject key={member.id} img={member.imgProject} />
+							))}
 						</div>
-						<span className={ styleCard.numberMember }> { numberMember } miembros </span>
+						<span className={styleCard.numberMember}>
+							{' '}
+							{numberMember} miembros{' '}
+						</span>
 					</div>
 				</main>
 
