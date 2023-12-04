@@ -32,17 +32,10 @@ export const Projects = ({ dataProjects }) => {
 			styles={styleProject.project}
 			styleHeader={styleProject.header}
 			name="Tus Proyectos"
+			lengthData={lengthData}
 			btnCreate={true}
 		>
 			{data}
-			{/* {dataProjects.map((project) => (
-				<CardProject
-					key={project.id} // Agrega una clave única para cada proyecto
-					img={project.imgProject}
-					dataMembers={project.members}
-					nameProject={project.nameProject}
-				/>
-			))} */}
 		</ShapeProjects>
 	);
 };

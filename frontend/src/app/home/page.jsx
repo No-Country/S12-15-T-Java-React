@@ -9,7 +9,7 @@ const HomePage = () => {
 			<main className={styleHome.homeShape}>
 				<spam className={styleHome.homeHello}>👋!Hola de nuevo!</spam>
 				<Projects dataProjects={projects} btnCreate={true} />
-				<GuestProjects dataGuests={guests} />
+				<GuestProjects dataGuests={guests} btnCreate={false} />
 			</main>
 		</div>
 	);
