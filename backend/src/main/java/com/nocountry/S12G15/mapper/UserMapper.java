@@ -8,12 +8,12 @@ import org.mapstruct.MappingConstants;
 
 import java.util.List;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        uses= {UserEntity.class, UserResponseDTO.class})
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING
+       )
 public interface UserMapper {
 
     UserResponseDTO toUserResponseDto(UserEntity userEntity);
 
     UserEntity toUserEntity (UserRequestDTO userRequestDTO);
-    List<UserResponseDTO> toTransactionRequestDtoList(List<UserEntity> transactionEntityList);
+    List<UserResponseDTO> toUserResponseDTOList(List<UserEntity> transactionEntityList);
 }

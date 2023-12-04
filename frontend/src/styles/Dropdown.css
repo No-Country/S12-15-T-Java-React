@@ -1,0 +1,57 @@
+.menu {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+.submenu {
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	display: flex;
+	gap: 20px;
+	flex-direction: column;
+	margin-top: 20px;
+	text-decoration: none;
+	list-style: none;
+	width: auto;
+	height: auto;
+}
+.menu:hover .submenu {
+	top: 100%;
+	opacity: 1;
+	pointer-events: all;
+	transition: all 1.5s;
+}
+.option {
+	width: 80px;
+	height: auto;
+}
+.flecha {
+	width: 20px;
+	height: 20px;
+	background: #fafbfc;
+	margin-left: 10px;
+	border-radius: 50%;
+	border: none;
+}
+.link {
+	text-decoration: none;
+	list-style: none;
+	color: #fafbfc;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	gap: 2px;
+	width: 130px;
+	height: 40px;
+}
+.link:hover {
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
+	color: #fafbfc;
+	border-bottom: 1px solid #fafbfc;
+}
