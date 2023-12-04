@@ -23,6 +23,4 @@ public interface ChannelMapper {
     List<ChannelRequestDTO> toChannelRequestDtoList(List<ChannelEntity> channelEntityList);
 
     List<ChannelEntity> toChannelEntityList(List<ChannelRequestDTO> channelRequestDTOList);
-
-    //culiado hace las cosas,ya las hice Culiauuuu , jajjajja, alta documentacion, jjajjaja
 }

@@ -13,12 +13,11 @@ public class BoardEntity {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
     private String idBoard;
+    private String boardName;
     private String description;
 
-    /*
     @OneToMany
     private List<TaskEntity> tasks;
-    */
 
     private boolean enabled = true;
 }
