@@ -8,7 +8,7 @@ function Navbar() {
 		<div className="nav-gral">
 			<nav className="nav-container">
 				<div className="track">
-					<img src="/images/Logo.png" alt="Logo" />
+					<img src="/images/logo-logo.png" alt="Logo" />
 					<h1 className="title">Track</h1>
 				</div>
 				<div className="dropdowns">
