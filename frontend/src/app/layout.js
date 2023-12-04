@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import '@/styles/navbar.css';
 
 export const metadata = {
 	title: 'Next',
