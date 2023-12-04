@@ -1,5 +1,6 @@
-import Navbar from '@/components/Navbar';
 import '@/styles/navbar.css';
+import '@/styles/Dropdown.css';
+import Navbar from '@/components/Navbar';
 
 export const Home = () => {
 	return (
