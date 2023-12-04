@@ -5,11 +5,13 @@ import styleHome from '@/styles/home/home.module.css';
 
 const HomePage = () => {
 	return (
-		<main className={styleHome.homeShape}>
-			<spam className={styleHome.homeHello}>👋!Hola de nuevo!</spam>
-			<Projects dataProjects={projects} />
-			<GuestProjects dataGuests={guests} />
-		</main>
+		<div className="container">
+			<main className={styleHome.homeShape}>
+				<spam className={styleHome.homeHello}>👋!Hola de nuevo!</spam>
+				<Projects dataProjects={projects} btnCreate={true} />
+				<GuestProjects dataGuests={guests} />
+			</main>
+		</div>
 	);
 };
 

@@ -67,6 +67,22 @@ export const projects = [
 			},
 		],
 	},
+	{
+		id: 4,
+		nameProject: 'Cohorte',
+		nameUser: 'Diego',
+		imgProject: '/images/projects.jpg',
+		members: [
+			{
+				id: 1,
+				imgProject: '/images/user.png',
+			},
+			{
+				id: 2,
+				imgProject: '/images/user.png',
+			},
+		],
+	},
 ];
 
 export const guests = [
