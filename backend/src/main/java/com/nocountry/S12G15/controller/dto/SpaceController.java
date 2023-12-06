@@ -33,7 +33,7 @@ public class SpaceController {
     public ResponseEntity<List<SpaceDto>> getAllSpace() {
         return new ResponseEntity(spaceService.allspace(),HttpStatus.OK) ;
     }
-
+//probando
     // Actualizando por ID
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateSpace(@PathVariable Long id, @RequestBody SpaceDto updatedSpace) {
