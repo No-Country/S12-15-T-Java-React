@@ -1,4 +1,4 @@
-package com.nocountry.S12G15.controller.dto.request;
+package com.nocountry.S12G15.dto.request;
 
 import lombok.Builder;
 import lombok.Data;
