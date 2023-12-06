@@ -1,5 +1,6 @@
 package com.nocountry.S12G15.service.impl;
 
+import com.nocountry.S12G15.domain.entity.UserEntity;
 import com.nocountry.S12G15.service.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -23,15 +24,15 @@ public class JwtServiceImpl implements JwtService {
     private String secretKey;
 
     @Override
-    public String generateToken(UserDetails userDetails) {
-        return generateToken(new HashMap<>(), userDetails);
+    public String generateToken(UserEntity userEntity) {
+        return generateToken(new HashMap<>(), userEntity);
     }
 
     @Override
-    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+    public String generateToken(Map<String, Object> extraClaims, UserEntity userEntity) {
         return Jwts.builder()
                 .setClaims(extraClaims)
-                .setSubject(userDetails.getUsername())
+                .setSubject(userEntity.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis()+1000*60*60*24*10))
                 .signWith(getSingInKey(), SignatureAlgorithm.HS256)
@@ -52,10 +53,10 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public boolean validateToken(String token, UserDetails userDetails) {
         final String userName = getUserName(token);
-        return userName.equals(userDetails.getUsername()) && !isTokenExpried(token);
+        return userName.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
 
-    private boolean isTokenExpried(String token) {
+    private boolean isTokenExpired(String token) {
         return getExpiration(token).before(new Date());
     }
 

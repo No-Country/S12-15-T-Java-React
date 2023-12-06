@@ -1,5 +1,6 @@
 package com.nocountry.S12G15.service;
 
+import com.nocountry.S12G15.domain.entity.UserEntity;
 import io.jsonwebtoken.Claims;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,9 +9,9 @@ import java.util.function.Function;
 
 public interface JwtService {
 
-    String generateToken(UserDetails userDetails);
+    String generateToken(UserEntity userEntity);
 
-    String generateToken(Map<String, Object> extraClaims, UserDetails userDetails);
+    String generateToken(Map<String, Object> extraClaims, UserEntity userEntity);
 
     String getUserName(String token);
 

@@ -5,10 +5,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class AuthenticationRequest {
-
+public class AuthLoginRequestDTO {
     private String email;
 
     private String password;
-
 }

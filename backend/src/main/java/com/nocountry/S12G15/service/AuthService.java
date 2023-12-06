@@ -1,12 +1,13 @@
 package com.nocountry.S12G15.service;
 
-import com.nocountry.S12G15.dto.request.AuthenticationRequest;
-import com.nocountry.S12G15.dto.response.AuthResponse;
+import com.nocountry.S12G15.dto.request.AuthLoginRequestDTO;
+import com.nocountry.S12G15.dto.request.AuthRegisterRequestDTO;
+import com.nocountry.S12G15.dto.response.AuthResponseDTO;
 
 public interface AuthService {
 
-    AuthResponse register(AuthenticationRequest request);
+    AuthResponseDTO register(AuthRegisterRequestDTO request);
 
-    AuthResponse login(AuthenticationRequest request);
+    AuthResponseDTO login(AuthLoginRequestDTO request);
 
 }
