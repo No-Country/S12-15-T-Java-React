@@ -7,15 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
+//import org.springframework.data.annotation.Id;
 import jakarta.persistence.*;
 import lombok.Data;
 //import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Data
-@NoArgsConstructor
-@Getter
-@Setter
+//@NoArgsConstructor
+//@Getter
+//@Setter
 //@Document(collection= "space")
 public class SpaceEntity {
     @Id
@@ -32,10 +32,12 @@ public class SpaceEntity {
     @CreatedDate
     private Date createdAt;
 
-    @OneToMany(mappedBy = "BoardEntity")
+    @OneToMany
+    //(mappedBy = "BoardEntity")
     private List<BoardEntity> boardEntityList;
 
-    @OneToMany(mappedBy = "ChannelEntity")
+    @OneToMany
+            //(mappedBy = "ChannelEntity")
     private List<ChannelEntity> ChannelEntityList;
 
 
