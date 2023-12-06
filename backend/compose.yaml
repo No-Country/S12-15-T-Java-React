@@ -8,11 +8,11 @@ services:
     restart: unless-stopped
     ports:
       - "3310:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+#      MYSQL_DATABASE: ${DB_NAME}
+#      MYSQL_USER: ${DB_USER}
+#      MYSQL_PASSWORD: ${DB_PASSWORD}
 
   api:
     build:
@@ -24,6 +24,12 @@ services:
     #   - external_network
     depends_on:
       - db
+#    environment:
+#      DB_PASSWORD: ${DB_PASSWORD}
+#      DB_USER: ${DB_USER}
+#      DB_NAME: ${DB_NAME}
+#      DB_HOST: ${DB_HOST}
+#      DB_PORT: ${DB_PORT}
     restart: unless-stopped
 ## Comments are provided throughout this file to help you get started.
 ## If you need more help, visit the Docker compose reference guide at
