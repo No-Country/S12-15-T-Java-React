@@ -14,5 +14,6 @@ public interface SpaceMapper {
     SpaceResponseDTO toSpaceResponseDto(UserEntity userEntity);
 
     SpaceEntity toSpaceEntity (UserRequestDTO userRequestDTO);
-    List<SpaceResponseDTO> toTransactionRequestDtoList(List<SpaceEntity> transactionEntityList);
+    //esto se comento para usar despues
+    //List<SpaceResponseDTO> toTransactionRequestDtoList(List<SpaceEntity> transactionEntityList);
 }
