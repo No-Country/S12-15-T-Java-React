@@ -1,37 +1,76 @@
 package com.nocountry.S12G15.domain.entity;
 
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import com.nocountry.S12G15.enums.RolUser;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
 @Table(name="user")
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
-public class UserEntity {
+@AllArgsConstructor
+@Builder
+public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-    @Column(name = "name", nullable = false, length = 85)
+    private boolean disabled=true;
+
+    @Column(name = "name", length = 85)
     private String name;
 
-    @Column(name = "last_name", nullable = false, length = 95)
+    @Column(name = "last_name", length = 95)
     private String lastName;
 
-    @Column(name = "email", nullable = false, unique = true, length = 110) //nullabe
+    @Column(name = "email", unique = true, length = 110) //nullabe
     private String email;
 
-    @Column(name="rol",nullable = false,unique = true)
+    @Column(name = "username", nullable = false)
+    private String username;
+
+    @Column(name="rol")
+    @Enumerated(EnumType.STRING)
     private RolUser rolUser;
 
-    @OneToMany(mappedBy = "userEntity")
-    private List<BoardEntity> boardEntityList;
+    @Column(name="password", nullable = false)
+    private String password;
+/*
+    @OneToMany
+    private List<SpaceEntity> spaceEntityList;
+*/
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(rolUser.name()));
+    }
+    @Override
+    public String getUsername() {
+        return email;
+    }
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
