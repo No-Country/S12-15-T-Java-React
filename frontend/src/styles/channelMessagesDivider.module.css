@@ -1,0 +1,20 @@
+.divider {
+	display: flex;
+	align-items: center;
+}
+
+.divider hr {
+	flex: 1;
+	border: none;
+	height: 1px;
+	background-color: var(--grey);
+}
+
+.divider span {
+	color: var(--light-blue);
+	border: 1px solid var(--grey);
+	border-radius: 0.75rem;
+	padding: 0.5rem 0.75rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+}
