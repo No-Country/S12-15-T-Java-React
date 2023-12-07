@@ -43,8 +43,7 @@ export const ShapeProjects = ({
 					transition: 'max-height 0.5s ease-out',
 				}}
 			>
-				{' '}
-				{children}{' '}
+				{children}
 			</div>
 			{buttonSeemore && (
 				<button className={styleProject.footer} onClick={handleSeeMore}>

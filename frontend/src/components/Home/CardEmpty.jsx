@@ -1,4 +1,4 @@
-import styleCard from '@/styles/home/projects.module.css';
+import styleCard from '@/styles/home/cardProjects.module.css';
 
 export const CardEmpty = ({ notice }) => {
 	return <main className={styleCard.cardEmpty}>{notice}</main>;

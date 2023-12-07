@@ -57,119 +57,7 @@
 	background-color: var(--white);
 }
 
-.projectOwner {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-}
-
-.nameProjectOwner {
-	font-size: 1rem;
-	font-style: normal;
-	font-weight: 300;
-	color: var(--black);
-}
-
-/* Card */
-.cardEmpty {
-	height: 10rem;
-	display: flex;
-	align-items: center;
-	padding: 2rem 2rem;
-	justify-content: center;
-	text-align: center;
-	font-size: 1.75rem;
-	font-style: normal;
-	font-weight: 400;
-	color: var(--black);
-	background-color: var(--white);
-}
-
-.card {
-	display: flex;
-	padding: 1rem 1.5rem;
-	gap: 0.75rem;
-	color: var(--black);
-	background-color: var(--white);
-	border-bottom: 4px solid #d9d9d9;
-}
-
-.cardImage {
-	border-radius: 0.5rem;
-	border-bottom: 4px solid var(--light-blue);
-	object-fit: cover;
-}
-
-.cardContent {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.cardName {
-	display: flex;
-	flex-wrap: wrap;
-	font-size: 1.25rem;
-	font-style: normal;
-	font-weight: 700;
-}
-
-/*Members*/
-.memberContent {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-.members {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 3rem;
-}
-
-.memberMap {
-	width: 12rem;
-	display: flex;
-	gap: 0.5rem;
-}
-
-.memberCirculeImage {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-.memberImage {
-	border-radius: 50%;
-	box-shadow: inset;
-}
-
-.numberMember {
-	display: flex;
-	align-items: center;
-	font-size: 1rem;
-	font-style: normal;
-	font-weight: 500;
-	color: var(--dark-blue);
-}
-
-/*Buttons*/
-.buttonGetInto {
-	display: flex;
-	align-items: center;
-	padding: 0.75rem 1.25rem;
-	cursor: pointer;
-	border: none;
-	border-radius: 0.25rem;
-	font-size: 1rem;
-	font-weight: 700;
-	font-style: normal;
-	background-color: var(--blue);
-	color: var(--white);
-}
-
+/*Button*/
 .buttonCreate {
 	display: flex;
 	align-items: center;
@@ -189,6 +77,25 @@
 	color: var(--blue);
 }
 
-.iconUser {
-	color: var(--black);
+@media screen and (max-width: 640px) {
+	.header {
+		font-size: 1rem;
+	}
+
+	.headerGuest {
+		font-size: 1rem;
+	}
+
+	.buttonCreate{
+		padding: 0.75rem 1.25rem;
+		font-size: 0.75rem;
+	}
+
+	.footer{
+		font-size: 1rem;
+	}
+
+	.iconArrow{
+		width: 0.75rem;
+	}
 }
