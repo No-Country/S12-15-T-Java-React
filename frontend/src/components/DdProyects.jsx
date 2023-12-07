@@ -7,27 +7,24 @@ function DdProyects() {
 				<li>
 					<h2 className="dd-title">
 						Proyects
-						<img src="\images\flecha3.png" className="flecha" alt="" />
+						<img src="\images\flecha.png" className="flecha" alt="" />
 					</h2>
 
 					<ul className="submenu">
 						<li className="option">
 							<Link className="link" href="#">
-								<img src="/images/recent.png" className="flecha" alt="" />
 								Proyect 1
 							</Link>
 						</li>
 						<li className="option">
 							<Link className="link" href="#">
-								<img src="/images/recent.png" className="flecha" alt="" />
 								Proyect 2
 							</Link>
 						</li>
 						<li className="option">
 							<Link className="link" href="#">
-								<img src="/images/recent.png" className="flecha" alt="" />
 								Proyect 3
-							</Link>{' '}
+							</Link>
 						</li>
 					</ul>
 				</li>
