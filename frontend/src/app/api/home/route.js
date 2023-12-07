@@ -70,21 +70,21 @@ export const projects = [
 ];
 
 export const guests = [
-	{
-		id: 3,
-		nameProject: 'Cohorte 23',
-		nameUser: 'Diego',
-		imgProject: '/images/projects.jpg',
-		nameProjectOwner: 'Sol Díaz',
-		members: [
-			{
-				id: 1,
-				imgProject: '/images/user.png',
-			},
-			{
-				id: 2,
-				imgProject: '/images/user.png',
-			},
-		],
-	},
+	// {
+	// 	id: 3,
+	// 	nameProject: 'Cohorte 23',
+	// 	nameUser: 'Diego',
+	// 	imgProject: '/images/projects.jpg',
+	// 	nameProjectOwner: 'Sol Díaz',
+	// 	members: [
+	// 		{
+	// 			id: 1,
+	// 			imgProject: '/images/user.png',
+	// 		},
+	// 		{
+	// 			id: 2,
+	// 			imgProject: '/images/user.png',
+	// 		},
+	// 	],
+	// },
 ];
