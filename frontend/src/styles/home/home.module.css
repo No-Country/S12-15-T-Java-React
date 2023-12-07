@@ -18,7 +18,7 @@
 }
 
 /*Media Querys*/
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 730px) {
 	.homeShape {
 		padding-top: 1.25rem;
 		padding-bottom: 1.25rem;
@@ -29,5 +29,6 @@
 		line-height: normal;
 		font-size: 1.25rem;
 		color: var(--white);
+		/* color: blueviolet; */
 	}
 }
