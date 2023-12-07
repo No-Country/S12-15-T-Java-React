@@ -77,7 +77,7 @@
 	color: var(--blue);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 730px) {
 	.header {
 		font-size: 1rem;
 	}
@@ -86,16 +86,16 @@
 		font-size: 1rem;
 	}
 
-	.buttonCreate{
+	.buttonCreate {
 		padding: 0.75rem 1.25rem;
 		font-size: 0.75rem;
 	}
 
-	.footer{
+	.footer {
 		font-size: 1rem;
 	}
 
-	.iconArrow{
+	.iconArrow {
 		width: 0.75rem;
 	}
 }
