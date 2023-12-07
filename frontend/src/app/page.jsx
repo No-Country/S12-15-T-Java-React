@@ -1,13 +1,9 @@
 import '@/styles/navbar.css';
 import '@/styles/Dropdown.css';
-import Navbar from '@/components/Navbar';
+// import Navbar from '@/components/Navbar';
 
 export const Home = () => {
-	return (
-		<div>
-			<Navbar />
-		</div>
-	);
+	return <div>{/* <Navbar /> */}</div>;
 };
 
 export default Home;
