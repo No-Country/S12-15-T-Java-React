@@ -8,12 +8,12 @@ import java.util.Optional;
 
 public interface ActivityService {
 
-    ActivityDTO createActivity(ActivityDTO activityDTO, String idTask) throws MyException;
+    ActivityDTO createActivity(ActivityDTO activityDTO) throws MyException;
     Optional<List<ActivityDTO>> getAllActivities();
     List<ActivityDTO> getEnabledActivities();
     ActivityDTO findActivityById(String idActivity);
     ActivityDTO  updateActivity(String idActivity, ActivityDTO updatedActivityDTO) throws MyException;
     ActivityDTO disableActivity(String idActivity);
     ActivityDTO enableActivity(String idActivity);
-    ActivityDTO addActivityToTask(String idActivity, String idTask) throws MyException;
+
 }

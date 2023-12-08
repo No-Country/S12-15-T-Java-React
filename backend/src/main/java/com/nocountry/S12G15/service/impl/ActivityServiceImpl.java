@@ -31,8 +31,10 @@ public class ActivityServiceImpl implements ActivityService {
     private TaskMapper taskMapper;
 
     @Override
-    public ActivityDTO createActivity(ActivityDTO activityDTO, String idTask) throws MyException {
+    public ActivityDTO createActivity(ActivityDTO activityDTO) throws MyException {
         validate(activityDTO);
+
+        //TODO: agregar en TASK la creacion de activity en una task especifica
 
         ActivityEntity activity = activityMapper.activityDTOToActivity(activityDTO);
         activity.setEnabled(true);
@@ -101,17 +103,6 @@ public class ActivityServiceImpl implements ActivityService {
 
         return activityMapper.activityToActivityDTO(savedActivity);
 
-    }
-
-    @Override
-    public ActivityDTO addActivityToTask(String idActivity, String idTask) throws MyException {
-
-        TaskEntity task = taskRepository.findById(idTask).orElseThrow();
-
-        ActivityEntity activity = activityRepository.findById(idActivity).orElseThrow();
-
-
-        return null;
     }
 
     private void validate(ActivityDTO activityDTO) throws MyException {

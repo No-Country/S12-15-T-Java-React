@@ -2,7 +2,7 @@ package com.nocountry.S12G15.controller.dto;
 
 import com.nocountry.S12G15.dto.BoardDTO;
 import com.nocountry.S12G15.exception.MyException;
-import com.nocountry.S12G15.service.impl.BoardServiceImpl;
+import com.nocountry.S12G15.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import static com.nocountry.S12G15.util.Constant.*;
 public class BoardController {
 
     @Autowired
-    private BoardServiceImpl boardService;
+    private BoardService boardService;
 
     @PostMapping("/register")
     public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO) throws MyException {
