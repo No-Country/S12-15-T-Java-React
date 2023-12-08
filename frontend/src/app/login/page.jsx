@@ -1,6 +1,6 @@
 import styles from '@/styles/login.module.css';
 import Link from 'next/link';
-import PasswordInput from '../../../components/PasswordInput';
+import PasswordInput from '../../components/PasswordInput';
 const LoginPage = () => {
 	return (
 		<div className={styles.container_login}>

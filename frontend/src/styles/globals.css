@@ -32,10 +32,12 @@ html {
 body {
 	background-color: var(--dark-blue);
 }
+
 a {
 	text-decoration: none;
 	color: var(--blue);
 }
+
 a:hover {
 	color: var(--mazarine-blue);
 }
