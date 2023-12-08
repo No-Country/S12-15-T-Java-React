@@ -1,0 +1,21 @@
+.delete {
+	display: flex;
+	align-items: flex-end;
+}
+
+.btn_delete {
+	width: 3.25rem;
+	height: 3.25rem;
+	background-color: var(--red);
+	border: 2px solid var(--white);
+	border-radius: 4px;
+}
+
+.btn_delete:hover {
+	background-color: var(--red-hover);
+}
+
+.btn_delete:hover {
+	background-color: var(--pink);
+	cursor: pointer;
+}
