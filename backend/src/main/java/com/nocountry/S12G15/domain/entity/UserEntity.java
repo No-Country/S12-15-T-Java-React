@@ -44,6 +44,10 @@ public class UserEntity implements UserDetails {
 
     @Column(name="password", nullable = false)
     private String password;
+
+
+
+
 /*
     @OneToMany
     private List<SpaceEntity> spaceEntityList;

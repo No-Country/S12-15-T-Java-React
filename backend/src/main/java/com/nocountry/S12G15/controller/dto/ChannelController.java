@@ -1,18 +1,25 @@
 package com.nocountry.S12G15.controller.dto;
 
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
+import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.dto.request.ChannelRequestDTO;
 import com.nocountry.S12G15.dto.request.PageableDto;
 import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
 import com.nocountry.S12G15.service.ChannelService;
+import com.nocountry.S12G15.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.nio.channels.Channel;
 import java.util.Map;
 import java.util.Optional;
@@ -25,6 +32,9 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 @RequestMapping(value = API_VERSION + RESOURCE_CHANNEL)
 public class ChannelController {
+
+    @Autowired
+    private ImageService imageService;
 
     @Autowired
     private ChannelService channelService;
@@ -52,10 +62,10 @@ public class ChannelController {
     http://localhost:8080/v1/api/channel/all?page=0&size=4&order=1&field=idChannel
     * */
     @GetMapping("/all")
-    public ResponseEntity<?> getAllChannels(PageableDto pageableDto){
+    public ResponseEntity<?> getAllChannels(Pageable pageable){
 
         try{
-            Page<ChannelResponseDTO> content = channelService.findAll(pageableDto);
+            Page<ChannelResponseDTO> content = channelService.findAll(pageable);
             Map<String,Object> response = Map.of("message","Listado de Canales","data",content.get());
             return new ResponseEntity<>(response, OK);
         }catch (Exception e){
@@ -85,5 +95,33 @@ public class ChannelController {
         ChannelEntity channel = channelService.disabledOneById(idChannel);
 
         return ResponseEntity.ok(channel);
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity<?> upLoadPhoto (@RequestParam MultipartFile file, @RequestParam String idChannel){
+
+        ImageEntity imageEntity = imageService.saveImage(file, idChannel);
+
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentContextPath()
+                .path("/v1/api/channel/getPhoto")
+                .queryParam("idChannel", idChannel)
+                .build()
+                .toUri();
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(uri);
+
+    }
+
+    @GetMapping("/getPhoto")
+    public ResponseEntity<byte[]> getPhoto(@RequestParam String idChannel){
+
+        byte[] image = imageService.getPhoto(idChannel);
+
+        HttpHeaders headers = new HttpHeaders();
+
+        headers.setContentType(MediaType.IMAGE_JPEG);
+
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(image);
     }
 }

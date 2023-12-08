@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface ChannelService {
 
     ChannelResponseDTO createChannel(ChannelRequestDTO data);//debe recibir un channeldto
-    Page<ChannelResponseDTO> findAll(PageableDto pageabledto);
+    Page<ChannelResponseDTO> findAll(Pageable pageable);
     Optional<ChannelResponseDTO> findChannelById(String idChannel);//debe devolver un channel dto
 
     ChannelResponseDTO updateChannel(ChannelRequestDTO data,String idChannel);
