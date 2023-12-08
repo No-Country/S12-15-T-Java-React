@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 public class ActivityServiceImpl implements ActivityService {
 
     @Autowired
@@ -33,8 +34,6 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public ActivityDTO createActivity(ActivityDTO activityDTO) throws MyException {
         validate(activityDTO);
-
-        //TODO: agregar en TASK la creacion de activity en una task especifica
 
         ActivityEntity activity = activityMapper.activityDTOToActivity(activityDTO);
         activity.setEnabled(true);

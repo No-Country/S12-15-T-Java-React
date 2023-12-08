@@ -1,17 +1,21 @@
 package com.nocountry.S12G15.service.impl;
 
+import com.nocountry.S12G15.domain.entity.ActivityEntity;
 import com.nocountry.S12G15.domain.entity.TaskEntity;
-import com.nocountry.S12G15.dto.request.PageableDto;
+//import com.nocountry.S12G15.dto.request.PageableDto;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
-//import com.nocountry.S12G15.exception.GenericException;
+import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.exception.ObjectNotFoundException;
 import com.nocountry.S12G15.mapper.TaskMapper;
+import com.nocountry.S12G15.persistance.repository.ActivityRepository;
 import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.service.TaskService;
+//import com.nocountry.S12G15.util.Utility;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-//import org.springframework.http.HttpStatus;
+//import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,11 +30,12 @@ public class TaskServiceImpl implements TaskService {
     private final TaskMapper mapper;
 //    private final Utility utility;
     private final TaskRepository taskRepository;
+    private final ActivityRepository activityRepository;
 
     @Override
     @Transactional(readOnly = true)
-    public Page<TaskResponseDTO> findAll(PageableDto pageableDto){
-        //        Pageable pageable = utility.setPageable(pageableDto);
+    public Page<TaskResponseDTO> findAll(Pageable pageable){
+//                Pageable pageable2 = utility.setPageable(pageable);
 //        Page<TaskEntity> tasks = taskRepository.findAll(pageable);
 //
 //        List<TaskResponseDTO> taskDTOList = tasks.getContent()
@@ -39,7 +44,7 @@ public class TaskServiceImpl implements TaskService {
 //                .toList();
 //
 //        return new PageImpl<>(taskDTOList);
-        return  null;
+        return null;
     }
 
     @Override
@@ -95,6 +100,24 @@ public class TaskServiceImpl implements TaskService {
         TaskEntity saveTask = taskRepository.save(updateTask);
         return mapper.getTaskDto(saveTask);
     }
+
+    @Override
+    public TaskResponseDTO addActivityToTask(String idTask, String idActivity) throws MyException {
+        TaskEntity task = taskRepository.findById(idTask).orElseThrow();
+        ActivityEntity activity = activityRepository.findById(idActivity).orElseThrow();
+
+        task.getActivities().add(activity);
+        task = taskRepository.save(task);
+
+        return mapper.getTaskDto(task);
+    }
+
+    //TODO: Add validate
+    // private void validate(ActivityDTO activityDTO) throws MyException {
+//        if (activityDTO.getDescription()== null || ExceptionMethods.onlySpaces(activityDTO.getDescription())) {
+//            throw new MyException("Activity's name can't be null or empty.");
+//        }
+//      }
 
 
 }

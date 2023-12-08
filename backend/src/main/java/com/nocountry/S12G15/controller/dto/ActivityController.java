@@ -4,6 +4,7 @@ import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.service.ActivityService;
+import com.nocountry.S12G15.service.TaskService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,15 +21,20 @@ public class ActivityController {
     @Autowired
     private ActivityService activityService;
 
+    @Autowired
+    private TaskService taskService;
+
     @PostMapping("/new/{idActivity}")
-    public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityDTO activityDTO, String idActivity) throws MyException {
+    public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityDTO activityDTO, String idTask) throws MyException {
 
-        ActivityDTO savedActivityDTO = activityService.createActivity(activityDTO);
-
-        //TODO: Agregar la activity a la task
-        if(activityDTO.getDescription()== null){
+        if (activityDTO.getDescription() == null ) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
         }
+
+        ActivityDTO savedActivityDTO = activityService.createActivity(activityDTO);
+        String idActivity = activityDTO.getIdActivity();
+
+        taskService.addActivityToTask(idTask,idActivity);
 
         return ResponseEntity.status(HttpStatus.OK).body(activityDTO);
     }
