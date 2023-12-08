@@ -167,11 +167,11 @@
 /* Tablet */
 
 @media screen and (width <= 768px) {
-	.container {
+	.container_register {
 		padding: 1.875rem 0;
 	}
 
-	.card {
+	.card_register {
 		padding: 1.875rem 3.438rem;
 	}
 }
@@ -179,11 +179,11 @@
 /* Mobile */
 
 @media screen and (width <= 480px) {
-	.container {
+	.container_register {
 		padding: 4.063rem 1rem;
 	}
 
-	.card {
+	.card_register {
 		padding: 1.25rem 1.438rem;
 	}
 }
