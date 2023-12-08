@@ -4,7 +4,7 @@ import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.service.ImageService;
-import com.nocountry.S12G15.service.impl.BoardServiceImpl;
+import com.nocountry.S12G15.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ import static com.nocountry.S12G15.util.Constant.*;
 public class BoardController {
 
     @Autowired
-    private BoardServiceImpl boardService;
+    private BoardService boardService;
 
     @Autowired
     private ImageService imageService;

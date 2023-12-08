@@ -9,4 +9,5 @@ public final class Constant {
     public static final String RESOURCE_CHANNEL= "/channel";
     public static final String RESOURCE_TASK="/task";
     public static final String RESOURCE_BOARD= "/board";
+    public static final String RESOURCE_ACTIVITY= "/activity";
 }
