@@ -44,8 +44,8 @@ public class ChannelServiceImpl implements ChannelService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<ChannelResponseDTO> findAll(PageableDto pageableDto) {
-        Pageable pageable = utility.setPageable(pageableDto);
+    public Page<ChannelResponseDTO> findAll(Pageable pageable) {
+        //Pageable pageable = utility.setPageable(pageableDto);
         Page<ChannelEntity> channels = channelRepository.findAll(pageable);
 
         List<ChannelResponseDTO> responseDTOList = channels.getContent()

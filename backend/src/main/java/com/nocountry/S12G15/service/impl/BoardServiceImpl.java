@@ -3,7 +3,7 @@ package com.nocountry.S12G15.service.impl;
 import com.nocountry.S12G15.domain.entity.BoardEntity;
 import com.nocountry.S12G15.domain.entity.TaskEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
-import com.nocountry.S12G15.dto.response.TaskResponseDTO;
+import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.mapper.BoardMapper;
 import com.nocountry.S12G15.mapper.TaskMapper;
 import com.nocountry.S12G15.persistance.repository.BoardRepository;
@@ -30,8 +30,9 @@ public class BoardServiceImpl implements BoardService {
 
 
     @Override
-    public BoardDTO createBoard(BoardDTO boardDTO) {
+    public BoardDTO createBoard(BoardDTO boardDTO) throws MyException{
 
+        validate(boardDTO);
 
         BoardEntity board = boardMapper.boardDTOToBoard(boardDTO);
         board.setEnabled(true);
@@ -75,7 +76,10 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public BoardDTO updateBoard(String idBoard, BoardDTO updatedBoardDTO) {
+    public BoardDTO updateBoard(String idBoard, BoardDTO updatedBoardDTO) throws MyException{
+
+        validate(updatedBoardDTO);
+
         BoardEntity board = boardRepository.findById(idBoard).orElse(null);
 
         if (board != null) {
@@ -118,13 +122,29 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public BoardDTO addTaskToBoard(String idBoard, String idTask) {
+    public BoardDTO addTaskToBoard(String idBoard, String idTask) throws MyException{
         BoardEntity board = boardRepository.findById(idBoard).orElse(null);
         TaskEntity task = taskRepository.findById(idTask).orElse(null);
+
+        if (board == null || task == null) {
+            throw new MyException("Board or task can't be null or empty");
+        }
 
         board.getTasks().add(task);
         board = boardRepository.save(board);
 
         return boardMapper.boardToBoardDTO(board);
+    }
+
+
+    public boolean onlySpaces(String input) {
+        return input.trim().isEmpty();
+    }
+
+    public void validate(BoardDTO boardDTO) throws MyException {
+
+        if (boardDTO.getBoardName() == null || onlySpaces(boardDTO.getBoardName())) {
+            throw new MyException("Board's name can't be null or empty.");
+        }
     }
 }

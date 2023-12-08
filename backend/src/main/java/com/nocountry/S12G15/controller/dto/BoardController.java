@@ -1,7 +1,7 @@
 package com.nocountry.S12G15.controller.dto;
 
-import com.nocountry.S12G15.domain.entity.BoardEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
+import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.service.impl.BoardServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,9 +20,13 @@ public class BoardController {
     private BoardServiceImpl boardService;
 
     @PostMapping("/register")
-    public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO) {
+    public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO) throws MyException {
+
         BoardDTO savedBoardDTO = boardService.createBoard(boardDTO);
 
+        if (boardDTO.getBoardName() == null ) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(savedBoardDTO);
     }
 
@@ -30,6 +34,9 @@ public class BoardController {
     public ResponseEntity<List<BoardDTO>> getBoards() {
         List<BoardDTO> boardsDTO = boardService.getEnabledBoards();
 
+        if (boardsDTO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
         return ResponseEntity.status(HttpStatus.OK).body(boardsDTO);
     }
 
@@ -37,12 +44,20 @@ public class BoardController {
     public ResponseEntity<BoardDTO> findBoardById(@PathVariable String idBoard) {
         BoardDTO boardDTO = boardService.findBoardById(idBoard);
 
-        return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
+        if (boardDTO != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
     @PutMapping("/update/{idBoard}")
-    public ResponseEntity<BoardDTO> updateBoard(@PathVariable String idBoard, @RequestBody BoardDTO updatedBoardDTO) {
+    public ResponseEntity<BoardDTO> updateBoard(@PathVariable String idBoard, @RequestBody BoardDTO updatedBoardDTO) throws MyException {
         BoardDTO boardDTO = boardService.updateBoard(idBoard, updatedBoardDTO);
+
+        if (updatedBoardDTO.getBoardName() == null || boardDTO.getIdBoard() == null) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
 
         return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
     }
@@ -53,7 +68,11 @@ public class BoardController {
         BoardDTO boardDTO = boardService.findBoardById(idBoard);
         BoardDTO disabledBoardDTO = boardService.disableBoard(idBoard);
 
-        return ResponseEntity.status(HttpStatus.OK).body(disabledBoardDTO);
+        if (boardDTO != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(disabledBoardDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
     @PutMapping("/enable/{idBoard}")
@@ -61,14 +80,21 @@ public class BoardController {
         BoardDTO boardDTO = boardService.findBoardById(idBoard);
         BoardDTO enabledBoardDTO = boardService.enableBoard(idBoard);
 
-        return ResponseEntity.status(HttpStatus.OK).body(enabledBoardDTO);
+        if (boardDTO != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(enabledBoardDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
     @PutMapping("/addTask/{idTask}/toBoard/{idBoard}")
-    public ResponseEntity<BoardDTO> addTaskToBoard(@PathVariable String idBoard, @PathVariable String idTask) {
+    public ResponseEntity<BoardDTO> addTaskToBoard(@PathVariable String idBoard, @PathVariable String idTask) throws MyException{
         BoardDTO boardDTO = boardService.addTaskToBoard(idBoard, idTask);
 
-        return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
+        if (boardDTO.getTasks().isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
+        }
     }
-
 }
