@@ -10,12 +10,16 @@ import com.nocountry.S12G15.mapper.TaskMapper;
 import com.nocountry.S12G15.persistance.repository.ActivityRepository;
 import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.service.ActivityService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
+@RequiredArgsConstructor
 public class ActivityServiceImpl implements ActivityService {
 
     @Autowired
