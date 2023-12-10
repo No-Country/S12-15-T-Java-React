@@ -1,14 +1,16 @@
 package com.nocountry.S12G15.controller.dto;
 
 import com.nocountry.S12G15.dto.ActivityDTO;
-import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.service.ActivityService;
+import com.nocountry.S12G15.service.TaskService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.nocountry.S12G15.util.Constant.API_VERSION;
 import static com.nocountry.S12G15.util.Constant.RESOURCE_ACTIVITY;
@@ -19,28 +21,41 @@ public class ActivityController {
 
     @Autowired
     private ActivityService activityService;
+    @Autowired
+    private TaskService taskService;
 
     @PostMapping("/new/{idActivity}")
-    public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityDTO activityDTO, String idActivity) throws MyException {
+    public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityDTO activityDTO, String idTask) throws MyException {
 
-        ActivityDTO savedActivityDTO = activityService.createActivity(activityDTO);
-
-        //TODO: Agregar la activity a la task
-        if(activityDTO.getDescription()== null){
+        if (activityDTO.getDescription() == null ) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
         }
+
+        ActivityDTO savedActivityDTO = activityService.createActivity(activityDTO);
+        String idActivity = activityDTO.getIdActivity();
+
+        taskService.addActivityToTask(idTask,idActivity);
 
         return ResponseEntity.status(HttpStatus.OK).body(activityDTO);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<ActivityDTO>> getAllActivities(){
+        List<ActivityDTO> activityList = activityService.getAllActivities().orElseThrow();
+        if(!activityList.isEmpty()){
+            return new ResponseEntity<>(activityList, HttpStatus.OK);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
     @GetMapping("/{idActivity}")
-    public ResponseEntity<ActivityDTO> findActivityById(@PathVariable String idActivity){
+    public ResponseEntity<?> findActivityById(@PathVariable String idActivity){
         ActivityDTO activityDTO = activityService.findActivityById(idActivity);
 
         if (activityDTO != null){
             return ResponseEntity.status(HttpStatus.OK).body(activityDTO);
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("not found such activity");
         }
     }
 
