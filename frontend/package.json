@@ -14,9 +14,13 @@
 	"dependencies": {
 		"next": "13.5.4",
 		"react": "^18",
-		"react-dom": "^18"
+		"react-dom": "^18",
+		"react-icons": "^4.11.0"
 	},
 	"devDependencies": {
+		"@types/react": "^18.2.15",
+		"@types/react-dom": "^18.2.7",
+		"@vitejs/plugin-react": "^4.0.3",
 		"eslint": "^8.54.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-prettier": "^9.0.0",
@@ -24,12 +28,9 @@
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
-		"prettier": "^2.8.8",
-		"@types/react": "^18.2.15",
-		"@types/react-dom": "^18.2.7",
-		"@vitejs/plugin-react": "^4.0.3",
 		"eslint-plugin-react-refresh": "^0.4.3",
-		"lint-staged": "^14.0.1"
+		"lint-staged": "^14.0.1",
+		"prettier": "^2.8.8"
 	},
 	"lint-staged": {
 		"*.jsx": [

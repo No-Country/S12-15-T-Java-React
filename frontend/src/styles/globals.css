@@ -9,6 +9,10 @@
 	--blue: #0052cc;
 	--light-blue: #406df3;
 	--mazarine-blue: #0046af;
+	--bright-blue: #1052b4;
+	--gray-blue: #7da7e4;
+	--bright-green: #cbfae6;
+	--dark-green: #84cdb9;
 	--light-green: #99f5d1;
 	--red: #fc4d4d;
 	--pink: #ff8686;
@@ -18,6 +22,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	/* background-color: var(--dark-blue); */
 }
 
 html {
@@ -27,10 +32,12 @@ html {
 body {
 	background-color: var(--dark-blue);
 }
+
 a {
 	text-decoration: none;
 	color: var(--blue);
 }
+
 a:hover {
 	color: var(--mazarine-blue);
 }
