@@ -5,7 +5,6 @@
 	align-items: center;
 	gap: 20px;
 	width: 110px;
-	
 }
 .submenu {
 	opacity: 0;
@@ -23,17 +22,15 @@
 	background: #1e1e1e;
 	border-radius: 6px;
 }
-.menu:hover .submenu{
+.menu:hover .submenu {
 	top: 100%;
 	opacity: 1;
 	pointer-events: all;
 	transition: top 0.3s, opacity 0.3s;
-	
-	
-  }
-  
+}
+
 .option {
-	width:100%;
+	width: 100%;
 	height: auto;
 	list-style: none;
 	text-decoration: none;
@@ -51,12 +48,11 @@
 }
 
 .dd-title {
-	display:flex;
+	display: flex;
 	justify-content: space-around;
 	font-size: 20px;
 	padding: 6px;
 	width: 110%;
-
 }
 
 .dd-title:hover {
@@ -70,12 +66,12 @@
 	border-radius: 4px;
 	text-align: start;
 }
-.dd-title:hover .flecha{
-transform: rotate(0deg);
+.dd-title:hover .flecha {
+	transform: rotate(0deg);
 	-webkit-transform: rotate(0deg);
 	-moz-transform: rotate(0deg);
 	transform-origin: center center;
-	transition:  0.5s;
+	transition: 0.5s;
 }
 .link {
 	text-decoration: none;
@@ -99,7 +95,7 @@ transform: rotate(0deg);
 		font-size: 16px;
 		width: 100%;
 	}
-	.dd-title:hover{
+	.dd-title:hover {
 		font-size: 16px;
 	}
 	.flecha {
@@ -119,12 +115,10 @@ transform: rotate(0deg);
 		width: 100px;
 		height: 30px;
 	}
-	
 }
 /* --------------------------------------------------------------------- */
-@media screen and (max-width: 276px){
-
-	.dd{
+@media screen and (max-width: 276px) {
+	.dd {
 		font-size: 14px;
 		list-style: none;
 		text-decoration: none;
