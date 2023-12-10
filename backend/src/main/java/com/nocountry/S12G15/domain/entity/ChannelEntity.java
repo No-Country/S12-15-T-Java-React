@@ -22,6 +22,9 @@ public class ChannelEntity {
 
     @ManyToOne
     private BoardEntity boardEntity;
+
+    @OneToOne
+    protected ImageEntity imageEntity;
     public enum ChannelStatus{
         ENABLED, DISABLED;
     }

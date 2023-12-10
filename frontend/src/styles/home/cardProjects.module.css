@@ -133,10 +133,10 @@
 		padding: 0.75rem 0.75rem;
 	}
 
-    .cardEmpty{
-        font-size: 1rem;
-        padding:0rem 1.5rem;
-    }
+	.cardEmpty {
+		font-size: 1rem;
+		padding: 0rem 1.5rem;
+	}
 
 	.cardNameProject {
 		grid-area: cardNameProject;

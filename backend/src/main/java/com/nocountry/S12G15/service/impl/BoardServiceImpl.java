@@ -11,6 +11,7 @@ import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.nocountry.S12G15.exception.ExceptionMethods;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,14 +137,9 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.boardToBoardDTO(board);
     }
 
-
-    public boolean onlySpaces(String input) {
-        return input.trim().isEmpty();
-    }
-
     public void validate(BoardDTO boardDTO) throws MyException {
 
-        if (boardDTO.getBoardName() == null || onlySpaces(boardDTO.getBoardName())) {
+        if (boardDTO.getBoardName() == null || ExceptionMethods.onlySpaces(boardDTO.getBoardName())) {
             throw new MyException("Board's name can't be null or empty.");
         }
     }

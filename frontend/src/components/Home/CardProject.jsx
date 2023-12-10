@@ -24,14 +24,12 @@ export const CardProject = ({
 				height={120}
 				alt="ImageProject"
 			/>
-			<div className={ styleCard.cardNameProject }>
+			<div className={styleCard.cardNameProject}>
 				<span className={styleCard.cardName}> {nameProject} </span>
 				{projectOwner && (
 					<div className={styleCard.projectOwner}>
 						<CiUser className={styleCard.iconUser} />
-						<span className={styleCard.nameProjectOwner}>
-							{projectOwner}
-						</span>
+						<span className={styleCard.nameProjectOwner}>{projectOwner}</span>
 					</div>
 				)}
 			</div>
@@ -41,9 +39,7 @@ export const CardProject = ({
 						<MemberProject key={member.id} img={member.imgProject} />
 					))}
 				</div>
-				<span className={styleCard.numberMember}>
-					{numberMember} miembros
-				</span>
+				<span className={styleCard.numberMember}>{numberMember} miembros</span>
 			</div>
 			<button className={styleCard.buttonGetInto}> Ingresar </button>
 		</main>
