@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.util.List;
+
 @Entity
 @Data
 public class TaskEntity {
@@ -16,12 +18,17 @@ public class TaskEntity {
 
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    private TaskStatus status;
+    private boolean enabled;
 
-    public enum TaskStatus{
-        ENABLED, DISABLED
-    }
+//    @Enumerated(EnumType.STRING)
+//    private TaskStatus status;
+//
+//    public enum TaskStatus{
+//        ENABLED, DISABLED
+//    }
+
+    @OneToMany
+    private List<ActivityEntity> activities;
 
     public TaskEntity updateTask(TaskRequestDTO taskReqDTO){
         if(taskReqDTO.getName()!= null || !taskReqDTO.getName().isEmpty())this.setName(taskReqDTO.getName().strip());

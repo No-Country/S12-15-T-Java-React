@@ -1,46 +1,32 @@
 package com.nocountry.S12G15.service.impl;
 
+import com.nocountry.S12G15.domain.entity.ActivityEntity;
 import com.nocountry.S12G15.domain.entity.TaskEntity;
-import com.nocountry.S12G15.dto.request.PageableDto;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
-import com.nocountry.S12G15.exception.GenericException;
+import com.nocountry.S12G15.exception.ExceptionMethods;
+import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.exception.ObjectNotFoundException;
 import com.nocountry.S12G15.mapper.TaskMapper;
+import com.nocountry.S12G15.persistance.repository.ActivityRepository;
 import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.service.TaskService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class TaskServiceImpl implements TaskService {
 
     private final TaskMapper mapper;
-//    private final Utility utility;
     private final TaskRepository taskRepository;
-
-    @Override
-    @Transactional(readOnly = true)
-    public Page<TaskResponseDTO> findAll(PageableDto pageableDto){
-        //        Pageable pageable = utility.setPageable(pageableDto);
-//        Page<TaskEntity> tasks = taskRepository.findAll(pageable);
-//
-//        List<TaskResponseDTO> taskDTOList = tasks.getContent()
-//                .stream()
-//                .map(mapper::getTaskDto)
-//                .toList();
-//
-//        return new PageImpl<>(taskDTOList);
-        return  null;
-    }
+    private final ActivityRepository activityRepository;
 
     @Override
     @Transactional(readOnly = true)
@@ -60,30 +46,30 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     @Transactional
-    public TaskResponseDTO createTask(TaskRequestDTO taskReqDTO) {
+    public TaskResponseDTO createTask(TaskRequestDTO taskReqDTO) throws MyException {
 
-//        return mapper.getTaskDto(taskRepository.save(mapper.getTaskEntity(taskReqDTO)));
+        validate(taskReqDTO);
 
-        TaskEntity taskSlave;
-        taskSlave = Optional.of(taskReqDTO)
-                .map(mapper::getTaskEntity)
-                .map(taskRepository::save)
-                .orElseThrow(()->new GenericException("Oops ocurrió un error", HttpStatus.BAD_REQUEST));
-        return mapper.getTaskDto(taskSlave);
-
+        TaskEntity task = mapper.getTaskEntity(taskReqDTO);
+        task.setEnabled(true);
+        TaskEntity savedTask = taskRepository.save(task);
+        return mapper.getTaskDto(savedTask);
     }
 
     @Override
     @Transactional
     public TaskEntity disabledOneById(String idTask) {
         TaskEntity task = taskRepository.findById(idTask).orElseThrow(()-> new ObjectNotFoundException("Task Not Found"+ idTask));
-        task.setStatus(TaskEntity.TaskStatus.DISABLED);
+        task.setEnabled(false);
         return taskRepository.save(task);
     }
 
     @Override
     @Transactional
-    public TaskResponseDTO updateTask(TaskRequestDTO taskUpdate, String idTask) {
+    public TaskResponseDTO updateTask(TaskRequestDTO taskUpdate, String idTask) throws MyException {
+
+        validate(taskUpdate);
+
         Function<TaskRequestDTO, Optional<TaskEntity>> taskId = taskDTO -> taskRepository.findById(idTask);
         Optional<TaskEntity> taskEntity = taskId.apply(taskUpdate);
         if(taskEntity.isEmpty()){
@@ -94,5 +80,42 @@ public class TaskServiceImpl implements TaskService {
         return mapper.getTaskDto(saveTask);
     }
 
+    @Override
+    public TaskResponseDTO addActivityToTask(String idTask, String idActivity) {
+
+        TaskEntity task = taskRepository.findById(idTask).orElseThrow();
+        ActivityEntity activity = activityRepository.findById(idActivity).orElseThrow();
+
+        task.getActivities().add(activity);
+        task = taskRepository.save(task);
+
+        return mapper.getTaskDto(task);
+    }
+
+     private void validate(TaskRequestDTO taskRequestDTO) throws MyException {
+        if (taskRequestDTO.getDescription()== null || ExceptionMethods.onlySpaces(taskRequestDTO.getDescription())) {
+            throw new MyException("Task's name can't be null or empty.");
+        }
+      }
+
+    @Override
+    public List<TaskResponseDTO> getEnabledTasks() {
+        List<TaskResponseDTO> tasksDTO = findAllTasks().orElseThrow();
+
+        return tasksDTO.stream().filter(TaskResponseDTO::isEnabled).collect(Collectors.toList());
+    }
+
+    @Override
+    public TaskResponseDTO enableTask(String idTask) {
+
+        TaskEntity task = taskRepository.findById(idTask).orElseThrow();
+
+        task.setEnabled(true);
+
+        TaskEntity savedTask = taskRepository.save(task);
+
+        return mapper.getTaskDto(savedTask);
+
+    }
 
 }

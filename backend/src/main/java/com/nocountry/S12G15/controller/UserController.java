@@ -60,6 +60,8 @@ public class UserController {
         userService.enableUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+
 /*
     @GetMapping("/getAllSpaces")
     public ResponseEntity<List<SpaceResponseDTO>> getAllSpaces(){
