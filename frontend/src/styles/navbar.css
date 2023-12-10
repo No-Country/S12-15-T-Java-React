@@ -8,7 +8,10 @@
 	justify-content: center;
 	align-items: center;
 }
-
+.menu {
+	text-decoration: none;
+	list-style: none;
+}
 .nav-container {
 	display: flex;
 	justify-content: space-evenly;
@@ -33,35 +36,45 @@
 .title {
 	padding: 6px;
 }
-
+.dd-complete {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(1, 1, fr);
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	width: 100%;
+}
 /* DROPDOWNS Y CREAR */
 .dropdowns {
-	display: flex;
-	justify-content: space-around;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(1, 1, fr);
+	justify-content: center;
 	align-items: center;
-	width: 426px;
+	width: 526px;
 	height: 35px;
 	gap: 32px;
 	position: relative;
-	right: 140px;
-	background: transparent;
+	right: 100px;
+}
+.dd-cont {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 32px;
+	width: 300px;
+	height: 35px;
 }
 
-.dd-title-proyect,
-.dd-title-recent {
+.dd-title {
 	text-align: center;
 	font-size: 20px;
 	font-weight: 500;
 	cursor: pointer;
 }
 
-.dd-title-proyect:hover,
-.dd-title-recent:hover {
-	color: #fafbfc;
-}
-
-.dd-option-proyect,
-.dd-option-recent {
+.dd-option {
 	display: none;
 	position: absolute;
 	top: 100%;
@@ -74,22 +87,35 @@
 }
 
 .btn-create {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	color: #fafbfc;
 	font-size: 20px;
 	font-family: 'Roboto';
 	font-weight: 500;
 	word-wrap: break-word;
+	width: 110px;
+	height: auto;
 }
 
 .create {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	text-decoration: none;
 	list-style: none;
 	color: #fafbfc;
+	width: 100%;
+	padding: 6px;
 }
 
 .create:hover {
 	color: #fafbfc;
-	border-bottom: 2px solid #fafbfc;
+	width: 100%;
+	height: 30px;
+	background: #406df3;
+	border-radius: 4px;
 }
 
 .logo-user {
@@ -112,6 +138,17 @@
 	justify-content: space-evenly;
 	gap: 48px;
 }
+.btn-menu {
+	display: none;
+}
+.dd-menu {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 32px;
+	text-decoration: none;
+	list-style: none;
+}
 /* ------------------------------------------------------------------- */
 @media screen and (max-width: 768px) {
 	.nav-gral {
@@ -120,6 +157,7 @@
 	}
 
 	.nav-container {
+		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -157,5 +195,95 @@
 	.logo-user {
 		position: relative;
 		left: 20px;
+	}
+}
+.dd-menu {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 24px;
+	text-decoration: none;
+	list-style: none;
+}
+/* ----------------------------------------------------------------- */
+@media screen and (max-width: 276px) {
+	.nav-gral {
+		width: 100%;
+		height: 42px;
+	}
+	.track {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(1, 1fr);
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+	}
+	.track img {
+		position: relative;
+		left: 20px;
+		padding: 6px;
+		display: flex;
+		padding-left: 8px;
+	}
+	.dd-cont {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: auto;
+		gap: 20px;
+		padding: 20px;
+	}
+	.logo-user {
+		display: none;
+	}
+	.btn-menu {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 19px;
+		height: 14px;
+	}
+	/* marca del check */
+	.btn-menu input {
+		display: none;
+	}
+	.dropdowns {
+		display: none;
+	}
+
+	.dropdowns.dd-complete {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		position: absolute;
+		top: 40px;
+		left: 50%;
+		width: 50%;
+		height: 30%;
+		background: #1e1e1e;
+		text-align: center;
+		border-radius: 4px;
+		justify-content: center;
+		align-items: start;
+		border: 2px solid #f001bc;
+		overflow: hidden;
+	}
+	.dd-complete {
+		display: block;
+	}
+	.btn-create {
+		background-color: #1e1e1e;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 0 10px 20px;
+		text-align: start;
+		position: relative;
+		bottom: 26px;
+		margin-top: 10%;
 	}
 }
