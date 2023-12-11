@@ -4,7 +4,7 @@ function DdProyects() {
 	return (
 		<div>
 			<ul className="menu">
-				<li>
+				<li className="dd">
 					<h2 className="dd-title">
 						Proyects
 						<img src="\images\flecha.png" className="flecha" alt="" />

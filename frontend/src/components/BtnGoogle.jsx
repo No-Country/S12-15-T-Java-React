@@ -1,8 +1,6 @@
-import stylesRegister from '@/styles/register.module.css';
-
-const BtnGoogle = ({ children }) => {
+const BtnGoogle = ({ children, ...props }) => {
 	return (
-		<button className={stylesRegister.btnGoogle}>
+		<button {...props}>
 			<img src="/images/logo-Google.png" />
 			{children}
 		</button>
