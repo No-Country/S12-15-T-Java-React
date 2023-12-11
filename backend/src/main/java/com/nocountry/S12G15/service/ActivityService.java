@@ -8,7 +8,9 @@ import java.util.Optional;
 
 public interface ActivityService {
 
-    ActivityDTO createActivity(ActivityDTO activityDTO) throws MyException;
+
+    ActivityDTO createActivity(ActivityDTO activityDTO, String idUser) throws MyException;
+
     Optional<List<ActivityDTO>> getAllActivities();
     List<ActivityDTO> getEnabledActivities();
     ActivityDTO findActivityById(String idActivity);
