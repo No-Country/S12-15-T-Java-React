@@ -97,6 +97,7 @@ public class BoardController {
         }
     }
 
+    /*
     @PutMapping("/addTask/{idTask}/toBoard/{idBoard}")
     public ResponseEntity<BoardDTO> addTaskToBoard(@PathVariable String idBoard, @PathVariable String idTask) throws MyException{
         BoardDTO boardDTO = boardService.addTaskToBoard(idBoard, idTask);
@@ -107,6 +108,7 @@ public class BoardController {
             return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
         }
     }
+    */
 
     @PostMapping("/upload")
     public ResponseEntity<?> upLoadPhoto (@RequestParam MultipartFile file, @RequestParam String idBoard){

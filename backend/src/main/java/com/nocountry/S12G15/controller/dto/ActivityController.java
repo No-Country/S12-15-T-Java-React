@@ -24,19 +24,19 @@ public class ActivityController {
     @Autowired
     private TaskService taskService;
 
-    @PostMapping("/new/{idActivity}")
-    public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityDTO activityDTO, String idTask) throws MyException {
+    @PostMapping("/new/{idTask}/{idUser}")
+    public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityDTO activityDTO, @RequestParam String idTask, @RequestParam String idUser) throws MyException {
 
-        if (activityDTO.getDescription() == null ) {
+        if (activityDTO.getDescription() == null || activityDTO.getName() == null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
         }
 
-        ActivityDTO savedActivityDTO = activityService.createActivity(activityDTO);
-        String idActivity = activityDTO.getIdActivity();
+        ActivityDTO savedActivityDTO = activityService.createActivity(activityDTO, idUser);
+        String idActivity = savedActivityDTO.getIdActivity();
 
         taskService.addActivityToTask(idTask,idActivity);
 
-        return ResponseEntity.status(HttpStatus.OK).body(activityDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(savedActivityDTO);
     }
 
     @GetMapping("/all")

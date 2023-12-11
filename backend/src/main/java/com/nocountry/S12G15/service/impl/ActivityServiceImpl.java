@@ -1,7 +1,6 @@
 package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.ActivityEntity;
-import com.nocountry.S12G15.domain.entity.TaskEntity;
 import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.exception.ExceptionMethods;
 import com.nocountry.S12G15.exception.MyException;
@@ -9,7 +8,9 @@ import com.nocountry.S12G15.mapper.ActivityMapper;
 import com.nocountry.S12G15.mapper.TaskMapper;
 import com.nocountry.S12G15.persistance.repository.ActivityRepository;
 import com.nocountry.S12G15.persistance.repository.TaskRepository;
+import com.nocountry.S12G15.persistance.repository.UserRepository;
 import com.nocountry.S12G15.service.ActivityService;
+import com.nocountry.S12G15.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,14 +35,20 @@ public class ActivityServiceImpl implements ActivityService {
     @Autowired
     private TaskMapper taskMapper;
 
+    @Autowired
+    UserRepository userRepository;
+
     @Override
-    public ActivityDTO createActivity(ActivityDTO activityDTO) throws MyException {
+    public ActivityDTO createActivity(ActivityDTO activityDTO, String idUser) throws MyException {
         validate(activityDTO);
 
-        //TODO: agregar en TASK la creacion de activity en una task especifica
 
+        //Hay que ver el retorno del UserResponseDTO
         ActivityEntity activity = activityMapper.activityDTOToActivity(activityDTO);
         activity.setEnabled(true);
+
+        String username = userRepository.findById(idUser).get().getUsername();
+        activity.setUsername(username);
         ActivityEntity savedActivity = activityRepository.save(activity);
 
         return activityMapper.activityToActivityDTO(savedActivity);
