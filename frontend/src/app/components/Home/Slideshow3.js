@@ -1,12 +1,12 @@
-import React, { useRef, useEffect, useCallback, useState } from 'react';
+import { useRef, useEffect, useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 const Slideshow = ({
   children,
   controles = false,
   autoplay = false,
-  velocidad = "5000",
-  intervalo = "3000"
+  velocidad = '5000',
+  intervalo = '3000'
 }) => {
   const slideshow = useRef(null);
   const intervaloSlideshow = useRef(null);
