@@ -1,7 +1,8 @@
 package com.nocountry.S12G15.service;
 
 import com.nocountry.S12G15.dto.request.UserRequestDTO;
-//import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
+
+import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import com.nocountry.S12G15.dto.response.UserResponseDTO;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public interface UserService {
 
     void deleteUser(String id);
 
-//    List<SpaceResponseDTO> getAllSpaces();
+   List<SpaceResponseDTO> getAllSpaces();
 
- //   UserResponseDTO addSpaceToUser(String id, Long idSpace);
+   UserResponseDTO addSpaceToUser(String id, Long idSpace);
 }

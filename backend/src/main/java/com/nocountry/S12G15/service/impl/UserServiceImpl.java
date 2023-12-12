@@ -5,10 +5,13 @@ import com.nocountry.S12G15.domain.entity.UserEntity;
 import com.nocountry.S12G15.dto.request.UserRequestDTO;
 //import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 //import com.nocountry.S12G15.mapper.SpaceMapper;
+import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
+import com.nocountry.S12G15.mapper.SpaceMapper;
 import com.nocountry.S12G15.mapper.UserMapper;
 import com.nocountry.S12G15.persistance.repository.UserRepository;
 import com.nocountry.S12G15.dto.response.UserResponseDTO;
 //import com.nocountry.S12G15.service.SpaceService;
+import com.nocountry.S12G15.service.SpaceService;
 import com.nocountry.S12G15.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,18 +22,16 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
     public final UserRepository userRepository;
-
-  //  public final SpaceService spaceService;
     public final UserMapper userMapper;
-
-   // public final SpaceMapper spaceMapper;
+    public final SpaceService spaceService;
+    public final SpaceMapper spaceMapper;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, SpaceService spaceService, SpaceMapper spaceMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
-     //   this.spaceService = spaceService;
-     //   this.spaceMapper = spaceMapper;
+        this.spaceService = spaceService;
+        this.spaceMapper = spaceMapper;
     }
     @Override
     public List<UserResponseDTO> getAllUsers() {
@@ -90,7 +91,7 @@ public class UserServiceImpl implements UserService {
 
 
     }
-/*
+
     @Override
     public List<SpaceResponseDTO> getAllSpaces() {
 
@@ -115,5 +116,5 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
- */
+
 }

@@ -45,13 +45,16 @@ public class UserEntity implements UserDetails {
     @Column(name="password", nullable = false)
     private String password;
 
+    @Column(name="description")
+    private String description;
+
+    @OneToOne
+    protected ImageEntity imageEntity;
 
 
-
-/*
     @OneToMany
     private List<SpaceEntity> spaceEntityList;
-*/
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

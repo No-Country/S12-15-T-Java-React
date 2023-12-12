@@ -2,6 +2,7 @@ package com.nocountry.S12G15.controller;
 
 import com.nocountry.S12G15.dto.request.UserRequestDTO;
 //import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
+import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import com.nocountry.S12G15.dto.response.UserResponseDTO;
 //import com.nocountry.S12G15.service.SpaceService;
 import com.nocountry.S12G15.service.UserService;
@@ -62,7 +63,7 @@ public class UserController {
     }
 
 
-/*
+
     @GetMapping("/getAllSpaces")
     public ResponseEntity<List<SpaceResponseDTO>> getAllSpaces(){
 
@@ -78,7 +79,7 @@ public class UserController {
     }
 
 
-*/
+
     // add board to user
     // delete board from user
     // update board from user

@@ -11,7 +11,6 @@ public class SpaceServiceImpl implements SpaceService {
 
 
     @Autowired
-
     SpaceRepo spaceRepo;
 
     @Override
