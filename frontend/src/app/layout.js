@@ -1,5 +1,6 @@
 import '@/styles/globals.css';
 
+
 export const metadata = {
 	title: 'Next',
 	description: 'Generated Next',
@@ -8,7 +9,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html>
-			<body>{children}</body>
+			<body>{children}
+			
+			</body>
 		</html>
 	);
 }
