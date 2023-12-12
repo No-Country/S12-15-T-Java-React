@@ -5,10 +5,9 @@
 @media (max-width: 768px) {
 	.containercards {
 		width: 100%;
-		margin:auto;
+		margin: auto;
 	}
 }
-
 
 .marcoactivity,
 .marco-activity * {
@@ -16,7 +15,7 @@
 }
 
 .marcoactivity {
-	background: rgba(66, 82, 110, 0.50);
+	background: rgba(66, 82, 110, 0.5);
 	padding: 32px 24px 32px 24px;
 
 	max-width: 944px;
@@ -36,11 +35,7 @@
 
 	align-self: stretch;
 	flex-shrink: 0;
-
-
 }
-
-
 
 .containercards,
 .containercards * {
@@ -54,11 +49,9 @@
 	max-width: 944px;
 	height: auto;
 
-
 	display: flex;
 
 	flex-direction: row;
-
 
 	align-items: center;
 
@@ -68,11 +61,9 @@
 	align-self: stretch;
 	flex-shrink: 0;
 	border-radius: 0px 0px 8px 8px;
-
-
-
 }
 @media (max-width: 700px) {
-.containerall{
-	visibility: hidden;
-}}
+	.containerall {
+		visibility: hidden;
+	}
+}

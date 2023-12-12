@@ -148,7 +148,7 @@ export const Aside = () => {
 			{/* <div className="toggle-btn">
 				<span>&#9776</span>
 			</div> */}
-{/* 
+			{/* 
 			<div className="toggle-btn">
 				<span
 					className="frame-739"
@@ -164,15 +164,11 @@ export const Aside = () => {
 				</span>
 			</div> */}
 
-<div className='frame-766 toggle-btn'>
-<div className=' vector2'>
-								<img 
-									src="img\Vector2.png"
-									alt="Texto alternativo de la imagen"
-								/>
-								</div>
-							</div>
-
+			<div className="frame-766 toggle-btn">
+				<div className=" vector2">
+					<img src="img\Vector2.png" alt="Texto alternativo de la imagen" />
+				</div>
+			</div>
 
 			<div className="barra-lateral-tablero">
 				<div className="frame-736">
