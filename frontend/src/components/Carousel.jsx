@@ -1,4 +1,4 @@
-import { Slideshow, Slide, TextoSlide } from '@/app/components/Home/Slideshow';
+import { Slideshow, Slide, TextoSlide } from '@/app/components/Slideshow';
 
 function Carousel() {
 	return (
