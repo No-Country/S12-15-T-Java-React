@@ -57,14 +57,14 @@
 
 .dd-title:hover {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
 	height: 30px;
 	font-size: 20px;
 	background: #406df3;
 	border-radius: 4px;
-	text-align: start;
+	text-align: flex-start;
 }
 .dd-title:hover .flecha {
 	transform: rotate(0deg);
