@@ -1,5 +1,5 @@
-import { GuestProjects } from '@/components/home/GuestProjects';
-import { Projects } from '@/components/home/Projects';
+import { GuestProjects } from '@/components/Home/GuestProjects';
+import { Projects } from '@/components/Home/Projects';
 import { projects, guests } from '@/app/api/home/route';
 import styleHome from '@/styles/home/home.module.css';
 
