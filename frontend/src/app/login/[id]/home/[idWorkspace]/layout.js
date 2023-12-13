@@ -1,3 +1,10 @@
+// import { Aside } from '@/components/Aside';
+
 export default function RootLayout({ children }) {
-	return <main>{children}</main>;
+	return (
+		<main>
+			{/* <Aside /> */}
+			{children}
+		</main>
+	);
 }
