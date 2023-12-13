@@ -1,0 +1,39 @@
+.listBoard{
+    display: flex;
+    flex-direction: column;
+    max-height: 27rem;
+    overflow-y: auto;
+    width: 15rem;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    border-top: 4px solid var(--red);
+    box-shadow: 0px 0px 4px 0px var(--dark-grey);
+    /* background-color: blue; */
+    background-color: #FAFBFC;
+}
+
+.headerList{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    padding-bottom: 1rem;
+}
+
+.listName{
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.points{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Icons*/
+.threePoints{
+    font-size: 1.5rem;
+}
