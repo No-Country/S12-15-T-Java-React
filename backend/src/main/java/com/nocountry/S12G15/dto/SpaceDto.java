@@ -3,6 +3,8 @@ package com.nocountry.S12G15.dto;
 import com.nocountry.S12G15.domain.entity.BoardEntity;
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
 
+import com.nocountry.S12G15.domain.entity.ImageEntity;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,19 +23,12 @@ public class SpaceDto implements Serializable{
     @Serial
     private static final long serialVersionUID = 1L;
     private String id;
-
     private String name;
-
     private String description;
-
-    private String coverImage;
-
+    protected ImageEntity imageEntity;
     private Date lastModified;
-
     private Date createdAt;
-
     private List<BoardEntity> boardEntityList;
-
     private List<ChannelEntity> ChannelEntityList;
 
 }
