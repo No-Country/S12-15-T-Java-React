@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+ */
+body {
+	background: #ede9e7;
+	font-family: 'Poppins', sans-serif;
+}
+
+main {
+	max-width: 1000px;
+	margin: 50px auto;
+	overflow: hidden;
+}
+
+.frame-4,
+.frame-4 * {
+	box-sizing: border-box;
+}
+.frame-4 {
+	background: rgba(66, 82, 110, 0.5);
+	padding: 16px 8px 16px 8px;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	justify-content: flex-start;
+	align-self: stretch;
+	flex-shrink: 0;
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px 8px 0px 0px;
+}
+
+.nombre-proyecto {
+	color: black;
+	text-align: left;
+	font-family: 'Roboto-Medium', sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	position: relative;
+	flex: 1;
+}

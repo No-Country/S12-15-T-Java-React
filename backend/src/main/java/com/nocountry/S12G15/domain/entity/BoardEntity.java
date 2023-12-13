@@ -19,8 +19,8 @@ public class BoardEntity {
     @OneToMany
     private List<TaskEntity> tasks;
 
-    @OneToOne
-    protected ImageEntity imageEntity;
+//    @OneToOne
+//    protected ImageEntity imageEntity;
 
     private boolean enabled = true;
 }

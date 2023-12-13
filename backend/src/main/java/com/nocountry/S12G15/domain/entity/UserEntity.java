@@ -48,10 +48,10 @@ public class UserEntity implements UserDetails {
 
 
 
-/*
+
     @OneToMany
     private List<SpaceEntity> spaceEntityList;
-*/
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

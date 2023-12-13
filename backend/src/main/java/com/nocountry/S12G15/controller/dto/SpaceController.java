@@ -1,49 +1,145 @@
 package com.nocountry.S12G15.controller.dto;
+import com.nocountry.S12G15.domain.entity.ImageEntity;
+import com.nocountry.S12G15.domain.entity.SpaceEntity;
+import com.nocountry.S12G15.domain.entity.UserEntity;
 import com.nocountry.S12G15.dto.SpaceDto;
 //import com.nocountry.S12G15.service.impl.SpaceServiceImpl;
+import com.nocountry.S12G15.dto.request.SpaceRequestDTO;
+import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
+import com.nocountry.S12G15.exception.MyException;
+import com.nocountry.S12G15.persistance.repository.UserRepository;
+import com.nocountry.S12G15.service.ImageService;
+import com.nocountry.S12G15.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 //import com.nocountry.S12G15.domain.entity.SpaceEntity;
-//import com.nocountry.S12G15.dto.request.SpaceRequest;
+//import com.nocountry.S12G15.dto.request.SpaceRequestDTO;
 
-import com.nocountry.S12G15.persistance.repository.SpaceRepo;
+import com.nocountry.S12G15.persistance.repository.SpaceRepository;
 import com.nocountry.S12G15.service.SpaceService;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.yaml.snakeyaml.events.Event;
 
+import java.net.URI;
 import java.util.List;
+
+import static com.nocountry.S12G15.util.Constant.*;
 
 //import org.springframework.stereotype.Service;
 @RestController
+@RequestMapping(value = API_VERSION + RESOURCE_SPACE)
 public class SpaceController {
+
     @Autowired
-    SpaceService spaceService;
+    private SpaceService spaceService;
     @Autowired
-    SpaceRepo spaceRepo;
-    // Creando Espacio de Trabajo
-    @PostMapping("/create")
-    public ResponseEntity<?> newSpace(@RequestBody SpaceDto newSpace) {
-        SpaceDto spaceDto = spaceService.create(newSpace);
-        return new ResponseEntity<>(spaceDto, HttpStatus.CREATED);
+    private UserRepository userRepository;
+    @Autowired
+    private ImageService imageService;
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/create/{idUser}")
+    public ResponseEntity<?> newSpace(@RequestBody SpaceRequestDTO spaceRequestDTO, @PathVariable String idUser) throws MyException {
+        UserEntity user = userRepository.findById(idUser).orElse(null);
+
+
+        if (spaceRequestDTO.getName() == null || user == null) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        } else {
+            SpaceResponseDTO spaceResponseDTO = spaceService.createSpace(spaceRequestDTO);
+            String idSpace = spaceResponseDTO.getIdSpace();
+            userService.addSpaceToUser(idUser, idSpace);
+            return ResponseEntity.status(HttpStatus.CREATED).body(spaceResponseDTO);
+        }
     }
 
-    // Actualizando los espacios de Trabajo
-    @GetMapping("/getAll")
-    public ResponseEntity<List<SpaceDto>> getAllSpace() {
-        return new ResponseEntity(spaceService.allspace(),HttpStatus.OK) ;
+    @GetMapping("/listOfSpaces")
+    public ResponseEntity<List<SpaceResponseDTO>> getAllSpaces() {
+        List<SpaceResponseDTO> spacesResponseDTO = spaceService.getEnabledSpaces();
+
+        if (spacesResponseDTO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(spacesResponseDTO);
     }
-//probando
-    // Actualizando por ID
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateSpace(@PathVariable Long id, @RequestBody SpaceDto updatedSpace) {
-        SpaceDto spaceDto = spaceService.update(updatedSpace,id);
-        return new ResponseEntity<>(spaceDto,HttpStatus.OK) ;
+
+    @GetMapping("/{idSpace}")
+    public ResponseEntity<SpaceResponseDTO> findSpaceById(@PathVariable String idSpace) {
+        SpaceResponseDTO spaceResponseDTO = spaceService.findSpaceById(idSpace);
+
+        if (spaceResponseDTO != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(spaceResponseDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
+
+    @PutMapping("/update/{idSpace}")
+    public ResponseEntity<SpaceResponseDTO> updateSpace(@PathVariable String idSpace, @RequestBody SpaceRequestDTO updatedSpaceDTO) throws MyException{
+        SpaceResponseDTO spaceResponseDTO = spaceService.findSpaceById(idSpace);
+        spaceService.updateSpace(idSpace, updatedSpaceDTO);
+
+        if (updatedSpaceDTO.getName() == null || spaceResponseDTO == null) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(spaceResponseDTO);
+    }
+
     // Eliminando por ID
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteSpace(@PathVariable Long id) {
-        spaceService.delete(id);
-        return new ResponseEntity<>( "eliminado", HttpStatus.OK);
+    @PutMapping("/disable/{idSpace}")
+    public ResponseEntity<SpaceResponseDTO> disableSpace(@PathVariable String idSpace) {
+        SpaceResponseDTO spaceResponseDTO = spaceService.findSpaceById(idSpace);
+        SpaceResponseDTO disabledSpaceResponseDTO = spaceService.disableSpace(idSpace);
+
+        if (spaceResponseDTO != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(disabledSpaceResponseDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @PutMapping("/enable/{idSpace}")
+    public ResponseEntity<SpaceResponseDTO> enableSpace(@PathVariable String idSpace) {
+        SpaceResponseDTO spaceResponseDTO = spaceService.findSpaceById(idSpace);
+        SpaceResponseDTO disabledSpaceResponseDTO = spaceService.enableSpace(idSpace);
+
+        if (spaceResponseDTO != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(disabledSpaceResponseDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @PostMapping("/uploadPhoto")
+    public ResponseEntity<?> uploadPhoto (@RequestParam MultipartFile file, @RequestParam String idSpace) {
+
+        ImageEntity imageEntity = imageService.saveImageSpace(file, idSpace);
+
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentContextPath()
+                .path("/v1/api/space/getPhoto")
+                .queryParam("idSpace", idSpace)
+                .build()
+                .toUri();
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(uri);
+    }
+
+    @GetMapping("/getPhoto")
+    public ResponseEntity<byte[]> getPhoto(@RequestParam String idSpace){
+
+        byte[] image = imageService.getPhoto(idSpace);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(image);
     }
 }
