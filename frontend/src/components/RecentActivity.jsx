@@ -15,36 +15,36 @@ export const RecentActivity = () => {
 			<div className={styles.containercards}>
 				<div>
 					<div className="nombre-proyecto">
-						<img
+						<image
 							className="piccon"
-							src="/img/Card-Recientes.png"
+							src="/image/Card-Recientes.png"
 							alt="Texto alternativo de la imagen"
 						/>
 					</div>
 				</div>
 				<div>
 					<div className="nombre-proyecto">
-						<img
+						<image
 							className="piccon"
-							src="/img/Card-Recientes2.png"
+							src="/image/Card-Recientes2.png"
 							alt="Texto alternativo de la imagen"
 						/>
 					</div>
 				</div>
 				<div>
 					<div className="nombre-proyecto">
-						<img
+						<image
 							className="piccon"
-							src="/img/Card-Recientes3.png"
+							src="/image/Card-Recientes3.png"
 							alt="Texto alternativo de la imagen"
 						/>{' '}
 					</div>
 				</div>
 				<div>
 					<div className="nombre-proyecto">
-						<img
+						<image
 							className="piccon"
-							src="/img/Card-Recientes4.png"
+							src="/image/Card-Recientes4.png"
 							alt="Texto alternativo de la imagen"
 						/>
 					</div>

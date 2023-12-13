@@ -105,16 +105,16 @@ const Slideshow = ({
 				{controles && (
 					<Controles>
 						<Boton onClick={anterior}>
-							<img
+							<image
 								onClick={anterior}
-								src="/img/flechai.png"
+								src="/image/flechai.png"
 								alt="Texto alternativo de la imagen"
 							/>
 						</Boton>
 						<Boton type="submit" derecho onClick={siguiente}>
-							<img
+							<image
 								onClick={siguiente}
-								src="/img/flechad.png"
+								src="/image/flechad.png"
 								alt="Texto alternativo de la imagen"
 							/>
 						</Boton>
@@ -149,7 +149,7 @@ const Slide = styled.div`
 	z-index: 10;
 	position: relative;
 
-	img {
+	image {
 		width: 100%;
 		height: 200px;
 		vertical-align: top;
@@ -195,7 +195,7 @@ const Boton = styled.button`
 	position: absolute;
 	transition: 0.3s ease all;
 
-	img {
+	image {
 		width: 89%;
 		height: 30%;
 	}
