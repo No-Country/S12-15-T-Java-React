@@ -2,11 +2,15 @@ package com.nocountry.S12G15.controller.dto;
 
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.domain.entity.ImageEntity;
+import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import com.nocountry.S12G15.dto.request.ChannelRequestDTO;
 import com.nocountry.S12G15.dto.request.PageableDto;
 import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
+import com.nocountry.S12G15.persistance.repository.ChannelRepository;
+import com.nocountry.S12G15.persistance.repository.SpaceRepository;
 import com.nocountry.S12G15.service.ChannelService;
 import com.nocountry.S12G15.service.ImageService;
+import com.nocountry.S12G15.service.SpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,6 +42,15 @@ public class ChannelController {
 
     @Autowired
     private ChannelService channelService;
+
+    @Autowired
+    private ChannelRepository channelRepository;
+
+    @Autowired
+    private SpaceService spaceService;
+    @Autowired
+    private SpaceRepository spaceRepository;
+
     /*
     * NewChannel
     * http://localhost:8080/v1/api/channel/new
@@ -47,10 +60,19 @@ public class ChannelController {
     "notes":"This'sAnNote"
     }
     * */
-    @PostMapping("/new")
-    public ResponseEntity<?> createChannel(@RequestBody ChannelRequestDTO channelRequestDTO){
+    @PostMapping("/new/{idSpace}")
+    public ResponseEntity<?> createChannel(@RequestBody ChannelRequestDTO channelRequestDTO, @PathVariable String idSpace){
+
+        SpaceEntity space = spaceRepository.findById(idSpace).orElse(null);
+
+        if (channelRequestDTO.getType() == null || space == null) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+
         try{
             ChannelResponseDTO channelResponseDTO= channelService.createChannel(channelRequestDTO);
+            String idChannel = channelResponseDTO.getIdChannel();
+            spaceService.addChannelToSpace(idSpace, idChannel);
             return ResponseEntity.status(OK).body(channelResponseDTO);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\"" + e.getMessage() + "}"));
@@ -97,31 +119,31 @@ public class ChannelController {
         return ResponseEntity.ok(channel);
     }
 
-    @PostMapping("/upload")
-    public ResponseEntity<?> upLoadPhoto (@RequestParam MultipartFile file, @RequestParam String idChannel){
+//    @PostMapping("/upload")
+//    public ResponseEntity<?> upLoadPhoto (@RequestParam MultipartFile file, @RequestParam String idChannel){
+//
+//        ImageEntity imageEntity = imageService.saveImage(file, idChannel);
+//
+//        URI uri = ServletUriComponentsBuilder
+//                .fromCurrentContextPath()
+//                .path("/v1/api/channel/getPhoto")
+//                .queryParam("idChannel", idChannel)
+//                .build()
+//                .toUri();
+//
+//        return ResponseEntity.status(HttpStatus.CREATED).body(uri);
+//
+//    }
 
-        ImageEntity imageEntity = imageService.saveImage(file, idChannel);
-
-        URI uri = ServletUriComponentsBuilder
-                .fromCurrentContextPath()
-                .path("/v1/api/channel/getPhoto")
-                .queryParam("idChannel", idChannel)
-                .build()
-                .toUri();
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(uri);
-
-    }
-
-    @GetMapping("/getPhoto")
-    public ResponseEntity<byte[]> getPhoto(@RequestParam String idChannel){
-
-        byte[] image = imageService.getPhoto(idChannel);
-
-        HttpHeaders headers = new HttpHeaders();
-
-        headers.setContentType(MediaType.IMAGE_JPEG);
-
-        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(image);
-    }
+//    @GetMapping("/getPhoto")
+//    public ResponseEntity<byte[]> getPhoto(@RequestParam String idChannel){
+//
+//        byte[] image = imageService.getPhoto(idChannel);
+//
+//        HttpHeaders headers = new HttpHeaders();
+//
+//        headers.setContentType(MediaType.IMAGE_JPEG);
+//
+//        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(image);
+//    }
 }
