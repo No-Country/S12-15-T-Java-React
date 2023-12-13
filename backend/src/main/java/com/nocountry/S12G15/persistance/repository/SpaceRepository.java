@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.nocountry.S12G15.domain.entity.SpaceEntity;
 @Repository
-public interface SpaceRepo extends JpaRepository<SpaceEntity, String> {
+public interface SpaceRepository extends JpaRepository<SpaceEntity, String> {
 
 }

@@ -2,8 +2,10 @@ package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.domain.entity.ImageEntity;
+import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import com.nocountry.S12G15.persistance.repository.ChannelRepository;
 import com.nocountry.S12G15.persistance.repository.ImageRepository;
+import com.nocountry.S12G15.persistance.repository.SpaceRepository;
 import com.nocountry.S12G15.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,21 +17,21 @@ import java.io.IOException;
 public class ImageServiceImpl implements ImageService {
 
     @Autowired
-    ChannelRepository channelRepository;
+    SpaceRepository spaceRepository;
     @Autowired
     ImageRepository imageRepository;
     @Override
-    public ImageEntity saveImage(MultipartFile file, String idChannel) {
+    public ImageEntity saveImageSpace(MultipartFile file, String idSpace) {
 
-        ChannelEntity channelEntity = channelRepository.findById(idChannel).orElseThrow();
+        SpaceEntity space = spaceRepository.findById(idSpace).orElseThrow();
 
         try {
             ImageEntity imageEntity = new ImageEntity();
             imageEntity.setImageContent(file.getBytes());
             imageRepository.save(imageEntity);
 
-            channelEntity.setImageEntity(imageEntity);
-            channelRepository.save(channelEntity);
+            space.setImageEntity(imageEntity);
+            spaceRepository.save(space);
 
             return imageEntity;
 
@@ -43,9 +45,9 @@ public class ImageServiceImpl implements ImageService {
     @Override
     public byte[] getPhoto(String idChannel) {
 
-        ChannelEntity channel = channelRepository.findById(idChannel).orElseThrow();
+        SpaceEntity space = spaceRepository.findById(idChannel).orElseThrow();
 
-        byte[] file = channel.getImageEntity().getImageContent();
+        byte[] file = space.getImageEntity().getImageContent();
 
         return file;
 

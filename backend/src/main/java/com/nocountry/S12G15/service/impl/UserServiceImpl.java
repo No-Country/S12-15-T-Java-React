@@ -5,10 +5,13 @@ import com.nocountry.S12G15.domain.entity.UserEntity;
 import com.nocountry.S12G15.dto.request.UserRequestDTO;
 //import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 //import com.nocountry.S12G15.mapper.SpaceMapper;
+import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
+import com.nocountry.S12G15.mapper.SpaceMapper;
 import com.nocountry.S12G15.mapper.UserMapper;
 import com.nocountry.S12G15.persistance.repository.UserRepository;
 import com.nocountry.S12G15.dto.response.UserResponseDTO;
 //import com.nocountry.S12G15.service.SpaceService;
+import com.nocountry.S12G15.service.SpaceService;
 import com.nocountry.S12G15.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,17 +23,17 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     public final UserRepository userRepository;
 
-  //  public final SpaceService spaceService;
+    public final SpaceService spaceService;
     public final UserMapper userMapper;
 
-   // public final SpaceMapper spaceMapper;
+    public final SpaceMapper spaceMapper;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, SpaceService spaceService, SpaceMapper spaceMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
-     //   this.spaceService = spaceService;
-     //   this.spaceMapper = spaceMapper;
+        this.spaceService = spaceService;
+        this.spaceMapper = spaceMapper;
     }
     @Override
     public List<UserResponseDTO> getAllUsers() {
@@ -90,30 +93,30 @@ public class UserServiceImpl implements UserService {
 
 
     }
-/*
+
+//    @Override
+//    public List<SpaceResponseDTO> getAllSpaces() {
+//
+//        List<SpaceResponseDTO> spaceEntityList = spaceService.getAllSpaces();
+//
+//
+//        return spaceEntityList;
+//    }
+
+
+
     @Override
-    public List<SpaceResponseDTO> getAllSpaces() {
-
-        List<SpaceResponseDTO> spaceEntityList = spaceService.getAllSpaces();
-
-
-        return spaceEntityList;
-    }
-
-
-
-    @Override
-    public UserResponseDTO addSpaceToUser(String id, Long idSpace) {
+    public UserResponseDTO addSpaceToUser(String id, String idSpace) {
         Optional<UserEntity> userEntityOptional = userRepository.findById(id);
-        SpaceResponseDTO spaceResponseDTO = spaceService.getSpaceById(idSpace);
+        SpaceResponseDTO spaceResponseDTO = spaceService.findSpaceById(idSpace);
         if(!userEntityOptional.isPresent() || spaceResponseDTO == null){
             return null;
         }
         UserEntity userEntity = userEntityOptional.get();
-        userEntity.getSpaceEntityList().add(spaceMapper.toSpaceEntity(spaceResponseDTO));
+        userEntity.getSpaceEntityList().add(spaceMapper.spaceResponseDTOToSpaceEntity(spaceResponseDTO));
         userRepository.save(userEntity);
         return null;
     }
 
- */
+
 }
