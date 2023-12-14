@@ -1,7 +1,11 @@
+import { Aside } from '@/components/Aside';
+// import Sidebar from '@/components/workspace/Sidebar';
+
 export default function RootLayout({ children }) {
 	return (
-		<main>
-			{/* Aca va el sidebar */}
+		<main style={{ display: 'flex' }}>
+			<Aside />
+			{/* <Sidebar /> */}
 			{children}
 		</main>
 	);

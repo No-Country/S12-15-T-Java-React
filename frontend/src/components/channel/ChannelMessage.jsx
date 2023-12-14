@@ -1,7 +1,7 @@
 import styles from '@/styles/channelMessage.module.css';
 
 const ChannelMessage = ({ msg }) => {
-	const { username, date_time, message } = msg;
+	const { username, time, message } = msg;
 	return (
 		<div className={styles.message_container}>
 			<div className={styles.image_container}>
@@ -10,7 +10,7 @@ const ChannelMessage = ({ msg }) => {
 			<div className={styles.message}>
 				<div className={styles.username}>
 					{username}
-					<span className={styles.date_time}>{date_time}</span>
+					<span className={styles.date_time}>{time}</span>
 				</div>
 				<span className={styles.message_text}>{message}</span>
 			</div>
