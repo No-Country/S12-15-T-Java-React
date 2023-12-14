@@ -1,6 +1,7 @@
 import AddCard from './AddCard';
 import { BsThreeDots } from 'react-icons/bs';
 import styleList from '@/styles/board/listBoard.module.css';
+import styleCard from '@/styles/board/addCard.module.css';
 
 const ListBoard = () => {
 	return (
@@ -11,7 +12,9 @@ const ListBoard = () => {
 					<BsThreeDots className={styleList.threePoints} />
 				</button>
 			</header>
-			<AddCard />
+			<main className={styleCard.fixElementPlus}>
+				<AddCard />
+			</main>
 		</main>
 	);
 };

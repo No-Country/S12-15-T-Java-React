@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import styleCard from '@/styles/board/addCard.module.css';
 import { FaPlus } from 'react-icons/fa';
 
 const AddCard = () => {
@@ -23,28 +24,33 @@ const AddCard = () => {
 		<div>
 			{/* Muestra las tarjetas */}
 			{cards.map((card, index) => (
-				<div key={index} onClick={() => setIsEditing(!isEditing)}>
-					{card}
+				<div
+					key={index}
+					className={styleCard.card}
+					onClick={() => setIsEditing(!isEditing)}
+				>
+					<span className={styleCard.cardName}>{card}</span>
 				</div>
 			))}
 
 			{isEditing ? (
-				<div>
+				<div className={styleCard.enterName}>
 					{/* Contenido del formulario de edición */}
-					<input
+					<textarea
+						className={styleCard.textAreaName}
 						type="text"
-						placeholder="Agregar elemento"
+						placeholder="Introduzca un titulo para esta tarjeta..."
 						value={inputValue}
 						onChange={(e) => setInputValue(e.target.value)}
 					/>
-					<button onClick={handleSave}>Guardar</button>
+					<button className={styleCard.btnTextArea} onClick={handleSave}>
+						Añadir tarjeta
+					</button>
 				</div>
 			) : (
-				<div>
-					{/* Contenido normal antes de hacer clic */}
-					<div onClick={handleToggleEdit}>
-						<FaPlus /> Agregar elemento
-					</div>
+				<div onClick={handleToggleEdit} className={styleCard.elementPlus}>
+					<FaPlus className={styleCard.plus} />
+					<span className={styleCard.nameElementPlus}>Añadir una tarjeta</span>
 				</div>
 			)}
 		</div>

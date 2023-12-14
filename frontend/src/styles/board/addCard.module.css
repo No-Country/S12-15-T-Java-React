@@ -1,0 +1,79 @@
+.fixElementPlus{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/*Add Card name*/
+.elementPlus{
+    display: flex;
+    align-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Puedes ajustar la opacidad y el color según tus necesidades */
+    z-index: 1;
+}
+
+.nameElementPlus{
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.enterName{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.textAreaName{
+    height: 4rem;
+    padding: 0.5rem;
+    resize: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 0.5rem;
+    border: 1px solid var(--grey);
+    background-color: #EEE;
+}
+
+.btnTextArea{
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+/*Card en di*/
+.card{
+    padding: 0.5rem;
+    background: #EEE;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid (--grey);
+    box-shadow: 0px 0px 4px 0px var(--dark-grey);
+}
+
+.cardName{
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/*Icons*/
+.plus{
+    align-self: center;
+    font-size: 0.5rem;
+}
