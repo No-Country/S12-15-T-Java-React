@@ -25,7 +25,7 @@
 /* Logo (TRACK + IMG) */
 .track {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	gap: 16px;
 	width: auto;
 	height: auto;
@@ -268,7 +268,7 @@
 		text-align: center;
 		border-radius: 4px;
 		justify-content: center;
-		align-items: start;
+		align-items: flex-start;
 		border: 2px solid #f001bc;
 		overflow: hidden;
 	}
@@ -281,7 +281,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 10px 0 10px 20px;
-		text-align: start;
+		text-align: flex-start;
 		position: relative;
 		bottom: 26px;
 		margin-top: 10%;
