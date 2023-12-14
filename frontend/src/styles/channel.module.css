@@ -4,7 +4,7 @@
 	flex-grow: 1;
 	background-color: var(--white);
 	color: var(--black);
-	min-height: 100%;
+	height: calc(100vh - 67px);
 	width: 100%;
 }
 
