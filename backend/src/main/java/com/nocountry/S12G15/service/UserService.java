@@ -23,4 +23,6 @@ public interface UserService {
 //    List<SpaceResponseDTO> getAllSpaces();
 
     UserResponseDTO addSpaceToUser(String id, String idSpace);
+
+    UserResponseDTO getUserByMail(String mail);
 }
