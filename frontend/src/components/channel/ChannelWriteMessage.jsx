@@ -1,12 +1,50 @@
+'use client';
+import { useState } from 'react';
 import styles from '@/styles/channelWriteMessage.module.css';
 
-const ChannelWriteMessage = () => {
+const ChannelWriteMessage = ({ handleSendMessage }) => {
+	const [newMessage, setNewMessage] = useState('');
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		if (newMessage.trim() === '') {
+			// Puedes manejar la lógica si el mensaje está vacío
+			return;
+		}
+
+		const currentDate = new Date();
+
+		// Formatear la fecha como dd/mm/yyyy
+		const formattedDate = `${currentDate.getDate()}/${
+			currentDate.getMonth() + 1
+		}/${currentDate.getFullYear()}`;
+
+		// Formatear la hora como hh:mm
+		const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+
+		const messageObject = {
+			id: Math.random(),
+			username: 'Nombre del usuario',
+			date: formattedDate,
+			time: formattedTime,
+			message: newMessage,
+		};
+
+		//Send Message
+		handleSendMessage(messageObject);
+
+		//Clear input
+		setNewMessage('');
+	};
 	return (
-		<form className={styles.form}>
+		<form className={styles.form} onSubmit={handleSubmit}>
 			<input
 				type="text"
 				className={styles.write_message_input}
 				placeholder="Escribe un mensaje"
+				value={newMessage}
+				onChange={(e) => setNewMessage(e.target.value)}
 			/>
 			<div className={styles.menu}>
 				<div>
@@ -47,7 +85,7 @@ const ChannelWriteMessage = () => {
 						/>
 					</svg>
 				</div>
-				<div>
+				<button type="submit">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="20"
@@ -60,7 +98,7 @@ const ChannelWriteMessage = () => {
 							fill="#1E1E1E"
 						/>
 					</svg>
-				</div>
+				</button>
 			</div>
 		</form>
 	);

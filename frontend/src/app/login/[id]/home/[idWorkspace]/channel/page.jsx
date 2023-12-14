@@ -1,36 +1,47 @@
-import ChannelMessage from '@/components/ChannelMessage';
-import ChannelMessagesDivider from '@/components/ChannelMessagesDivider';
-import ChannelWriteMessage from '@/components/ChannelWriteMessage';
+'use client';
+import ChannelMessage from '@/components/channel/ChannelMessage';
+import ChannelMessagesDivider from '@/components/channel/ChannelMessagesDivider';
+import ChannelWriteMessage from '@/components/channel/ChannelWriteMessage';
 import styles from '@/styles/channel.module.css';
-
+import { useState } from 'react';
 const message = [
 	{
 		id: 1,
 		username: 'Nombre del usuario',
-		date_time: '10:45',
+		date: '',
+		time: '10:45',
 		message: 'Texto del usuario de lo que quiera escribir',
 	},
 	{
 		id: 2,
 		username: 'Nombre del usuario',
-		date_time: '10:45',
+		date: '',
+		time: '10:45',
 		message: 'Texto del usuario de lo que quiera escribir',
 	},
 	{
 		id: 3,
 		username: 'Nombre del usuario',
-		date_time: '10:45',
+		date: '',
+		time: '10:45',
 		message: 'Texto del usuario de lo que quiera escribir',
 	},
 	{
 		id: 4,
 		username: 'Nombre del usuario',
-		date_time: '10:45',
+		date: '',
+		time: '10:45',
 		message: 'Texto del usuario de lo que quiera escribir',
 	},
 ];
 
 const ChannelPage = () => {
+	const [messages, setMessages] = useState(message);
+
+	const handleSendMessage = (newMessage) => {
+		setMessages((prevMessages) => [...prevMessages, newMessage]);
+	};
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.title}>
@@ -48,16 +59,16 @@ const ChannelPage = () => {
 			</div>
 			<hr />
 			<div className={styles.messages}>
-				{/*To-Do Map messages handling change of dates*/}
-				<ChannelMessage msg={message[0]} />
-				<ChannelMessage msg={message[1]} />
-				<ChannelMessagesDivider date="11/11/23" />
-				<ChannelMessage msg={message[2]} />
-				<ChannelMessagesDivider date="Hoy" />
-				<ChannelMessage msg={message[3]} />
+				{messages.map((msg, index) => (
+					<div key={index}>
+						<ChannelMessage msg={msg} />
+						{index === 1 && <ChannelMessagesDivider date="11/12/23" />}
+						{index === 2 && <ChannelMessagesDivider date="Hoy" />}
+					</div>
+				))}
 			</div>
 			<div className={styles.write_message}>
-				<ChannelWriteMessage />
+				<ChannelWriteMessage handleSendMessage={handleSendMessage} />
 			</div>
 		</div>
 	);
