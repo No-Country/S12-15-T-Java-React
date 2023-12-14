@@ -37,6 +37,8 @@
 .container_input_content input {
 	width: 360px;
 	padding: 1rem 0.75rem;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem;
 	border: 2px solid var(--grey);
 	border-radius: 4px;
 }
@@ -44,6 +46,8 @@
 .container_input_content textarea {
 	height: 115px;
 	padding: 1rem 0.75rem;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem;
 	border: 2px solid var(--grey);
 	border-radius: 4px;
 	resize: none;
@@ -115,6 +119,7 @@
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
 	font-weight: 700;
+	text-align: center;
 	border: 1px solid var(--blue);
 	border-radius: 4px;
 	cursor: pointer;
@@ -122,6 +127,7 @@
 
 .btn_create:hover {
 	background-color: var(--mazarine-blue);
+	color: var(--white);
 }
 
 /* Tablet */
