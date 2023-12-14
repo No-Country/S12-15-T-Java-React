@@ -4,6 +4,7 @@ import { MemberProject } from './MemberProject';
 // import styleCard from '@/styles/home/projects.module.css';
 import styleCard from '@/styles/home/cardProjects.module.css';
 import { CiUser } from 'react-icons/ci';
+import Link from 'next/link';
 
 export const CardProject = ({
 	img,
@@ -41,7 +42,10 @@ export const CardProject = ({
 				</div>
 				<span className={styleCard.numberMember}>{numberMember} miembros</span>
 			</div>
-			<button className={styleCard.buttonGetInto}> Ingresar </button>
+			<Link href="/login/1/home/1/board" className={styleCard.buttonGetInto}>
+				{' '}
+				Ingresar
+			</Link>
 		</main>
 	);
 };

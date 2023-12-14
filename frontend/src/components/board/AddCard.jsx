@@ -23,16 +23,24 @@ const AddCard = () => {
 	return (
 		<div>
 			{/* Muestra las tarjetas */}
-			{cards.map((card, index) => (
-				<div
-					key={index}
-					className={styleCard.card}
-					onClick={() => setIsEditing(!isEditing)}
-				>
-					<span className={styleCard.cardName}>{card}</span>
-				</div>
-			))}
-
+			<div
+				style={{
+					backgroundColor: 'red',
+					maxHeight: '27rem',
+					overflowY: 'auto',
+					overflowX: 'hidden',
+				}}
+			>
+				{cards.map((card, index) => (
+					<div
+						key={index}
+						className={styleCard.card}
+						onClick={() => setIsEditing(!isEditing)}
+					>
+						<span className={styleCard.cardName}>{card}</span>
+					</div>
+				))}
+			</div>
 			{isEditing ? (
 				<div className={styleCard.enterName}>
 					{/* Contenido del formulario de edición */}

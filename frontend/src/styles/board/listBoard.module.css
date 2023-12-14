@@ -4,7 +4,7 @@
 	position: relative;
 	/* height: 100px; */
 	max-height: 27rem;
-	overflow-y: auto;
+	/* overflow-y: auto; */
 	max-width: 15rem;
 	padding: 0.5rem;
 	border-radius: 0.75rem;
