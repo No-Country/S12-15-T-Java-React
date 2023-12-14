@@ -39,11 +39,14 @@ public class UserController {
         UserResponseDTO userResponseDTO = userService.getUserById(id);
         return new ResponseEntity<>(userResponseDTO, HttpStatus.OK);
     }
+    /*
     @PostMapping("/create")
     public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserRequestDTO userRequestDTO){
         UserResponseDTO userResponseDTO1 = userService.createUser(userRequestDTO);
         return new ResponseEntity<>(userResponseDTO1, HttpStatus.CREATED);
     }
+
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable String id){
         userService.deleteUser(id);
@@ -61,7 +64,14 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-
+    @GetMapping("/{mail}")
+    public ResponseEntity<UserResponseDTO> getUserByMail(@PathVariable String mail){
+        UserResponseDTO userResponseDTO = userService.getUserByMail(mail);
+        if(userResponseDTO == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(userResponseDTO, HttpStatus.OK);
+    }
 /*
     @GetMapping("/getAllSpaces")
     public ResponseEntity<List<SpaceResponseDTO>> getAllSpaces(){

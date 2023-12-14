@@ -49,7 +49,7 @@ public class UserEntity implements UserDetails {
 
 
 
-    @OneToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<SpaceEntity> spaceEntityList;
 
 

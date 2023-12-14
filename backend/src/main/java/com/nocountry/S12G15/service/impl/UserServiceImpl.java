@@ -118,5 +118,15 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public UserResponseDTO getUserByMail(String mail) {
+        Optional<UserEntity> userEntityOptional = userRepository.findUserByEmail(mail);
+        if(userEntityOptional.isPresent()){
+            UserResponseDTO userResponseDTO = userMapper.toUserResponseDto(userEntityOptional.get());
+            return userResponseDTO;
+        }
+        return null;
+    }
+
 
 }
