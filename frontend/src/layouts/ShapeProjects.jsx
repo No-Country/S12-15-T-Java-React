@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import styleProject from '@/styles/home/projects.module.css';
 import { IoIosArrowDown } from 'react-icons/io';
+import Link from 'next/link';
 
 export const ShapeProjects = ({
 	name,
@@ -33,7 +34,9 @@ export const ShapeProjects = ({
 			<header className={styleHeader}>
 				{name}
 				{btnCreate && (
-					<button className={styleProject.buttonCreate}> Crear </button>
+					<Link href="/login/1/create-workspace">
+						<button className={styleProject.buttonCreate}>Crear</button>
+					</Link>
 				)}
 			</header>
 			<div

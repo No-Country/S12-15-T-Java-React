@@ -12,8 +12,16 @@ const useAuth = () => {
 		setLoading(true);
 		setError(null);
 
+		console.log(`${apiUrl}/auth/login`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(credentials),
+		});
+
 		try {
-			const response = await fetch(`${apiUrl}/login`, {
+			const response = await fetch(`${apiUrl}/auth/login`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

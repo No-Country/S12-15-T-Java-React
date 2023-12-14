@@ -1,7 +1,7 @@
 import FormInputGroup from '@/components/create/FormInputGroup';
 import FormGuests from '@/components/create/FormGuests';
-import Button from '@/components/Button';
 import styles from '@/styles/createworkspace.module.css';
+import Link from 'next/link';
 
 const CreateWorkSpace = () => {
 	return (
@@ -9,9 +9,9 @@ const CreateWorkSpace = () => {
 			<form className={styles.container_form}>
 				<FormInputGroup />
 				<FormGuests />
-				<Button type="submit" className={styles.btn_create}>
+				<Link href="/login/1/home/1/board" className={styles.btn_create}>
 					Crear Proyecto
-				</Button>
+				</Link>
 			</form>
 		</div>
 	);
