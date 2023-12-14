@@ -385,9 +385,9 @@
 	#sidebar {
 		position: fixed;
 		/*   width: 200px;
-    height: 100%; */
+		*/
+		height: 100%;
 		height: auto;
-		background: #187bdf;
 		left: -349px;
 		transition: all 500ms linear;
 	}
@@ -416,7 +416,7 @@
 }
 #sidebar.activos {
 	left: 0px;
-	background: #18df43;
+	height: 100%;
 }
 
 /*  #sidebar ul li {
