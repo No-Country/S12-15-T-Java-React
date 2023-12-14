@@ -21,6 +21,8 @@ export async function registerUser(name, email, password, repeatedPassword) {
 
 		if (response.ok) {
 			const data = await response.json();
+			localStorage.setItem('user', JSON.stringify(data));
+			localStorage.setItem('token', data.token);
 			return { success: true, id: data.id };
 		} else {
 			const errorData = await response.json();
