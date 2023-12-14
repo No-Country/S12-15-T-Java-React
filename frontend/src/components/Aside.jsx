@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import '@/styles/activity.css';
+import Link from 'next/link';
 
 export const Aside = () => {
 	useEffect(() => {
@@ -26,7 +27,7 @@ export const Aside = () => {
 	}, []);
 
 	return (
-		<aside id="sidebar">
+		<aside id="sidebar" className="white-link">
 			<div className="frame-766 toggle-btn">
 				<div className=" vector2">
 					<img src="/images/Vector2.png" alt="Texto alternativo de la imagen" />
@@ -67,7 +68,9 @@ export const Aside = () => {
 										alt="Texto alternativo de la imagen"
 									/>
 								</div>
-								<div className="nombre">General </div>
+								<div className="nombre">
+									<Link href="/login/1/home/1/channel">General</Link>
+								</div>
 							</div>
 							<div className="canales-tablero-agregar2">
 								<div className="icono-agregar" width="16" height="16">
@@ -100,7 +103,9 @@ export const Aside = () => {
 										alt="Texto alternativo de la imagen"
 									/>
 								</div>
-								<div className="nombre">General </div>
+								<div className="nombre">
+									<Link href="/login/1/home/1/board">General</Link>
+								</div>
 							</div>
 							<div className="canales-tablero-agregar2">
 								<div className="icono-agregar2" width="16" height="17">
