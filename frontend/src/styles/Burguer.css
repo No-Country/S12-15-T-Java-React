@@ -5,8 +5,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: relative;
-	top: 10px;
+	position: absolute;
 }
 
 .hamburger input {
@@ -44,9 +43,9 @@
 	stroke-dashoffset: -32.42;
 }
 .burguer-cont {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: block;
+	margin: 0;
 	height: 35px;
 	width: 35px;
+	z-index: 100;
 }

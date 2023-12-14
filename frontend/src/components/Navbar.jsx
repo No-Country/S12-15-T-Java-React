@@ -44,10 +44,10 @@ function Navbar() {
 					<div className="dd-complete">
 						{/* contiene los botones proyect, recent, create */}
 						<ul className="dd-cont">
-							<li>
+							<li className="option-projet">
 								<DdProyects />
 							</li>
-							<li>
+							<li className="option-recent">
 								<DdRecents />
 							</li>
 						</ul>

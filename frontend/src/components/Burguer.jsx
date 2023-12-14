@@ -1,8 +1,9 @@
 function Burguer() {
 	return (
 		<div className="burguer-cont">
-			<label className="hamburger">
-				<input type="checkbox" /* htmlFor="btn-menu */ />
+			<label className="hamburger" htmlFor="btn-menu">
+				<input type="checkbox" />
+
 				<svg viewBox="0 0 32 32">
 					<path
 						className="line line-top-bottom"
