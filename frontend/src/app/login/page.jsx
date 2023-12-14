@@ -7,7 +7,7 @@ const LoginPage = () => {
 			<form className={styles.container_form}>
 				<div className={styles.container_logo}>
 					<img
-						src="/images/logo.png"
+						src="/images/logo-logo.png"
 						alt="Track logo"
 						className={styles.img_logo}
 					/>
