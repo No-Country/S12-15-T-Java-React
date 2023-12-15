@@ -22,14 +22,7 @@ const AddCard = () => {
 
 	return (
 		<div>
-			<div
-			// style={{
-			// 	backgroundColor: 'red',
-			// 	maxHeight: '27rem',
-			// 	overflowY: 'auto',
-			// 	overflowX: 'hidden',
-			// }}
-			>
+			<div className={styleCard.divCard}>
 				{cards.map((card, index) => (
 					<div
 						key={index}

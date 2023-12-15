@@ -3,6 +3,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
+	max-height: 27rem;
+	overflow-y: auto;
 }
 
 /*Add Card name*/
@@ -48,7 +50,12 @@
 	background-color: var(--blue);
 }
 
-/*Card en di*/
+/*Card*/
+.divCard{
+	max-height: 20rem;
+	overflow-y: auto;
+}
+
 .card {
 	padding: 0.5rem;
 	background: #eee;

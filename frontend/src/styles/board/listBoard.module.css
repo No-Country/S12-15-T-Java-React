@@ -34,7 +34,7 @@
 }
 
 /*Add List*/
-.addList{
+.addList {
 	display: flex;
 	align-items: center;
 	width: 15rem;
@@ -48,7 +48,7 @@
 	cursor: pointer;
 }
 
-.labelAddlist{
+.labelAddlist {
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 400;
@@ -56,7 +56,7 @@
 }
 
 /*Form add list*/
-.enterName{
+.enterName {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -71,7 +71,7 @@
 	background-color: var(--white);
 }
 
-.inputName{
+.inputName {
 	padding: 0.5rem;
 	height: fit-content;
 	resize: none;
@@ -82,7 +82,7 @@
 	background-color: #eee;
 }
 
-.btnInput{
+.btnInput {
 	padding: 0.5rem;
 	font-size: 0.75rem;
 	font-style: normal;
@@ -93,12 +93,12 @@
 }
 
 /*New list*/
-.newList{
+.newList {
 	display: flex;
 	/* margin-left: 0.75rem; */
 }
 
-.newListBoard{
+.newListBoard {
 	display: inline-flex;
 	margin-left: 0.75rem;
 	margin-right: 0.75rem;
@@ -110,7 +110,7 @@
 	font-size: 1.5rem;
 }
 
-.plus{
+.plus {
 	align-items: center;
 	font-size: 0.5rem;
 	color: var(--white);
