@@ -416,7 +416,7 @@
 }
 #sidebar.activos {
 	left: 0px;
-	background: #18df43;
+	height: 100%;
 }
 
 /*  #sidebar ul li {
