@@ -5,6 +5,7 @@ import com.nocountry.S12G15.dto.request.UserRequestDTO;
 import com.nocountry.S12G15.dto.response.UserResponseDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface UserService {
@@ -24,5 +25,12 @@ public interface UserService {
 
     UserResponseDTO addSpaceToUser(String id, String idSpace);
 
-    UserResponseDTO getUserByMail(String mail);
+   
+    Optional<UserResponseDTO> getUserByEmail(String email);
+
+    List<UserResponseDTO> getAllEnabledUsers();
+
+    Optional<UserResponseDTO> getEnabledUserById(String id);
+
+    Optional<UserResponseDTO> getEnabledUserByEmail(String email);
 }

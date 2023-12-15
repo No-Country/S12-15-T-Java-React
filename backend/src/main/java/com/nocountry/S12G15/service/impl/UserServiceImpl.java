@@ -119,13 +119,41 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponseDTO getUserByMail(String mail) {
-        Optional<UserEntity> userEntityOptional = userRepository.findUserByEmail(mail);
+    public Optional<UserResponseDTO> getUserByEmail(String email) {
+        Optional<UserEntity> userEntityOptional = userRepository.findUserByEmail(email);
         if(userEntityOptional.isPresent()){
             UserResponseDTO userResponseDTO = userMapper.toUserResponseDto(userEntityOptional.get());
-            return userResponseDTO;
+            return Optional.of(userResponseDTO);
         }
-        return null;
+        return Optional.empty();
+    }
+
+    @Override
+    public List<UserResponseDTO> getAllEnabledUsers() {
+        List<UserEntity> userEntityList = userRepository.findByDisabledFalse();
+        List<UserResponseDTO> userResponseDTOList = userMapper.toUserResponseDTOList(userEntityList);
+        return userResponseDTOList;
+
+    }
+
+    @Override
+    public Optional<UserResponseDTO> getEnabledUserById(String id) {
+        Optional<UserEntity> userEntityOptional = userRepository.findByIdAndDisabledFalse(id);
+        if(userEntityOptional.isPresent()){
+            UserResponseDTO userResponseDTO = userMapper.toUserResponseDto(userEntityOptional.get());
+            return Optional.of(userResponseDTO);
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<UserResponseDTO> getEnabledUserByEmail(String email) {
+        Optional<UserEntity> userEntityOptional = userRepository.findByEmailAndDisabledFalse(email);
+        if(userEntityOptional.isPresent()){
+            UserResponseDTO userResponseDTO = userMapper.toUserResponseDto(userEntityOptional.get());
+            return Optional.of(userResponseDTO);
+        }
+        return Optional.empty();
     }
 
 
