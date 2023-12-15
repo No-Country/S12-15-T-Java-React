@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -142,6 +143,16 @@ public class SpaceServiceImpl implements SpaceService {
         space = spaceRepository.save(space);
 
         return spaceMapper.spaceToSpaceResponseDto(space);
+    }
+
+    @Override
+    public Optional<SpaceResponseDTO> getEnabledSpaceById(String idSpace) {
+        Optional<SpaceEntity> spaceEntityOptional = spaceRepository.findById(idSpace);
+        if(spaceEntityOptional.isPresent()){
+            SpaceResponseDTO spaceResponseDTO = spaceMapper.spaceToSpaceResponseDto(spaceEntityOptional.get());
+            return Optional.of(spaceResponseDTO);
+        }
+        return Optional.empty();
     }
 
     private void validate(SpaceRequestDTO spaceRequestDTO) throws MyException {

@@ -6,6 +6,7 @@ import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
 
 import java.util.List;
+import java.util.Optional;
 //import org.springframework.stereotype.Service;
 
 
@@ -21,4 +22,6 @@ public interface SpaceService {
     SpaceResponseDTO enableSpace(String idSpace);
     SpaceResponseDTO addChannelToSpace(String idSpace, String idChannel) throws MyException;
     SpaceResponseDTO addBoardToSpace(String idSpace, String idBoard) throws MyException;
+
+    Optional<SpaceResponseDTO> getEnabledSpaceById(String idSpace);
 }
