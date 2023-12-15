@@ -4,7 +4,7 @@ package com.nocountry.S12G15.service;
 import com.nocountry.S12G15.dto.SpaceDto;
 //import org.springframework.stereotype.Service;
 
-
+//@Service
 public interface SpaceService {
 
     void delete(Long id);

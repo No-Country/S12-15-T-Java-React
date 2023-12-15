@@ -22,7 +22,6 @@ public class SpaceController {
     @Autowired
     SpaceRepo spaceRepo;
     // Creando Espacio de Trabajo
-    @PostMapping("/create")
     public ResponseEntity<?> newSpace(@RequestBody SpaceDto newSpace) {
         SpaceDto spaceDto = spaceService.create(newSpace);
         return new ResponseEntity<>(spaceDto, HttpStatus.CREATED);

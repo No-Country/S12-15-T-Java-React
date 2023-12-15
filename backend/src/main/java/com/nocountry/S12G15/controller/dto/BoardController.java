@@ -19,7 +19,6 @@ public class BoardController {
     @Autowired
     private BoardServiceImpl boardService;
 
-    @PostMapping("/register")
     public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO) throws MyException {
 
         BoardDTO savedBoardDTO = boardService.createBoard(boardDTO);

@@ -7,13 +7,11 @@ import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
 import com.nocountry.S12G15.service.ChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.channels.Channel;
 import java.util.Map;
 import java.util.Optional;
 
@@ -37,7 +35,6 @@ public class ChannelController {
     "notes":"This'sAnNote"
     }
     * */
-    @PostMapping("/new")
     public ResponseEntity<?> createChannel(@RequestBody ChannelRequestDTO channelRequestDTO){
         try{
             ChannelResponseDTO channelResponseDTO= channelService.createChannel(channelRequestDTO);

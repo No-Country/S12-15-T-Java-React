@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import static com.nocountry.S12G15.util.Constant.API_VERSION;
@@ -23,7 +22,6 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @PostMapping("/new")
     public ResponseEntity<?> createTask(@RequestBody TaskRequestDTO taskRequestDTO){
 
         try{
