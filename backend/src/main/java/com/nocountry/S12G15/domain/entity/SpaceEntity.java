@@ -28,6 +28,4 @@ public class SpaceEntity {
     private List<BoardEntity> boards;
     @OneToMany
     private List<ChannelEntity> channels;
-
-
 }

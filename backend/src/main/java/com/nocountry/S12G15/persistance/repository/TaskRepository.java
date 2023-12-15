@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface TaskRepository extends JpaRepository<TaskEntity, String> {
 
-    List<TaskEntity> saveAll(List<TaskEntity> entities);
+//    List<TaskEntity> saveAll(List<TaskEntity> entities);
 }

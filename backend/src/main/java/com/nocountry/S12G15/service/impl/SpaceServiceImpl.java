@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -76,6 +77,12 @@ public class SpaceServiceImpl implements SpaceService {
         channelRequestDTO.setNotes("Demo Notes");
 
         ChannelResponseDTO channelResponseDTO = channelService.createChannel(channelRequestDTO);
+
+        List<ChannelEntity> channelEntityList = new ArrayList<>();
+        List<BoardEntity> boardEntityList = new ArrayList<>();
+        space.setBoards(boardEntityList);
+        space.setChannels(channelEntityList);
+
         space.getChannels().add(channelMapper.toGetChannelEntityFromChannelResponseDTO(channelResponseDTO));
         //Create Board
         BoardDTO boardDTO = BoardDTO.builder()
@@ -83,6 +90,7 @@ public class SpaceServiceImpl implements SpaceService {
                 .description("Demo Description")
                 .build();
         BoardDTO boardDTOSaved = boardService.createBoard(boardDTO);
+
         space.getBoards().add(boardMapper.boardDTOToBoard(boardDTOSaved));
 
         SpaceEntity savedSpace = spaceRepository.save(space);
@@ -198,6 +206,44 @@ public class SpaceServiceImpl implements SpaceService {
             return Optional.of(spaceResponseDTO);
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<BoardDTO> getAllBoards(String idSpace) {
+        List<BoardEntity> boardEntityList = spaceRepository.findById(idSpace).get().getBoards();
+        return boardMapper.toBoardDTOList(boardEntityList);
+    }
+
+    @Override
+    public List<BoardDTO> getAllEnabledBoards(String idSpace) {
+        List<BoardEntity> boardEntityList = spaceRepository.findById(idSpace).get().getBoards();
+        List<BoardDTO> boardDTOList = new ArrayList<>();
+        boardEntityList.forEach(boardEntity -> {
+            if(boardEntity.isEnabled()){
+                boardDTOList.add(boardMapper.boardToBoardDTO(boardEntity));
+            }
+        });
+        return boardDTOList;
+    }
+
+    @Override
+    public List<ChannelResponseDTO> getAllChannels(String idSpace) {
+        List<ChannelEntity> channelEntityList = spaceRepository.findById(idSpace).get().getChannels();
+        List<ChannelResponseDTO> channelResponseDTOList = channelMapper.toChannelResponseDtoList(channelEntityList);
+
+        return channelResponseDTOList;
+    }
+
+    @Override
+    public List<ChannelResponseDTO> getAllEnabledChannels(String idSpace) {
+        List<ChannelEntity> channelEntityList = spaceRepository.findById(idSpace).get().getChannels();
+        List<ChannelResponseDTO> channelResponseDTOList = new ArrayList<>();
+        channelEntityList.forEach(channelEntity -> {
+            if(channelEntity.getStatus().toString().equalsIgnoreCase("DISABLED")){
+                channelResponseDTOList.add(channelMapper.toGetChannelResponseDto(channelEntity));
+            }
+        });
+        return channelResponseDTOList;
     }
 
     private void validate(SpaceRequestDTO spaceRequestDTO) throws MyException {

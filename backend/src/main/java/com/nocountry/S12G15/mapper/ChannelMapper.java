@@ -2,9 +2,11 @@ package com.nocountry.S12G15.mapper;
 
 import com.nocountry.S12G15.domain.entity.BoardEntity;
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
+import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import com.nocountry.S12G15.dto.ChannelDto;
 import com.nocountry.S12G15.dto.request.ChannelRequestDTO;
 import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
+import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -21,6 +23,8 @@ public interface ChannelMapper {
 
     ChannelEntity toGetChannelEntityFromChannelResponseDTO(ChannelResponseDTO channelResponseDTO);//TODO response
     //TODO listas
+
+    List<ChannelResponseDTO> toChannelResponseDtoList(List<ChannelEntity> channelEntityList);
     List<ChannelRequestDTO> toChannelRequestDtoList(List<ChannelEntity> channelEntityList);
 
     List<ChannelEntity> toChannelEntityList(List<ChannelRequestDTO> channelRequestDTOList);

@@ -97,7 +97,7 @@ public class UserServiceImpl implements UserService {
 
 //    @Override
 //    public List<SpaceResponseDTO> getAllSpaces() {
-//
+//z
 //        List<SpaceResponseDTO> spaceEntityList = spaceService.getAllSpaces();
 //
 //

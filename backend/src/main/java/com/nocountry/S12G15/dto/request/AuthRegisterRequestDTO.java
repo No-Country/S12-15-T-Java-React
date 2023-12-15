@@ -8,6 +8,10 @@ import lombok.Data;
 @Builder
 public class AuthRegisterRequestDTO {
 
+    private String name;
+
+    private String lastName;
+
     private String username;
 
     private String email;
@@ -15,6 +19,7 @@ public class AuthRegisterRequestDTO {
     private String password;
 
     private String repeatedPassword;
+
 
     //private RolUser role;
 
