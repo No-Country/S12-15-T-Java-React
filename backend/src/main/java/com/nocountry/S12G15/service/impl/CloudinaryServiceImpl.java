@@ -19,9 +19,8 @@ public class CloudinaryServiceImpl implements CloudinaryService {
 
     Cloudinary cloudinary;
 
-    private Map<String, String> valuesMap = new HashMap<>();
-
     public CloudinaryServiceImpl() {
+        Map<String, String> valuesMap = new HashMap<>();
         valuesMap.put("cloud_name", "duszkcctx");
         valuesMap.put("api_key", "368919288867349");
         valuesMap.put("api_secret", "4BPVt0EDal49PsQGkhh7ewuPdks");
