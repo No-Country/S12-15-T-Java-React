@@ -2,6 +2,7 @@ package com.nocountry.S12G15.controller;
 
 import com.nocountry.S12G15.dto.request.UserRequestDTO;
 //import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
+import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import com.nocountry.S12G15.dto.response.UserResponseDTO;
 //import com.nocountry.S12G15.service.SpaceService;
 import com.nocountry.S12G15.service.UserService;
@@ -31,22 +32,31 @@ public class UserController {
 
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getallusers")
     public ResponseEntity<List<UserResponseDTO>> getAllUsers(){
         List<UserResponseDTO> userResponseDTOList = userService.getAllUsers();
-        return ResponseEntity.ok(userResponseDTOList);
+        if(userResponseDTOList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(userResponseDTOList, HttpStatus.OK);
     }
-    @GetMapping("/allenabled")
+    @GetMapping("/getallenabledusers")
     public ResponseEntity<List<UserResponseDTO>> getAllEnabledUsers(){
         List<UserResponseDTO> userResponseDTOList = userService.getAllEnabledUsers();
-        return ResponseEntity.ok(userResponseDTOList);
+        if(userResponseDTOList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(userResponseDTOList, HttpStatus.OK);
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable String id){
-        UserResponseDTO userResponseDTO = userService.getUserById(id);
+    @GetMapping("/getuserbyid/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable String id){
+        Optional<UserResponseDTO> userResponseDTO = userService.getUserById(id);
+        if(userResponseDTO.isEmpty()){
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(userResponseDTO, HttpStatus.OK);
     }
-    @GetMapping("/enabled/{id}")
+    @GetMapping("/getenableduserbyid/{id}")
     public ResponseEntity<?> getEnabledUserById(@PathVariable String id){
         Optional<UserResponseDTO> userResponseDTO = userService.getEnabledUserById(id);
         if(userResponseDTO.isEmpty()){
@@ -62,26 +72,26 @@ public class UserController {
     }
 
      */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteuser/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable String id){
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("/disable/{id}")
-    public ResponseEntity<Void> disableUser(@PathVariable String id){
+    @PutMapping("/disableuserbyid/{id}")
+    public ResponseEntity<Void> disableUserById(@PathVariable String id){
         userService.disableUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 
-    @PutMapping("/enable/{id}")
-    public ResponseEntity<Void> enableUser(@PathVariable String id){
+    @PutMapping("/enableuserbyid/{id}")
+    public ResponseEntity<Void> enableUserById(@PathVariable String id){
         userService.enableUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/getuserbyemail/{email}")
     public ResponseEntity<UserResponseDTO> getUserByEmail(@PathVariable String email){
         Optional<UserResponseDTO> userResponseDTO = userService.getUserByEmail(email);
         if(userResponseDTO.isEmpty()){
@@ -89,7 +99,7 @@ public class UserController {
         }
         return new ResponseEntity<>(userResponseDTO.get(), HttpStatus.OK);
     }
-    @GetMapping("/enabled/{email}")
+    @GetMapping("/getenableduserbyemail/{email}")
     public ResponseEntity<?> getEnabledUserByEmail(@PathVariable String email){
         Optional<UserResponseDTO> userResponseDTO = userService.getEnabledUserByEmail(email);
         if(userResponseDTO.isEmpty()){
@@ -97,24 +107,63 @@ public class UserController {
         }
         return new ResponseEntity<>(userResponseDTO.get(), HttpStatus.OK);
     }
-/*
-    @GetMapping("/getAllSpaces")
-    public ResponseEntity<List<SpaceResponseDTO>> getAllSpaces(){
 
-        List<SpaceResponseDTO> spaceResponseDTOList = userService.getAllSpaces();
-        return ResponseEntity.ok(spaceResponseDTOList);
+    @GetMapping("/getallspacesfromenableduserid/{userId}")
+    public ResponseEntity<?> getAllSpacesFromEnabledUserID(@PathVariable String userId){
+        Optional<UserResponseDTO> userResponseDTO = userService.getEnabledUserById(userId);
+        if(userResponseDTO.isEmpty()){
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+        List<SpaceResponseDTO> spaceResponseDTOList = userService.getAllSpaces(userId);
+        if(spaceResponseDTOList.isEmpty()){
+            return new ResponseEntity<>("No spaces found for the user", HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(spaceResponseDTOList, HttpStatus.OK);
 
     }
-    @PutMapping("/{id}/addSpace/{idSpace}")
-    public ResponseEntity<UserResponseDTO> addSpaceToUser(@PathVariable String id, @PathVariable Long idSpace){
+    @GetMapping("/getallenabledspacesfromenableduserid/{userId}")
+    public ResponseEntity<?> getAllEnabledSpacesFromEnabledUserID(@PathVariable String userId){
+        Optional<UserResponseDTO> userResponseDTO = userService.getEnabledUserById(userId);
+        if(userResponseDTO.isEmpty()){
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+        List<SpaceResponseDTO> spaceResponseDTOList = userService.getAllEnabledSpaces(userId);
+        if(spaceResponseDTOList.isEmpty()){
+            return new ResponseEntity<>("No spaces found for the user", HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(spaceResponseDTOList, HttpStatus.OK);
 
-        UserResponseDTO userResponseDTO = userService.addSpaceToUser(id, idSpace);
-        return new ResponseEntity<>(userResponseDTO, HttpStatus.OK);
     }
 
 
-*/
-    // add board to user
-    // delete board from user
-    // update board from user
+    @PutMapping("/enabled/{userId}/addSpace/{idSpace}")
+    public ResponseEntity<?> addSpaceToUserFromId(@PathVariable String userId, @PathVariable String idSpace){
+        Optional<UserResponseDTO> userResponseDTO = userService.getEnabledUserById(userId);
+        if(userResponseDTO.isEmpty()){
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+        Optional<SpaceResponseDTO> spaceResponseDTO = userService.getEnabledSpaceById(idSpace);
+        if(spaceResponseDTO.isEmpty()){
+            return new ResponseEntity<>("Space not found", HttpStatus.NOT_FOUND);
+        }
+        UserResponseDTO userResponseDTOSaved = userService.addSpaceToUser(userId, idSpace);
+        //userResponseDTO = userService.addSpaceToUser(userId, idSpace);
+        return new ResponseEntity<>(userResponseDTOSaved, HttpStatus.OK);
+    }
+    @PutMapping("/enabled/{userEmail}/addSpace/{idSpace}")
+    public ResponseEntity<?> addSpaceToUserFromEmail(@PathVariable String userEmail, @PathVariable String idSpace){
+        Optional<UserResponseDTO> userResponseDTO = userService.getEnabledUserByEmail(userEmail);
+        if(userResponseDTO.isEmpty()){
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+        Optional<SpaceResponseDTO> spaceResponseDTO = userService.getEnabledSpaceById(idSpace);
+        if(spaceResponseDTO.isEmpty()){
+            return new ResponseEntity<>("Space not found", HttpStatus.NOT_FOUND);
+        }
+        UserResponseDTO userResponseDTOSaved = userService.addSpaceToUser(userResponseDTO.get().id(), idSpace);
+
+        return new ResponseEntity<>(userResponseDTOSaved, HttpStatus.OK);
+    }
+
+
 }
