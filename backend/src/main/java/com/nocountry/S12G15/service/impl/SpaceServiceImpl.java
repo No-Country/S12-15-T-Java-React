@@ -3,14 +3,21 @@ package com.nocountry.S12G15.service.impl;
 import com.nocountry.S12G15.domain.entity.BoardEntity;
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.domain.entity.SpaceEntity;
+import com.nocountry.S12G15.dto.BoardDTO;
+import com.nocountry.S12G15.dto.request.ChannelRequestDTO;
 import com.nocountry.S12G15.dto.request.SpaceRequestDTO;
+import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
 import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import com.nocountry.S12G15.exception.ExceptionMethods;
 import com.nocountry.S12G15.exception.MyException;
+import com.nocountry.S12G15.mapper.BoardMapper;
+import com.nocountry.S12G15.mapper.ChannelMapper;
 import com.nocountry.S12G15.mapper.SpaceMapper;
 import com.nocountry.S12G15.persistance.repository.BoardRepository;
 import com.nocountry.S12G15.persistance.repository.ChannelRepository;
 import com.nocountry.S12G15.persistance.repository.SpaceRepository;
+import com.nocountry.S12G15.service.BoardService;
+import com.nocountry.S12G15.service.ChannelService;
 import com.nocountry.S12G15.service.SpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,22 +31,60 @@ import java.util.stream.Collectors;
 public class SpaceServiceImpl implements SpaceService {
 
 
-    @Autowired
+
     private SpaceMapper spaceMapper;
-    @Autowired
+
     private SpaceRepository spaceRepository;
-    @Autowired
+
     private ChannelRepository channelRepository;
-    @Autowired
+
     private BoardRepository boardRepository;
+
+    private BoardService boardService;
+    private ChannelService channelService;
+
+    private ChannelMapper channelMapper;
+
+    private BoardMapper boardMapper;
+
+    @Autowired
+    public SpaceServiceImpl(SpaceMapper spaceMapper, SpaceRepository spaceRepository, ChannelRepository channelRepository, BoardRepository boardRepository, BoardService boardService, ChannelService channelService, ChannelMapper channelMapper, BoardMapper boardMapper) {
+        this.spaceMapper = spaceMapper;
+        this.spaceRepository = spaceRepository;
+        this.channelRepository = channelRepository;
+        this.boardRepository = boardRepository;
+        this.boardService = boardService;
+        this.channelService = channelService;
+        this.channelMapper = channelMapper;
+        this.boardMapper = boardMapper;
+    }
 
     @Override
     public SpaceResponseDTO createSpace(SpaceRequestDTO spaceRequestDTO) throws MyException {
+
+        ///workspace, crear un channel y un tablero
         validate(spaceRequestDTO);
 
         SpaceEntity space = spaceMapper.spaceRequestDTOToSpaceEntity(spaceRequestDTO);
         space.setEnabled(true);
         space.setCreatedAt(LocalDate.now());
+
+        //Crear un channel
+        ChannelRequestDTO channelRequestDTO = new ChannelRequestDTO();
+        channelRequestDTO.setType("Demo Type");
+        channelRequestDTO.setTopic("Demo Topic");
+        channelRequestDTO.setNotes("Demo Notes");
+
+        ChannelResponseDTO channelResponseDTO = channelService.createChannel(channelRequestDTO);
+        space.getChannels().add(channelMapper.toGetChannelEntityFromChannelResponseDTO(channelResponseDTO));
+        //Create Board
+        BoardDTO boardDTO = BoardDTO.builder()
+                .boardName("Demo Board")
+                .description("Demo Description")
+                .build();
+        BoardDTO boardDTOSaved = boardService.createBoard(boardDTO);
+        space.getBoards().add(boardMapper.boardDTOToBoard(boardDTOSaved));
+
         SpaceEntity savedSpace = spaceRepository.save(space);
 
         return spaceMapper.spaceToSpaceResponseDto(savedSpace);

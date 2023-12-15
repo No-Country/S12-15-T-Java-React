@@ -19,6 +19,7 @@ public interface ChannelMapper {
     ChannelResponseDTO toGetChannelResponseDto(ChannelEntity channelEntity); //TODO response
     ChannelEntity toGetChannelEntity(ChannelRequestDTO channelRequestDTO);//TODO request
 
+    ChannelEntity toGetChannelEntityFromChannelResponseDTO(ChannelResponseDTO channelResponseDTO);//TODO response
     //TODO listas
     List<ChannelRequestDTO> toChannelRequestDtoList(List<ChannelEntity> channelEntityList);
 
