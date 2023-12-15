@@ -1,9 +1,11 @@
 package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.BoardEntity;
+import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.domain.entity.TaskEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
+import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.mapper.BoardMapper;
@@ -13,7 +15,6 @@ import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.service.BoardService;
 import com.nocountry.S12G15.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 import com.nocountry.S12G15.exception.ExceptionMethods;
 
@@ -64,14 +65,17 @@ public class BoardServiceImpl implements BoardService {
             taskDTO.setName(tasksNames.get(i));
             tasksDTOList.add(taskDTO);
         }
-        List<TaskRequestDTO> savedTaskDTOList = taskService.saveAllTasks(tasksDTOList);
-        List<TaskEntity> savedTaskList = taskMapper.toTaskEntityList(savedTaskDTOList);
+
+        boardRepository.save(board);
+
+        List<TaskResponseDTO> savedTaskDTOList = taskService.saveAllTasks(tasksDTOList);
+        List<TaskEntity> savedTaskList = taskMapper.toTaskEntityListFromResponseDTO(savedTaskDTOList);
 
         board.setTasks(savedTaskList);
+        boardRepository.save(board);
 
 
-        BoardEntity savedBoard = boardRepository.save(board);
-        return boardMapper.boardToBoardDTO(savedBoard);
+        return boardMapper.boardToBoardDTO(board);
     }
 
     @Override
@@ -167,6 +171,26 @@ public class BoardServiceImpl implements BoardService {
         board = boardRepository.save(board);
 
         return boardMapper.boardToBoardDTO(board);
+    }
+
+    @Override
+    public List<TaskResponseDTO> getAllTasks(String idBoard) {
+        List<TaskEntity> taskEntityList = boardRepository.findById(idBoard).get().getTasks();
+        List<TaskResponseDTO> taskResponseDTOList = taskMapper.toTaskDtoList(taskEntityList);
+
+        return taskResponseDTOList;
+    }
+
+    @Override
+    public List<TaskResponseDTO> getAllEnabledTasks(String idBoard) {
+        List<TaskEntity> taskEntityList = boardRepository.findById(idBoard).get().getTasks();
+        List<TaskResponseDTO> taskResponseDTOList = new ArrayList<>();
+        taskEntityList.forEach(taskEntity -> {
+            if(taskEntity.isEnabled()){
+                taskResponseDTOList.add(taskMapper.getTaskDto(taskEntity));
+            }
+        });
+        return taskResponseDTOList;
     }
 
     public void validate(BoardDTO boardDTO) throws MyException {

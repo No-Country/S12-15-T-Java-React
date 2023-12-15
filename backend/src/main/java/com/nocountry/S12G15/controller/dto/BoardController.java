@@ -3,6 +3,9 @@ package com.nocountry.S12G15.controller.dto;
 import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
+import com.nocountry.S12G15.dto.ChannelDto;
+import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
+import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.persistance.repository.SpaceRepository;
 import com.nocountry.S12G15.service.ImageService;
@@ -63,6 +66,16 @@ public class BoardController {
         return ResponseEntity.status(HttpStatus.OK).body(boardsDTO);
     }
 
+    @GetMapping("/listOfEnabledTasksByIdBoard/{idBoard}")
+    public ResponseEntity<List<TaskResponseDTO>> getAllEnabledTasksByIdBoard(@PathVariable String idBoard) {
+        List<TaskResponseDTO> tasksDTO = boardService.getAllEnabledTasks(idBoard);
+
+        if (tasksDTO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(tasksDTO);
+    }
+
     @GetMapping("/{idBoard}")
     public ResponseEntity<BoardDTO> findBoardById(@PathVariable String idBoard) {
         BoardDTO boardDTO = boardService.findBoardById(idBoard);
@@ -109,19 +122,6 @@ public class BoardController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
-
-    /*
-    @PutMapping("/addTask/{idTask}/toBoard/{idBoard}")
-    public ResponseEntity<BoardDTO> addTaskToBoard(@PathVariable String idBoard, @PathVariable String idTask) throws MyException{
-        BoardDTO boardDTO = boardService.addTaskToBoard(idBoard, idTask);
-
-        if (boardDTO.getTasks().isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(boardDTO);
-        }
-    }
-    */
 
 //    @PostMapping("/upload")
 //    public ResponseEntity<?> upLoadPhoto (@RequestParam MultipartFile file, @RequestParam String idBoard){

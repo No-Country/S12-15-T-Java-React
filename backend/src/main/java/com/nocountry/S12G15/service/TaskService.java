@@ -1,6 +1,7 @@
 package com.nocountry.S12G15.service;
 
 import com.nocountry.S12G15.domain.entity.TaskEntity;
+import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
@@ -25,5 +26,9 @@ public interface TaskService {
 
     TaskResponseDTO enableTask(String idTask);
 
-    List<TaskRequestDTO> saveAllTasks(List<TaskRequestDTO> tasksDTOList);
+    List<TaskResponseDTO> saveAllTasks(List<TaskRequestDTO> tasksDTOList);
+
+    List<ActivityDTO> getAllActivities(String idTask);
+
+    List<ActivityDTO> getAllEnabledActivities(String idTask);
 }
