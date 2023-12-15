@@ -166,7 +166,7 @@ export const Aside = () => {
 
 			<div className="frame-766 toggle-btn">
 				<div className=" vector2">
-					<img src="img\Vector2.png" alt="Texto alternativo de la imagen" />
+					<img src="images\Vector2.png" alt="Texto alternativo de la imagen" />
 				</div>
 			</div>
 
@@ -178,7 +178,7 @@ export const Aside = () => {
 					<div className="icono-config" width="20" height="20">
 						<div>
 							<img
-								src="img\Icono Config.png"
+								src="images\Icono Config.png"
 								alt="Texto alternativo de la imagen"
 							/>
 						</div>
@@ -190,7 +190,7 @@ export const Aside = () => {
 						<div className="seccion-tablero">
 							<div className="vector" width="16" height="17">
 								<img
-									src="img\Vector.png"
+									src="images\Vector.png"
 									alt="Texto alternativo de la imagen"
 								/>
 							</div>
@@ -200,7 +200,7 @@ export const Aside = () => {
 							<div className="canales-tablero-agregar">
 								<div className="icono-chat" width="16" height="16">
 									<img
-										src="img\Icono chat.png"
+										src="images\Icono chat.png"
 										alt="Texto alternativo de la imagen"
 									/>
 								</div>
@@ -209,7 +209,7 @@ export const Aside = () => {
 							<div className="canales-tablero-agregar2">
 								<div className="icono-agregar" width="16" height="16">
 									<img
-										src="img\Icono Agregar.png"
+										src="images\Icono Agregar.png"
 										alt="Texto alternativo de la imagen"
 									/>
 								</div>
@@ -223,7 +223,7 @@ export const Aside = () => {
 						<div className="seccion-tablero">
 							<div className="vector" width="16" height="17">
 								<img
-									src="img\Vector.png"
+									src="images\Vector.png"
 									alt="Texto alternativo de la imagen"
 								/>
 							</div>
@@ -233,7 +233,7 @@ export const Aside = () => {
 							<div className="canales-tablero-agregar">
 								<div className="icono-tablero" width="16" height="15">
 									<img
-										src="img\Icono tablero.png"
+										src="images\Icono tablero.png"
 										alt="Texto alternativo de la imagen"
 									/>
 								</div>
@@ -242,7 +242,7 @@ export const Aside = () => {
 							<div className="canales-tablero-agregar2">
 								<div className="icono-agregar2" width="16" height="17">
 									<img
-										src="img\Icono Agregar.png"
+										src="images\Icono Agregar.png"
 										alt="Texto alternativo de la imagen"
 									/>
 								</div>

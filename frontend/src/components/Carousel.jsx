@@ -1,47 +1,57 @@
-import { Slideshow, Slide, TextoSlide } from '@/app/components/Slideshow';
-
+import { Slideshow } from '@/components/Slideshow';
+import '@/styles/activity.css';
+import styles from 'src/styles/activity.module.css';
 function Carousel() {
 	return (
 		<main>
-			<Slideshow controles={true}>
-				<Slide>
-					<a href="#">
-						<image
-							src="/image/Card-Recientes.png"
-							alt="Texto alternativo de la imagen"
-						/>
-					</a>
-				</Slide>
-				<Slide>
-					<a href="#">
-						<image
-							src="/image/Card-Recientes2.png"
-							alt="Texto alternativo de la imagen"
-						/>
-					</a>
-					<TextoSlide></TextoSlide>
-				</Slide>
-				<Slide>
-					<a href="#">
-						<image
-							src="/image/Card-Recientes3.png"
-							alt="Texto alternativo de la imagen"
-						/>
-					</a>
-					<TextoSlide></TextoSlide>
-				</Slide>
-				<Slide>
-					<a href="#">
-						<image
-							src="/image/Card-Recientes4.png"
-							alt="Texto alternativo de la imagen"
-						/>
-					</a>
-					<TextoSlide></TextoSlide>
-				</Slide>
-			</Slideshow>
+			<Slideshow>
+				<div className={styles.containerall}>
+					<div className={styles.marcoactivity}>
+						<div className="nombre-proyecto">
+							<h4 className={styles.letra}>Actividad reciente</h4>
+						</div>
+					</div>
 
-			<div></div>
+					<div className={styles.containercards}>
+						<div>
+							<div className="nombre-proyecto">
+								<img
+									className="piccon"
+									src="/images/Card-Recientes.png "
+									alt="Texto alternativo de la imagen"
+								/>
+							</div>
+						</div>
+						<div>
+							<div className="nombre-proyecto">
+								<img
+									className="piccon"
+									src="/images/Card-Recientes2.png"
+									alt="Texto alternativo de la imagen"
+								/>
+							</div>
+						</div>
+						<div>
+							<div className="nombre-proyecto">
+								<img
+									className="piccon"
+									src="/images/Card-Recientes3.png"
+									alt="Texto alternativo de la imagen"
+								/>{' '}
+							</div>
+						</div>
+						<div>
+							<div className="nombre-proyecto">
+								<img
+									className="piccon"
+									src="/images/Card-Recientes4.png"
+									alt="Texto alternativo de la imagen"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</Slideshow>
 		</main>
 	);
 }

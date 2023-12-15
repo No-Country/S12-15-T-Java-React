@@ -6,26 +6,23 @@
 	box-sizing: border-box;
 }
  */
-body {
-	background: #ede9e7;
-	font-family: 'Poppins', sans-serif;
-}
 
-main {
-	max-width: 1000px;
-	margin: 50px auto;
+/* main {
+	
 	overflow: hidden;
-}
+} */
 
-.frame-4,
+/* .frame-4,
 .frame-4 * {
 	box-sizing: border-box;
-}
-.frame-4 {
-	background: rgba(66, 82, 110, 0.5);
+} */
+.head-4 {
+	background: rgba(250, 3, 3, 0.5);
 	padding: 16px 8px 16px 8px;
 	display: flex;
 	flex-direction: row;
+	width: 276px;
+	height: 43px;
 	gap: 10px;
 	align-items: center;
 	justify-content: flex-start;
@@ -36,12 +33,32 @@ main {
 	border-radius: 8px 8px 0px 0px;
 }
 
-.nombre-proyecto {
-	color: black;
-	text-align: left;
-	font-family: 'Roboto-Medium', sans-serif;
-	font-size: 16px;
-	font-weight: 500;
-	position: relative;
-	flex: 1;
-}
+
+
+.frame-4, .frame-4 * {
+    box-sizing: border-box;
+    }
+.frame-4 {
+    background: rgba(66, 82, 110, 0.50);
+    padding: 16px 8px 16px 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    }
+
+ .nombre-proyecto {
+    color: #1e1e1e;
+    text-align: left;
+    font-family: 'Roboto-Medium', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    flex: 1;
+    }
+

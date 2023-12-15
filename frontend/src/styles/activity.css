@@ -44,7 +44,7 @@
 	align-self: stretch;
 	flex-shrink: 0;
 	width: 349px;
-	height: auto;
+	height: 100%;
 
 	/* position: relative; */
 
@@ -110,7 +110,7 @@
 	display: flex;
 
 	flex-direction: column;
-
+height: 100%;
 	gap: 24px;
 
 	align-items: flex-start;
@@ -287,7 +287,7 @@
 
 .frame-738 {
 	padding: 24px 20px 24px 20px;
-
+height: 100%;
 	display: flex;
 
 	flex-direction: column;
@@ -386,7 +386,7 @@
 		position: fixed;
 		/*   width: 200px;
     height: 100%; */
-		height: auto;
+		height:  100%;
 		background: #187bdf;
 		left: -349px;
 		transition: all 500ms linear;
@@ -418,6 +418,7 @@
 	left: 0px;
 	background: #18df43;
 }
+
 
 /*  #sidebar ul li {
     color: rgba(230, 230, 230, .9);
