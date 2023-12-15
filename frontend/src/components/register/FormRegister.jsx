@@ -6,6 +6,7 @@ import stylesRegister from '@/styles/register.module.css';
 import Input from '@/components/register/Input';
 import Button from '@/components/Button';
 import InputPasswordsConfirm from './InputPasswordsConfirm';
+import { registerUser } from '@/app/api/register/registerApi';
 
 function FormRegister() {
 	const [name, setName] = useState('');
@@ -16,20 +17,22 @@ function FormRegister() {
 	});
 	const router = useRouter();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const newUser = {
+
+		const { success, id, error } = await registerUser(
 			name,
 			email,
-			password: passwords.password,
-		};
+			passwords.password,
+			passwords.confirmPassword
+		);
 
-		const users = [];
-		users.push(newUser);
-
-		console.log(newUser);
-
-		router.push('/login/1/home');
+		if (success) {
+			router.push(`/login/${id}/home`);
+			console.log('Registro exitoso');
+		} else {
+			console.error(error);
+		}
 
 		setName('');
 		setEmail('');
