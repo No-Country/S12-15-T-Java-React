@@ -24,4 +24,6 @@ public interface TaskService {
     List<TaskResponseDTO> getEnabledTasks();
 
     TaskResponseDTO enableTask(String idTask);
+
+    List<TaskRequestDTO> saveAllTasks(List<TaskRequestDTO> tasksDTOList);
 }
