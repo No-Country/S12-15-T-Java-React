@@ -19,4 +19,5 @@ public interface TaskMapper {
 
     List<TaskEntity> toTaskEntityList(List<TaskRequestDTO> taskReqDTOList);
 
+    List<TaskRequestDTO> toTaskRequestDTOList(List<TaskEntity> taskEntityList);
 }

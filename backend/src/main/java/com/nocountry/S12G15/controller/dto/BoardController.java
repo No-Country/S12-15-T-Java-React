@@ -36,6 +36,7 @@ public class BoardController {
     @Autowired
     private SpaceService spaceService;
 
+
     @PostMapping("/register/{idSpace}")
     public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO, @PathVariable String idSpace) throws MyException {
 

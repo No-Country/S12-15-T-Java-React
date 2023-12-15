@@ -118,4 +118,16 @@ public class TaskServiceImpl implements TaskService {
 
     }
 
+    @Override
+    public List<TaskRequestDTO> saveAllTasks(List<TaskRequestDTO> tasksDTOList) {
+        List<TaskEntity> tasksEntityList = mapper.toTaskEntityList(tasksDTOList);
+        for (TaskEntity taskEntity : tasksEntityList) {
+            taskEntity.setEnabled(true);
+        }
+        List<TaskEntity> savedTasksEntityList = taskRepository.saveAll(tasksEntityList);
+
+
+        return mapper.toTaskRequestDTOList(savedTasksEntityList);
+    }
+
 }
