@@ -3,6 +3,7 @@ import { MdOutlineTableRows } from 'react-icons/md';
 import styleBoard from '@/styles/board/board.module.css';
 import Image from 'next/image';
 import ListBoard from '@/components/board/ListBoard';
+import { AddList } from '@/components/board/AddList';
 
 const Boardpage = () => {
 	return (
@@ -26,8 +27,10 @@ const Boardpage = () => {
 				</div>
 			</header>
 			<main className={styleBoard.tableBoard}>
-				<ListBoard />
-				{/* <input type="text">Añade otra lista</input> */}
+				<div>
+					<ListBoard name={'Title list'} />
+				</div>
+				<AddList />
 			</main>
 		</div>
 	);

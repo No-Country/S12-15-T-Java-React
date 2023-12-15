@@ -22,14 +22,13 @@ const AddCard = () => {
 
 	return (
 		<div>
-			{/* Muestra las tarjetas */}
 			<div
-				style={{
-					backgroundColor: 'red',
-					maxHeight: '27rem',
-					overflowY: 'auto',
-					overflowX: 'hidden',
-				}}
+			// style={{
+			// 	backgroundColor: 'red',
+			// 	maxHeight: '27rem',
+			// 	overflowY: 'auto',
+			// 	overflowX: 'hidden',
+			// }}
 			>
 				{cards.map((card, index) => (
 					<div
@@ -43,7 +42,6 @@ const AddCard = () => {
 			</div>
 			{isEditing ? (
 				<div className={styleCard.enterName}>
-					{/* Contenido del formulario de edición */}
 					<textarea
 						className={styleCard.textAreaName}
 						type="text"
