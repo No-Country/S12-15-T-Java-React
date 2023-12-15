@@ -45,3 +45,8 @@
 	width: 77px;
 	height: 35px;
 }
+Link {
+	list-style: none;
+	text-decoration: none;
+	color: #030304;
+}

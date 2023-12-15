@@ -31,9 +31,7 @@ function Navbar() {
 						checked={menuVisible}
 						onChange={toggleMenu}
 					/>
-					{/* <label htmlFor="btn-menu">
-						<img src="/images/Burguer.png" alt="" />
-					</label> */}
+
 					<div className="brg">
 						{/* contiene el burguer Button */}
 						<Burguer />
@@ -53,7 +51,7 @@ function Navbar() {
 						</ul>
 						<div className="btn-create">
 							{/* contiene el boton create */}
-							<Link href="/Crear" className="create">
+							<Link href="/crear" className="create">
 								Create
 							</Link>
 						</div>
