@@ -55,9 +55,11 @@ public class AuthServiceImpl implements AuthService {
         String lastName = user.getLastName();
         String name = user.getName();
         RolUser rol = user.getRolUser();
+        String userName = user.getUsername();
         return AuthResponseDTO.builder()
                 .id(id)
                 .lastName(lastName)
+                .userName(userName)
                 .name(name)
                 .rol(rol)
                 .token(jwtToken)
@@ -77,9 +79,11 @@ public class AuthServiceImpl implements AuthService {
         String lastName = user.getLastName();
         String email = user.getEmail();
         RolUser rol = user.getRolUser();
+        String userName = user.getUsername();
         return AuthResponseDTO.builder()
                 .id(id)
                 .token(jwtToken)
+                .userName(userName)
                 .name(name)
                 .lastName(lastName)
                 .email(email)
