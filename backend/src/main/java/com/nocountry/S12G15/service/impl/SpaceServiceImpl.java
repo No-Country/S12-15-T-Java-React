@@ -72,9 +72,8 @@ public class SpaceServiceImpl implements SpaceService {
 
         //Crear un channel
         ChannelRequestDTO channelRequestDTO = new ChannelRequestDTO();
-        channelRequestDTO.setType("Demo Type");
-        channelRequestDTO.setTopic("Demo Topic");
-        channelRequestDTO.setNotes("Demo Notes");
+        channelRequestDTO.setNameChannel("Demo nameChannel");
+
 
         ChannelResponseDTO channelResponseDTO = channelService.createChannel(channelRequestDTO);
 
