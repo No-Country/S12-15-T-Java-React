@@ -2,11 +2,13 @@ package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.ActivityEntity;
 import com.nocountry.S12G15.domain.entity.TaskEntity;
+import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.exception.ExceptionMethods;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.exception.ObjectNotFoundException;
+import com.nocountry.S12G15.mapper.ActivityMapper;
 import com.nocountry.S12G15.mapper.TaskMapper;
 import com.nocountry.S12G15.persistance.repository.ActivityRepository;
 import com.nocountry.S12G15.persistance.repository.TaskRepository;
@@ -15,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -27,6 +30,7 @@ public class TaskServiceImpl implements TaskService {
     private final TaskMapper mapper;
     private final TaskRepository taskRepository;
     private final ActivityRepository activityRepository;
+    private final ActivityMapper activityMapper;
 
     @Override
     @Transactional(readOnly = true)
@@ -116,6 +120,38 @@ public class TaskServiceImpl implements TaskService {
 
         return mapper.getTaskDto(savedTask);
 
+    }
+
+    @Override
+    public List<TaskResponseDTO> saveAllTasks(List<TaskRequestDTO> tasksDTOList) {
+        List<TaskEntity> tasksEntityList = mapper.toTaskEntityList(tasksDTOList);
+
+        for (TaskEntity taskEntity : tasksEntityList) {
+            taskEntity.setEnabled(true);
+        }
+        List<TaskEntity> savedTasksEntityList = taskRepository.saveAll(tasksEntityList);
+
+
+
+        return mapper.toTaskResponseDTO(savedTasksEntityList);
+    }
+
+    @Override
+    public List<ActivityDTO> getAllActivities(String idTask) {
+        List<ActivityEntity> activityEntityList = taskRepository.findById(idTask).get().getActivities();
+        return activityMapper.toActivityDtoList(activityEntityList);
+    }
+
+    @Override
+    public List<ActivityDTO> getAllEnabledActivities(String idTask) {
+        List<ActivityEntity> activityEntityList = taskRepository.findById(idTask).get().getActivities();
+        List<ActivityDTO> activityDTOList = new ArrayList<>();
+        activityEntityList.forEach(activityEntity -> {
+            if(activityEntity.isEnabled()){
+                activityDTOList.add(activityMapper.activityToActivityDTO(activityEntity));
+            }
+        });
+        return activityDTOList;
     }
 
 }

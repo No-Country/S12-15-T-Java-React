@@ -24,7 +24,7 @@ public class UserEntity implements UserDetails {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-    private boolean disabled=true;
+    private boolean disabled=false;
 
     @Column(name = "name", length = 85)
     private String name;
@@ -49,7 +49,7 @@ public class UserEntity implements UserDetails {
 
 
 
-    @OneToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<SpaceEntity> spaceEntityList;
 
 

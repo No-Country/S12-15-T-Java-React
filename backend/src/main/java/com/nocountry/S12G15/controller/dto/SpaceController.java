@@ -1,11 +1,11 @@
 package com.nocountry.S12G15.controller.dto;
 import com.nocountry.S12G15.domain.entity.ImageEntity;
-import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import com.nocountry.S12G15.domain.entity.UserEntity;
-import com.nocountry.S12G15.dto.SpaceDto;
-//import com.nocountry.S12G15.service.impl.SpaceServiceImpl;
+import com.nocountry.S12G15.dto.BoardDTO;
 import com.nocountry.S12G15.dto.request.SpaceRequestDTO;
+import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
 import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
+import com.nocountry.S12G15.dto.response.UserResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.persistance.repository.UserRepository;
 import com.nocountry.S12G15.service.ImageService;
@@ -16,22 +16,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-//import com.nocountry.S12G15.domain.entity.SpaceEntity;
-//import com.nocountry.S12G15.dto.request.SpaceRequestDTO;
-
-import com.nocountry.S12G15.persistance.repository.SpaceRepository;
 import com.nocountry.S12G15.service.SpaceService;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.yaml.snakeyaml.events.Event;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import static com.nocountry.S12G15.util.Constant.*;
 
-//import org.springframework.stereotype.Service;
 @RestController
 @RequestMapping(value = API_VERSION + RESOURCE_SPACE)
 public class SpaceController {
@@ -46,9 +40,8 @@ public class SpaceController {
     private UserService userService;
 
     @PostMapping("/create/{idUser}")
-    public ResponseEntity<?> newSpace(@RequestBody SpaceRequestDTO spaceRequestDTO, @PathVariable String idUser) throws MyException {
+    public ResponseEntity<SpaceResponseDTO> newSpace(@RequestBody SpaceRequestDTO spaceRequestDTO, @PathVariable String idUser) throws MyException {
         UserEntity user = userRepository.findById(idUser).orElse(null);
-
 
         if (spaceRequestDTO.getName() == null || user == null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
@@ -69,6 +62,29 @@ public class SpaceController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(spacesResponseDTO);
     }
+
+    @GetMapping("/listOfEnabledBoardsByIdSpace/{idSpace}")
+    public ResponseEntity<List<BoardDTO>> getAllEnabledBoardsByIdSpace(@PathVariable String idSpace) {
+        List<BoardDTO> boardsDTO = spaceService.getAllEnabledBoards(idSpace);
+
+        if (boardsDTO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(boardsDTO);
+    }
+
+    @GetMapping("/listOfEnabledChannelsByIdSpace/{idSpace}")
+    public ResponseEntity<List<ChannelResponseDTO>> getAllEnabledChannelsByIdSpace(@PathVariable String idSpace) {
+        List<ChannelResponseDTO> channelsResponseDTO = spaceService.getAllEnabledChannels(idSpace);
+
+        if (channelsResponseDTO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(channelsResponseDTO);
+    }
+
+
+
 
     @GetMapping("/{idSpace}")
     public ResponseEntity<SpaceResponseDTO> findSpaceById(@PathVariable String idSpace) {
@@ -141,5 +157,20 @@ public class SpaceController {
         headers.setContentType(MediaType.IMAGE_JPEG);
 
         return ResponseEntity.status(HttpStatus.OK).headers(headers).body(image);
+    }
+
+    @PutMapping("/{userEmail}/addSpace/{idSpace}")
+    public ResponseEntity<?> addSpaceToUserFromEmail(@PathVariable String userEmail, @PathVariable String idSpace){
+        Optional<UserResponseDTO> userResponseDTO = userService.getEnabledUserByEmail(userEmail);
+        if(userResponseDTO.isEmpty()){
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+        Optional<SpaceResponseDTO> spaceResponseDTO = userService.getEnabledSpaceById(idSpace);
+        if(spaceResponseDTO.isEmpty()){
+            return new ResponseEntity<>("Space not found", HttpStatus.NOT_FOUND);
+        }
+        UserResponseDTO userResponseDTOSaved = userService.addSpaceToUser(userResponseDTO.get().getId(), idSpace);
+
+        return new ResponseEntity<>(userResponseDTOSaved, HttpStatus.OK);
     }
 }

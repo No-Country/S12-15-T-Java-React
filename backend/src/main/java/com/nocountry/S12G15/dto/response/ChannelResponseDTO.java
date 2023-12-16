@@ -21,9 +21,7 @@ public class ChannelResponseDTO implements Serializable {
 
     private String idChannel;
 
-    private String type;
+    private String nameChannel;
 
-    private String topic;
 
-    private String notes;
 }
