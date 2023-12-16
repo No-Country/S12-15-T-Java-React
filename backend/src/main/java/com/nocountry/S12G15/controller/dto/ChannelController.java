@@ -1,14 +1,19 @@
 package com.nocountry.S12G15.controller.dto;
 
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
+import com.nocountry.S12G15.domain.entity.CommentEntity;
 import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.domain.entity.SpaceEntity;
+import com.nocountry.S12G15.dto.BoardDTO;
 import com.nocountry.S12G15.dto.request.ChannelRequestDTO;
 import com.nocountry.S12G15.dto.request.PageableDto;
 import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
+import com.nocountry.S12G15.dto.response.ChatResponseDTO;
+import com.nocountry.S12G15.dto.response.CommentResponseDTO;
 import com.nocountry.S12G15.persistance.repository.ChannelRepository;
 import com.nocountry.S12G15.persistance.repository.SpaceRepository;
 import com.nocountry.S12G15.service.ChannelService;
+import com.nocountry.S12G15.service.CommentService;
 import com.nocountry.S12G15.service.ImageService;
 import com.nocountry.S12G15.service.SpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +30,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.nio.channels.Channel;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -51,6 +57,10 @@ public class ChannelController {
     @Autowired
     private SpaceRepository spaceRepository;
 
+    @Autowired
+    private CommentService commentService;
+
+
     /*
     * NewChannel
     * http://localhost:8080/v1/api/channel/new
@@ -65,7 +75,7 @@ public class ChannelController {
 
         SpaceEntity space = spaceRepository.findById(idSpace).orElse(null);
 
-        if (channelRequestDTO.getType() == null || space == null) {
+        if (channelRequestDTO.getNameChannel() == null || space == null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
         }
 
@@ -118,6 +128,31 @@ public class ChannelController {
 
         return ResponseEntity.ok(channel);
     }
+
+    @PostMapping("/sendComment")
+    public ResponseEntity<?> createText(
+            @RequestParam String idUser,
+            @RequestParam String idChannel,
+            @RequestBody CommentEntity text) {
+
+        CommentResponseDTO response = commentService.createComment(idUser, idChannel, text);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+
+    }
+
+    @GetMapping("/chat")
+    public ResponseEntity<?> getChat(@RequestParam String idChannel){
+
+        List<ChatResponseDTO> comments = commentService.getAllComments(idChannel);
+
+        if (comments.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(comments);
+    }
+
+
 
 //    @PostMapping("/upload")
 //    public ResponseEntity<?> upLoadPhoto (@RequestParam MultipartFile file, @RequestParam String idChannel){

@@ -11,17 +11,10 @@ public class ChannelEntity {
     @GeneratedValue(generator = "uuid")
     private String idChannel;
 
-    private String type;
-
-    private String topic;
-
-    private String notes;
+    private String nameChannel;
 
     @Enumerated(EnumType.STRING)
     private ChannelStatus status;
-
-    @ManyToOne
-    private BoardEntity boardEntity;
 
     @OneToOne
     protected ImageEntity imageEntity;
@@ -29,8 +22,8 @@ public class ChannelEntity {
         ENABLED, DISABLED;
     }
     public ChannelEntity modifyChannel(ChannelRequestDTO requestDTO){
-        if(requestDTO.getType() != null || !requestDTO.getType().isEmpty())this.setType(requestDTO.getType().strip());
-        if(requestDTO.getTopic() != null || !requestDTO.getTopic().isEmpty())this.setTopic(requestDTO.getTopic().strip());
+        if(requestDTO.getNameChannel() != null || !requestDTO.getNameChannel().isEmpty())this.setNameChannel(requestDTO.getNameChannel().strip());
+
         return this;
     }
 }
