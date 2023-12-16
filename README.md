@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Track - Aplicación de Gestión de Proyectos con Sistema de Chat
 
-## Getting Started
+Track es una completa aplicación de gestión de proyectos que te ayuda a organizar y realizar un seguimiento efectivo de tus tareas. Cada espacio de trabajo representa un proyecto independiente y se organiza en tableros y tareas. Además, cuenta con un sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
-First, run the development server:
+## Organización
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+La aplicación se estructura de la siguiente manera:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Proyectos (Espacios de Trabajo):** Cada espacio de trabajo representa un proyecto independiente.
+- **Tableros:** Representan etapas o fases del proyecto.
+- **Tareas:** Unidades individuales de trabajo asignadas a tableros específicos.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Características
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Creación, edición y eliminación de proyectos (espacios de trabajo).
+- Organización de proyectos en tableros para un seguimiento estructurado.
+- Creación y asignación de tareas a tableros específicos.
+- Asignación de tareas a integrantes del equipo para un seguimiento claro de responsabilidades.
+- Seguimiento del progreso de las tareas.
+- Sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
-## Learn More
+## Contacto del Equipo
 
-To learn more about Next.js, take a look at the following resources:
+- **Grupo de Desarrollo:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  - **Frontends:**
+    - **Andrés Boni**
+      - GitHub: [AndresBoni](https://github.com/AndresBoni)
+      - Apasionado por dar vida a experiencias de usuario cautivadoras y navegaciones fluidas. Siempre en busca de la combinación perfecta entre funcionalidad y belleza.
+    - **David Gaviria**
+      - GitHub: [davidgaviria2021](https://github.com/davidgaviria2021)
+      - Constructor meticuloso de interfaces intuitivas y amigables. Cree en la magia de la interacción usuario-interfaz para llevar la usabilidad al siguiente nivel.
+    - **Edwin Carmona**
+      - GitHub: [ecc97](https://github.com/ecc97)
+      - Explorador incansable de nuevas tecnologías y tendencias de diseño. Su misión: transformar ideas en interfaces memorables.
+    - **Luciano Ponce**
+      - GitHub: [Luchopst](https://github.com/Luchopst)
+      - Narrador visual apasionado. Su código cuenta historias que cautivan a los usuarios, brindando una experiencia única.
+    - **Laura Bernal**
+      - GitHub: [mbernallaura](https://github.com/mbernallaura)
+      - Diseñadora de experiencias centrada en el usuario. Su enfoque meticuloso y creativo garantiza interfaces que enamoran.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  - **Backends:**
+    - **Alejandro Domínguez**
+      - GitHub: [AlejoDx](https://github.com/AlejoDx)
+      - Arquitecto de soluciones robustas. Convierte desafíos complejos en elegantes implementaciones backend que impulsan el corazón de la aplicación.
+    - **Antonio Ludueña Bereziuk**
+      - GitHub: [antoluduenabereziuk21](https://github.com/antoluduenabereziuk21)
+      - Constructor hábil de lógica y estructuras eficientes. Su código es la columna vertebral que sostiene la funcionalidad del sistema.
+    - **Exequiel Baez**
+      - GitHub: [ExequielBaez](https://github.com/ExequielBaez)
+      - Navegante intrépido de bases de datos y servicios. Transforma datos en información valiosa para impulsar decisiones informadas.
+    - **Franco Lacourt**
+      - GitHub: [FrancoLacourt](https://github.com/FrancoLacourt)
+      - Mago de la optimización. Asegura que cada línea de código cuente, proporcionando un backend eficiente y de alto rendimiento.
+    - **Martín Miguel Salas**
+      - GitHub: [MartinMSalas](https://github.com/MartinMSalas)
+      - Constructor versátil de soluciones backend. Su enfoque creativo y pragmático resuelve problemas con elegancia y eficacia.
+    - **Luca Terzariol**
+      - GitHub: [Teradriel](https://github.com/Teradriel)
+      - Explorador apasionado de nuevas tecnologías. Su misión: mantener el backend actualizado y listo para enfrentar los desafíos del mañana.
 
-## Deploy on Vercel
+  - **QA:**
+    - **Gabriela Beatriz Pardo**
+      - GitHub: [GBPardoGabrielaBeatriz](https://github.com/GBPardoGabrielaBeatriz)
+      - Defensora implacable de la calidad. Caza errores con precisión quirúrgica para garantizar que cada función sea impecable.
+    - **Maxi Cosman**
+      - GitHub: *[Nombre de Usuario de GitHub Pendiente]* `[PENDIENTE]`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - **UX/UI:**
+    - **Augusto Hernán Mellado**
+      - GitHub: *[Nombre de Usuario de GitHub Pendiente]* `[PENDIENTE]`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Acceso a la Aplicación
+
+- **Frontend:** [Enlace al Frontend de la Aplicación](https://tu-front-end-url.com) `[PENDIENTE]`
