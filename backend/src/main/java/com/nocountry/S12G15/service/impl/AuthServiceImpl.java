@@ -77,9 +77,11 @@ public class AuthServiceImpl implements AuthService {
         String lastName = user.getLastName();
         String email = user.getEmail();
         RolUser rol = user.getRolUser();
+        String userName = user.getUsername();
         return AuthResponseDTO.builder()
                 .id(id)
                 .token(jwtToken)
+                .userName(userName)
                 .name(name)
                 .lastName(lastName)
                 .email(email)
