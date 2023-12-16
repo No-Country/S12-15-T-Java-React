@@ -1,33 +1,50 @@
 package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.BoardEntity;
+import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.domain.entity.TaskEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
+import com.nocountry.S12G15.dto.request.TaskRequestDTO;
+import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
+import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.mapper.BoardMapper;
 import com.nocountry.S12G15.mapper.TaskMapper;
 import com.nocountry.S12G15.persistance.repository.BoardRepository;
 import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.service.BoardService;
+import com.nocountry.S12G15.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.nocountry.S12G15.exception.ExceptionMethods;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 
-    @Autowired
+
     private BoardRepository boardRepository;
-    @Autowired
+
     private BoardMapper boardMapper;
-    @Autowired
+
     private TaskRepository taskRepository;
-    @Autowired
+
     private TaskMapper taskMapper;
+
+    private TaskService taskService;
+    @Autowired
+    public  BoardServiceImpl(BoardRepository boardRepository, BoardMapper boardMapper, TaskRepository taskRepository, TaskMapper taskMapper, TaskService taskService){
+        this.boardRepository = boardRepository;
+        this.boardMapper = boardMapper;
+        this.taskRepository = taskRepository;
+        this.taskMapper = taskMapper;
+        this.taskService = taskService;
+    }
+
 
 
     @Override
@@ -35,11 +52,30 @@ public class BoardServiceImpl implements BoardService {
 
         validate(boardDTO);
 
+
         BoardEntity board = boardMapper.boardDTOToBoard(boardDTO);
         board.setEnabled(true);
-        BoardEntity savedBoard = boardRepository.save(board);
+        //- Con la creacion de un tablero, crear 4 task (BackLog - TODO - In Progress - Done)
 
-        return boardMapper.boardToBoardDTO(savedBoard);
+
+        List<String> tasksNames = Arrays.asList("BackLog", "TODO", "In Progress", "Done");
+        List<TaskRequestDTO> tasksDTOList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            TaskRequestDTO taskDTO = new TaskRequestDTO();
+            taskDTO.setName(tasksNames.get(i));
+            tasksDTOList.add(taskDTO);
+        }
+
+        boardRepository.save(board);
+
+        List<TaskResponseDTO> savedTaskDTOList = taskService.saveAllTasks(tasksDTOList);
+        List<TaskEntity> savedTaskList = taskMapper.toTaskEntityListFromResponseDTO(savedTaskDTOList);
+
+        board.setTasks(savedTaskList);
+        boardRepository.save(board);
+
+
+        return boardMapper.boardToBoardDTO(board);
     }
 
     @Override
@@ -135,6 +171,26 @@ public class BoardServiceImpl implements BoardService {
         board = boardRepository.save(board);
 
         return boardMapper.boardToBoardDTO(board);
+    }
+
+    @Override
+    public List<TaskResponseDTO> getAllTasks(String idBoard) {
+        List<TaskEntity> taskEntityList = boardRepository.findById(idBoard).get().getTasks();
+        List<TaskResponseDTO> taskResponseDTOList = taskMapper.toTaskDtoList(taskEntityList);
+
+        return taskResponseDTOList;
+    }
+
+    @Override
+    public List<TaskResponseDTO> getAllEnabledTasks(String idBoard) {
+        List<TaskEntity> taskEntityList = boardRepository.findById(idBoard).get().getTasks();
+        List<TaskResponseDTO> taskResponseDTOList = new ArrayList<>();
+        taskEntityList.forEach(taskEntity -> {
+            if(taskEntity.isEnabled()){
+                taskResponseDTOList.add(taskMapper.getTaskDto(taskEntity));
+            }
+        });
+        return taskResponseDTOList;
     }
 
     public void validate(BoardDTO boardDTO) throws MyException {
