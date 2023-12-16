@@ -1,0 +1,47 @@
+.contenedorGral-Navlanding {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 67px;
+	background-color: #425682;
+}
+.contenedor-logo-track {
+	display: flex;
+	width: 120px;
+	height: 46px;
+	justify-content: center;
+	align-items: center;
+}
+
+.ll-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 23px;
+	width: 80px;
+	color: #fafbfc;
+}
+.image-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 31px;
+	height: 35px;
+}
+.contenedorBotonLogin {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 35px;
+}
+/* configuracion del boton login dentro del nav de landing */
+.ll-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 77px;
+	height: 35px;
+}

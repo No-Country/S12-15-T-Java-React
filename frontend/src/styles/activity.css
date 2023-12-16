@@ -44,7 +44,7 @@
 	align-self: stretch;
 	flex-shrink: 0;
 	width: 349px;
-	height: auto;
+	height: 100%;
 
 	/* position: relative; */
 
@@ -110,7 +110,7 @@
 	display: flex;
 
 	flex-direction: column;
-
+	height: 100%;
 	gap: 24px;
 
 	align-items: flex-start;
@@ -287,7 +287,7 @@
 
 .frame-738 {
 	padding: 24px 20px 24px 20px;
-
+	height: 100%;
 	display: flex;
 
 	flex-direction: column;
@@ -385,9 +385,9 @@
 	#sidebar {
 		position: fixed;
 		/*   width: 200px;
-		*/
+    height: 100%; */
 		height: 100%;
-		height: auto;
+		background: #187bdf;
 		left: -349px;
 		transition: all 500ms linear;
 	}

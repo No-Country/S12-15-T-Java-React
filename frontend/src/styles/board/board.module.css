@@ -6,6 +6,7 @@
 		'tableBoard';
 	grid-template-rows: auto 1fr;
 	background-color: var(--white);
+	width: 100%;
 }
 
 /*Header name board*/
