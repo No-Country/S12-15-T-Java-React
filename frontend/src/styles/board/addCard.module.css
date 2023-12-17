@@ -34,6 +34,7 @@
 	padding: 0.5rem;
 	resize: none;
 	outline: none;
+	word-wrap: break-word;
 	font-family: 'Roboto', sans-serif;
 	border-radius: 0.5rem;
 	border: 1px solid var(--grey);
@@ -66,6 +67,7 @@
 }
 
 .cardName {
+	word-wrap: break-word;
 	font-size: 0.75rem;
 	font-style: normal;
 	font-weight: 400;
