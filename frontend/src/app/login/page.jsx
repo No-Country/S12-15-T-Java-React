@@ -23,7 +23,7 @@ const LoginPage = () => {
 	};
 
 	const validatePassword = (password) => {
-		const passwordRegex = /^[a-zA-Z0-9]{3,16}$/;
+		const passwordRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}[\]:;<>,.?~\\-]{3,16}$/;
 		return passwordRegex.test(password);
 	};
 

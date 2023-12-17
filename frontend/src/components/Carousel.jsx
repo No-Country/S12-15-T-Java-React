@@ -1,6 +1,9 @@
-import { Slideshow } from '@/components/Slideshow';
+
+//import { Slideshow } from '@/components/Slideshow';
 import '@/styles/activity.css';
 import styles from 'src/styles/activity.module.css';
+import { Slideshow, Slide, TextoSlide } from '@/components/Slideshow';
+
 function Carousel() {
 	return (
 		<main>

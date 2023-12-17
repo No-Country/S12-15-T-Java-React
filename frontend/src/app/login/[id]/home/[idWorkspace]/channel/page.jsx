@@ -53,7 +53,6 @@ const ChannelPage = () => {
 					/>
 					<span>General</span>
 				</div>
-
 				<div className={styles.members}>
 					14 <img src="/images/rectangle-user-icon.png" alt="members icon" />
 				</div>

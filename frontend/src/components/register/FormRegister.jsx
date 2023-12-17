@@ -17,6 +17,7 @@ function FormRegister() {
 	});
 	const router = useRouter();
 
+// from dev branch:
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -33,6 +34,22 @@ function FormRegister() {
 		} else {
 			console.error(error);
 		}
+// from pre-deploy branch //TODO: fix this
+	/*const handleSubmit = (e) => {
+		e.preventDefault();
+		const newUser = {
+			name,
+			email,
+			password: passwords.password,
+		};
+
+		const users = [];
+		users.push(newUser);
+
+		console.log(newUser);
+
+		router.push('/login/1/home');*/
+// pre-deploy
 
 		setName('');
 		setEmail('');
