@@ -63,6 +63,7 @@ La aplicación se estructura de la siguiente manera:
       - Narrador visual apasionado. Su código cuenta historias que cautivan a los usuarios, brindando una experiencia única.
     - **Laura Bernal**
       - GitHub: [mbernallaura](https://github.com/mbernallaura)
+      - LinkedIn: [Laura Bernal](https://www.linkedin.com/in/ingeniera-laura-bernal/)
       - Diseñadora de experiencias centrada en el usuario. Su enfoque meticuloso y creativo garantiza interfaces que enamoran.
 
   - **Backends:**
@@ -97,7 +98,8 @@ La aplicación se estructura de la siguiente manera:
 
   - **UX/UI:**
     - **Augusto Hernán Mellado**
-      - LinkedIn: *[LinkedIn de Augusto Hernán Mellado Pendiente]* `[PENDIENTE]`
-      - Portfolio: *[Portfolio de Augusto Hernán Mellado Pendiente]* `[PENDIENTE]`
-      - *[Descripción de Augusto Hernán Mellado Pendiente]* `[PENDIENTE]`
+      - LinkedIn: [Augusto Hernán Mellado](https://www.linkedin.com/in/augustomellado/)
+      - Behance: [Behance de Augusto](https://www.behance.net/augustomellado)
+      - Dribbble: [Dribbble de Augusto](https://dribbble.com/AugustoMellado)
+      - Apasionado creador de experiencias visuales cautivadoras. Augusto fusiona diseño y funcionalidad para dar vida a interfaces memorables. Su enfoque innovador y creativo transforma ideas en experiencias de usuario excepcionales.
 
