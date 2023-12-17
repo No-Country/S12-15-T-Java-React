@@ -1,4 +1,4 @@
-# Track - Aplicación de Gestión de Proyectos con Sistema de Chat
+# [Track](https://s12-15-t-java-react.vercel.app) - Aplicación de Gestión de Proyectos con Sistema de Chat
 
 Track es una completa aplicación de gestión de proyectos que te ayuda a organizar y realizar un seguimiento efectivo de tus tareas. Cada espacio de trabajo representa un proyecto independiente y se organiza en tableros y tareas. Además, cuenta con un sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
@@ -19,6 +19,29 @@ La aplicación se estructura de la siguiente manera:
 - Seguimiento del progreso de las tareas.
 - Sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
+## Documentación y Enlaces Importantes
+
+- **Documentación Swagger del Backend:** [Enlace a Swagger del Backend](http://181.15.143.132:8081/swagger-ui/index.html)
+- **Frontend de la Aplicación:** [Enlace al Frontend de la Aplicación](https://s12-15-t-java-react.vercel.app)
+- **Diseño en Figma:** [Enlace a Figma](https://www.figma.com/file/E8JqbZKNKOFQySK1zNqiJk/No-Country?type=design&node-id=24-3834&mode=design&t=aFPrYClKeqsYSwKH-0)
+
+## Herramientas Utilizadas
+
+- **Frontend:**
+  - [Next.js](https://nextjs.org/): Framework de React para construir aplicaciones web modernas.
+
+- **Backend:**
+  - [Spring Boot](https://spring.io/projects/spring-boot): Framework de Java para desarrollar aplicaciones backend robustas y eficientes.
+
+- **Diseño:**
+  - [Figma](https://www.figma.com/): Plataforma de diseño colaborativo para crear interfaces de usuario.
+
+- **Organización de Tareas:**
+  - [Trello](https://trello.com/): Herramienta de organización visual para la gestión de proyectos y tareas.
+
+- **Propuestas de Mejoras:**
+  - [Mural](https://mur.al/): Plataforma colaborativa para la generación de ideas y propuestas de mejora.
+
 ## Contacto del Equipo
 
 - **Grupo de Desarrollo:**
@@ -26,6 +49,8 @@ La aplicación se estructura de la siguiente manera:
   - **Frontends:**
     - **Andrés Boni**
       - GitHub: [AndresBoni](https://github.com/AndresBoni)
+      - LinkedIn: [Andrés Boni](https://www.linkedin.com/in/andresboni)
+      - Portfolio: [Boni Portfolio](https://boni.nz/)
       - Apasionado por dar vida a experiencias de usuario cautivadoras y navegaciones fluidas. Siempre en busca de la combinación perfecta entre funcionalidad y belleza.
     - **David Gaviria**
       - GitHub: [davidgaviria2021](https://github.com/davidgaviria2021)
@@ -58,6 +83,8 @@ La aplicación se estructura de la siguiente manera:
       - Constructor versátil de soluciones backend. Su enfoque creativo y pragmático resuelve problemas con elegancia y eficacia.
     - **Luca Terzariol**
       - GitHub: [Teradriel](https://github.com/Teradriel)
+      - LinkedIn: [Luca Terzariol](https://www.linkedin.com/in/luca-terzariol/)
+      - Portfolio: [Teradriel Portfolio](https://portfolio-teradriel.netlify.app/#/home)
       - Explorador apasionado de nuevas tecnologías. Su misión: mantener el backend actualizado y listo para enfrentar los desafíos del mañana.
 
   - **QA:**
@@ -65,12 +92,12 @@ La aplicación se estructura de la siguiente manera:
       - GitHub: [GBPardoGabrielaBeatriz](https://github.com/GBPardoGabrielaBeatriz)
       - Defensora implacable de la calidad. Caza errores con precisión quirúrgica para garantizar que cada función sea impecable.
     - **Maxi Cosman**
-      - GitHub: *[Nombre de Usuario de GitHub Pendiente]* `[PENDIENTE]`
+      - LinkedIn: [Maxi Cosman](https://www.linkedin.com/in/maxi-cosman/)
+      - Experto en QA. Maxi garantiza la calidad de Track explorando cada detalle. Su enfoque metódico asegura una experiencia sin errores.
 
   - **UX/UI:**
     - **Augusto Hernán Mellado**
-      - GitHub: *[Nombre de Usuario de GitHub Pendiente]* `[PENDIENTE]`
+      - LinkedIn: *[LinkedIn de Augusto Hernán Mellado Pendiente]* `[PENDIENTE]`
+      - Portfolio: *[Portfolio de Augusto Hernán Mellado Pendiente]* `[PENDIENTE]`
+      - *[Descripción de Augusto Hernán Mellado Pendiente]* `[PENDIENTE]`
 
-## Acceso a la Aplicación
-
-- **Frontend:** [Enlace al Frontend de la Aplicación](https://tu-front-end-url.com) `[PENDIENTE]`
