@@ -1,8 +1,8 @@
-# [Track](https://s12-15-t-java-react.vercel.app) - Aplicación de Gestión de Proyectos con Sistema de Chat
+# [Track](https://s12-15-t-java-react.vercel.app) - 🚀 Aplicación de Gestión de Proyectos con Sistema de Chat
 
-Track es una completa aplicación de gestión de proyectos que te ayuda a organizar y realizar un seguimiento efectivo de tus tareas. Cada espacio de trabajo representa un proyecto independiente y se organiza en tableros y tareas. Además, cuenta con un sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
+**Track** es una completa aplicación de gestión de proyectos que te ayuda a organizar y realizar un seguimiento efectivo de tus tareas. Cada espacio de trabajo representa un proyecto independiente y se organiza en tableros y tareas. Además, cuenta con un sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
-## Organización
+## 📊 Organización
 
 La aplicación se estructura de la siguiente manera:
 
@@ -10,7 +10,7 @@ La aplicación se estructura de la siguiente manera:
 - **Tableros:** Representan etapas o fases del proyecto.
 - **Tareas:** Unidades individuales de trabajo asignadas a tableros específicos.
 
-## Características
+## 🌟 Características
 
 - Creación, edición y eliminación de proyectos (espacios de trabajo).
 - Organización de proyectos en tableros para un seguimiento estructurado.
@@ -19,13 +19,7 @@ La aplicación se estructura de la siguiente manera:
 - Seguimiento del progreso de las tareas.
 - Sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
-## Documentación y Enlaces Importantes
-
-- **Documentación Swagger del Backend:** [Enlace a Swagger del Backend](http://181.15.143.132:8081/swagger-ui/index.html)
-- **Frontend de la Aplicación:** [Enlace al Frontend de la Aplicación](https://s12-15-t-java-react.vercel.app)
-- **Diseño en Figma:** [Enlace a Figma](https://www.figma.com/file/E8JqbZKNKOFQySK1zNqiJk/No-Country?type=design&node-id=24-3834&mode=design&t=aFPrYClKeqsYSwKH-0)
-
-## Herramientas Utilizadas
+## 🛠️ Herramientas Utilizadas
 
 - **Frontend:**
   - [Next.js](https://nextjs.org/): Framework de React para construir aplicaciones web modernas.
@@ -78,6 +72,7 @@ La aplicación se estructura de la siguiente manera:
       - Navegante intrépido de bases de datos y servicios. Transforma datos en información valiosa para impulsar decisiones informadas.
     - **Franco Lacourt**
       - GitHub: [FrancoLacourt](https://github.com/FrancoLacourt)
+      - LinkedIn: [Franco Lacourt](https://www.linkedin.com/in/franco-lacourt-b32a41190)
       - Mago de la optimización. Asegura que cada línea de código cuente, proporcionando un backend eficiente y de alto rendimiento.
     - **Martín Miguel Salas**
       - GitHub: [MartinMSalas](https://github.com/MartinMSalas)
@@ -91,6 +86,7 @@ La aplicación se estructura de la siguiente manera:
   - **QA:**
     - **Gabriela Beatriz Pardo**
       - GitHub: [GBPardoGabrielaBeatriz](https://github.com/GBPardoGabrielaBeatriz)
+      - LinkedIn: [Gabriela Beatriz Pardo](https://www.linkedin.com/in/gabriela-beatriz-pardo-24a5b6190)
       - Defensora implacable de la calidad. Caza errores con precisión quirúrgica para garantizar que cada función sea impecable.
     - **Maxi Cosman**
       - LinkedIn: [Maxi Cosman](https://www.linkedin.com/in/maxi-cosman/)
