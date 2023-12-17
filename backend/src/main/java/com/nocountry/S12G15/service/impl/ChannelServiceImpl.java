@@ -94,6 +94,7 @@ public class ChannelServiceImpl implements ChannelService {
 
     @Override
     public ChannelEntity disabledOneById(String idChannel) {
+
         ChannelEntity channel = channelRepository.findById(idChannel)
                 .orElseThrow( () -> new ObjectNotFoundException("Channel Not Found with id " +idChannel));
 

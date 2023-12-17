@@ -1,56 +1,51 @@
-/*pushing a hamburger menu into a pillow texture like background*/
-
-.menuButton {
+.hamburger {
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
-	gap: 13%;
-	color: #090909;
-	width: 3.5em;
-	height: 3.5em;
-	border-radius: 0.5em;
-	background: #171717;
-	border: 1px solid #171717;
-	transition: all 0.3s;
-	box-shadow: inset 4px 4px 12px #3a3a3a, inset -4px -4px 12px #000000;
+	position: absolute;
 }
 
-.menuButton:hover {
-	border: 1px solid black;
-}
-
-.menuButton:active {
-	color: #666;
-	box-shadow: 6px 6px 12px #3a3a3a, -6px -6px 12px #000000;
-}
-
-input[type='checkbox'] {
-	-webkit-appearance: none;
+.hamburger input {
 	display: none;
-	visibility: hidden;
 }
 
-.menuButton span {
-	width: 30px;
-	height: 4px;
-	background: rgb(200, 200, 200);
-	border-radius: 100px;
-	transition: 0.3s ease;
+.hamburger svg {
+	/* The size of the SVG defines the overall size */
+	height: 1.8em;
+	/* Define the transition for transforming the SVG */
+	transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input[type]:checked ~ span.top {
-	transform: translateY(290%) rotate(45deg);
-	width: 40px;
+.line {
+	fill: none;
+	stroke: white;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 3;
+	/* Define the transition for transforming the Stroke */
+	transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+		stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input[type]:checked ~ span.bot {
-	transform: translateY(-270%) rotate(-45deg);
-	width: 40px;
-	box-shadow: 0 0 10px #495057;
+.line-top-bottom {
+	stroke-dasharray: 12 63;
 }
 
-input[type]:checked ~ span.mid {
-	transform: translateX(-20px);
-	opacity: 0;
+.hamburger input:checked + svg {
+	transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+	stroke-dasharray: 20 300;
+	stroke-dashoffset: -32.42;
+}
+.burguer-cont {
+	display: block;
+	margin: 0;
+	height: 35px;
+	width: 35px;
+	z-index: 100;
 }

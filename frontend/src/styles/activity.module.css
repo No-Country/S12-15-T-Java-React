@@ -15,8 +15,9 @@
 }
 
 .marcoactivity {
-	background: rgba(66, 82, 110, 0.5);
+	background: #9ea7b5;
 	padding: 32px 24px 32px 24px;
+	border-bottom: none;
 
 	max-width: 944px;
 	height: 81px;
@@ -28,13 +29,16 @@
 	gap: 10px;
 
 	align-items: center;
-
+	border-style: solid;
+	border-color: #6e7787;
 	justify-content: flex-start;
 	border-radius: 8px 8px 0px 0px;
 	margin: auto;
 
 	align-self: stretch;
 	flex-shrink: 0;
+	box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.5);
+	/* border: 22px solid rgba(66, 82, 110, 0.75); */
 }
 
 .containercards,
@@ -43,12 +47,16 @@
 }
 
 .containercards {
-	background: red;
-	border-color: #5693ff;
+	background: #fff;
+	/* border-color: #5693ff; */
 	padding: 16px 24px 16px 24px;
 	max-width: 944px;
 	height: auto;
+	/* box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.50); */
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
 
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.5);
 	display: flex;
 
 	flex-direction: row;
@@ -62,8 +70,9 @@
 	flex-shrink: 0;
 	border-radius: 0px 0px 8px 8px;
 }
-@media (max-width: 700px) {
+/* @media (max-width: 500px) {
 	.containerall {
 		visibility: hidden;
 	}
 }
+ */

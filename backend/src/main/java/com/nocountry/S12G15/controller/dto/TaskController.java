@@ -1,6 +1,7 @@
 package com.nocountry.S12G15.controller.dto;
 
 import com.nocountry.S12G15.domain.entity.TaskEntity;
+import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.service.BoardService;
@@ -44,6 +45,16 @@ public class TaskController {
             return new ResponseEntity<>(taskList, HttpStatus.OK);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/listOfEnabledActivitiesByIdTask/{idTask}")
+    public ResponseEntity<List<ActivityDTO>> getAllEnabledActivitiesByIdTask(@PathVariable String idTask) {
+        List<ActivityDTO> activitiesDTO = taskService.getAllEnabledActivities(idTask);
+
+        if (activitiesDTO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(activitiesDTO);
     }
 
     @GetMapping("/{idTask}")

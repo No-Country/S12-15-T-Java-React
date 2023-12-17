@@ -12,6 +12,14 @@ const useAuth = () => {
 		setLoading(true);
 		setError(null);
 
+// from dev branch //TODO: Fix this
+		/*console.log(`${apiUrl}/auth/login`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(credentials),
+		});*/
 		try {
 			const response = await fetch(`${apiUrl}/auth/login`, {
 				method: 'POST',

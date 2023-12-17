@@ -6,6 +6,7 @@ import stylesRegister from '@/styles/register.module.css';
 import Input from '@/components/register/Input';
 import Button from '@/components/Button';
 import InputPasswordsConfirm from './InputPasswordsConfirm';
+import { registerUser } from '@/app/api/register/registerApi';
 
 function FormRegister() {
 	const [name, setName] = useState('');
@@ -16,7 +17,25 @@ function FormRegister() {
 	});
 	const router = useRouter();
 
-	const handleSubmit = (e) => {
+// from dev branch:
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const { success, id, error } = await registerUser(
+			name,
+			email,
+			passwords.password,
+			passwords.confirmPassword
+		);
+
+		if (success) {
+			router.push(`/login/${id}/home`);
+			console.log('Registro exitoso');
+		} else {
+			console.error(error);
+		}
+// from pre-deploy branch //TODO: fix this
+	/*const handleSubmit = (e) => {
 		e.preventDefault();
 		const newUser = {
 			name,
@@ -29,7 +48,8 @@ function FormRegister() {
 
 		console.log(newUser);
 
-		router.push('/login/1/home');
+		router.push('/login/1/home');*/
+// pre-deploy
 
 		setName('');
 		setEmail('');
