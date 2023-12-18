@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { MemberProject } from './MemberProject';
-
+import Link from 'next/link';
 // import styleCard from '@/styles/home/projects.module.css';
 import styleCard from '@/styles/home/cardProjects.module.css';
 import { CiUser } from 'react-icons/ci';
@@ -41,7 +41,9 @@ export const CardProject = ({
 				</div>
 				<span className={styleCard.numberMember}>{numberMember} miembros</span>
 			</div>
-			<button className={styleCard.buttonGetInto}> Ingresar </button>
+			<Link href="/login/a4a9853f-aea7-4c1f-8272-bbd60bb28738/home/89037cbb-4173-427e-91ff-f4174fa31542/channel/c7a46b30-412a-4b6a-a76e-bf88183057ea">
+				<button className={styleCard.buttonGetInto}> Ingresar </button>
+			</Link>
 		</main>
 	);
 };
