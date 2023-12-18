@@ -8,12 +8,14 @@ import {
 	getMessages,
 	sendMessage,
 } from '@/app/api/workspace/channel/channelApi';
+import { getChannelData } from '@/app/api/workspace/workspaceApi';
 
 const ChannelPage = ({ params }) => {
 	const [messages, setMessages] = useState([]);
 	const user = JSON.parse(localStorage.getItem('user'));
 	const { idChannel } = params;
 	const messagesEndRef = useRef(null);
+	const [channelName, setChannelName] = useState('');
 
 	const scrollToBottom = () => {
 		messagesEndRef.current?.scrollIntoView({ behavior: 'auto' });
@@ -45,6 +47,16 @@ const ChannelPage = ({ params }) => {
 			}
 		};
 
+		const fetchChannelData = async () => {
+			try {
+				const response = await getChannelData(idChannel);
+				const { nameChannel } = response.data;
+				setChannelName(nameChannel);
+			} catch (error) {
+				console.error('Error fetching workspace info:', error);
+			}
+		};
+		fetchChannelData();
 		fetchData();
 	}, [idChannel]);
 
@@ -61,7 +73,9 @@ const ChannelPage = ({ params }) => {
 						alt="channel icon"
 						className="channel_icon"
 					/>
-					<span>General</span>
+					<span>
+						{channelName == 'Demo nameChannel' ? 'General' : channelName}
+					</span>
 				</div>
 
 				<div className={styles.members}>

@@ -43,7 +43,6 @@
 
 	align-self: stretch;
 	flex-shrink: 0;
-	width: 349px;
 	height: 100%;
 
 	/* position: relative; */
@@ -79,7 +78,7 @@
 	text-align: left;
 	font-family: 'Roboto-Bold', sans-serif;
 
-	font-size: 24px;
+	font-size: 1.2rem;
 
 	font-weight: 700;
 
@@ -150,7 +149,7 @@
 	align-items: center;
 
 	justify-content: flex-start;
-
+	align-items: center;
 	align-self: stretch;
 	flex-shrink: 0;
 
@@ -182,7 +181,7 @@
 	text-align: left;
 	font-family: 'Roboto-Medium', sans-serif;
 
-	font-size: 20px;
+	font-size: 1.2rem;
 
 	font-weight: 500;
 
@@ -218,7 +217,7 @@
 
 	gap: 12px;
 
-	align-items: center;
+	align-items: flex-start;
 
 	justify-content: flex-start;
 
@@ -246,13 +245,16 @@
 	text-align: left;
 	font-family: 'Roboto-Regular', sans-serif;
 
-	font-size: 20px;
+	font-size: 1rem;
 
 	font-weight: 400;
 
 	/* position: relative; */
 
 	flex: 1;
+}
+.nombre:hover {
+	cursor: pointer;
 }
 
 .canales-tablero-agregar2 {
@@ -264,8 +266,6 @@
 	flex-direction: row;
 
 	gap: 12px;
-
-	align-items: center;
 
 	justify-content: flex-start;
 
@@ -388,7 +388,7 @@
     height: 100%; */
 		height: 100%;
 		background: #187bdf;
-		left: -349px;
+		left: -319px;
 		transition: all 500ms linear;
 	}
 
@@ -509,4 +509,25 @@
 	margin: auto;
 
 	overflow: visible;
+}
+
+.add_new input {
+	border: none;
+	border-bottom: 1px solid var(--white);
+	outline: none;
+	background-color: transparent;
+	font-size: 1rem;
+	color: var(--white);
+}
+.add_new input::placeholder {
+	color: #cccccc;
+}
+
+.add_new button {
+	color: var(--white);
+	padding: 0.8rem;
+}
+
+.nombre:hover {
+	color: var(--blue);
 }
