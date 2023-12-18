@@ -3,11 +3,11 @@ import { BsThreeDots } from 'react-icons/bs';
 import styleList from '@/styles/board/listBoard.module.css';
 import styleCard from '@/styles/board/addCard.module.css';
 
-const ListBoard = () => {
+const ListBoard = ({ name = 'Title list' }) => {
 	return (
 		<main className={styleList.listBoard}>
 			<header className={styleList.headerList}>
-				<span className={styleList.listName}>Title list</span>
+				<span className={styleList.listName}>{name}</span>
 				<button className={styleList.points}>
 					<BsThreeDots className={styleList.threePoints} />
 				</button>
