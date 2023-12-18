@@ -14,9 +14,9 @@ function LandNav() {
 				</div>
 			</nav>
 			<div className="contenedorBotonLogin">
-				<button className="ll-btn">
+				<div className="ll-btn">
 					<Link href={'/login'}>Login</Link>
-				</button>
+				</div>
 			</div>
 		</nav>
 	);

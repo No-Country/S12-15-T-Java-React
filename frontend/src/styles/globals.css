@@ -22,7 +22,6 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	/* background-color: var(--dark-blue); */
 }
 
 html {
@@ -40,6 +39,14 @@ a {
 
 a:hover {
 	color: var(--mazarine-blue);
+}
+
+.white-link a {
+	color: var(--white);
+}
+
+.white-link a:hover {
+	color: var(--light-blue);
 }
 
 /* Centered container */

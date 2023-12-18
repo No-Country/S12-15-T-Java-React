@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import stylesRegister from '@/styles/register.module.css';
 import Input from '@/components/register/Input';
 import Button from '@/components/Button';
 import InputPasswordsConfirm from './InputPasswordsConfirm';
+import { registerUser } from '@/app/api/register/registerApi';
 
 function FormRegister() {
 	const [name, setName] = useState('');
@@ -13,9 +15,31 @@ function FormRegister() {
 		password: '',
 		confirmPassword: '',
 	});
+	const router = useRouter();
 
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		const { success, id, error } = await registerUser(
+			name,
+			email,
+			passwords.password,
+			passwords.confirmPassword
+		);
+
+		if (success) {
+			router.push(`/login/${id}/home`);
+			console.log('Registro exitoso');
+		} else {
+			console.error(error);
+		}
+
+		setName('');
+		setEmail('');
+		setPasswords({ password: '', confirmPassword: '' });
+	};
 	return (
-		<form className={stylesRegister.form_register}>
+		<form className={stylesRegister.form_register} onSubmit={handleSubmit}>
 			<h3 className={stylesRegister.title}>Regístrate para continuar</h3>
 			<div className={stylesRegister.inputs}>
 				<Input

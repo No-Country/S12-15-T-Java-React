@@ -6,7 +6,7 @@ function DdProyects() {
 			<ul className="menu">
 				<li className="dd">
 					<h2 className="dd-title">
-						Proyects
+						<Link href={'/Home'}>My Proyects</Link>
 						<img src="\images\flecha.png" className="flecha" alt="" />
 					</h2>
 

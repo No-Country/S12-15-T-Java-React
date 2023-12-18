@@ -36,6 +36,8 @@
 	align-items: center;
 	width: 100px;
 	height: 35px;
+	
+	
 }
 /* configuracion del boton login dentro del nav de landing */
 .ll-btn {
@@ -44,6 +46,7 @@
 	align-items: center;
 	width: 77px;
 	height: 35px;
+	background-color: #fafbfc;
 }
 Link {
 	list-style: none;
