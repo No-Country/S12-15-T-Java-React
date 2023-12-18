@@ -8,6 +8,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 public class CommentEntity {
@@ -17,6 +19,8 @@ public class CommentEntity {
     private String idComment;
 
     private String text;
+
+    private LocalDateTime localDateTime;
 
     @ManyToOne
     @JoinColumn(name = "idChannel")

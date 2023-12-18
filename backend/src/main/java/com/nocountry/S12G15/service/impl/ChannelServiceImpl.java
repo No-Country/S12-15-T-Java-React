@@ -33,12 +33,18 @@ public class ChannelServiceImpl implements ChannelService {
 
     @Override
     @Transactional
+//    public ChannelResponseDTO createChannel(ChannelRequestDTO data) {
+//        ChannelEntity channelSave;
+//        channelSave = Optional.of(data)
+//                .map(mapper::toGetChannelEntity)
+//                .map(channelRepository::save)
+//                .orElseThrow(()-> new GenericException("Oops ocurrió un error", HttpStatus.BAD_REQUEST));
+//        return mapper.toGetChannelResponseDto(channelSave);
+//    }
     public ChannelResponseDTO createChannel(ChannelRequestDTO data) {
-        ChannelEntity channelSave;
-        channelSave = Optional.of(data)
-                .map(mapper::toGetChannelEntity)
-                .map(channelRepository::save)
-                .orElseThrow(()-> new GenericException("Oops ocurrió un error", HttpStatus.BAD_REQUEST));
+        ChannelEntity channelSave = mapper.toGetChannelEntity(data);
+        channelSave.setStatus(ChannelEntity.ChannelStatus.ENABLED);
+        channelRepository.save(channelSave);
         return mapper.toGetChannelResponseDto(channelSave);
     }
 

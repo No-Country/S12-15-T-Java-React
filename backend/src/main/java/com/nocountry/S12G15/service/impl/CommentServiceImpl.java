@@ -35,6 +35,7 @@ public class CommentServiceImpl implements CommentService {
 
         CommentEntity commentEntity = new CommentEntity();
         commentEntity.setText(text.getText());
+        commentEntity.setLocalDateTime(LocalDateTime.now());
         commentEntity.setUserEntity(userEntity);
         commentEntity.setChannelEntity(channelEntity);
         commentRepository.save(commentEntity);
@@ -43,11 +44,7 @@ public class CommentServiceImpl implements CommentService {
         response.setNameChannel(commentEntity.getChannelEntity().getNameChannel());
         response.setUserName(commentEntity.getUserEntity().getUsername());
         response.setComment(commentEntity.getText());
-
-        System.out.println(commentEntity.getUserEntity().getUsername());
-        System.out.println(commentEntity.getUserEntity().getName());
-        System.out.println(commentEntity.getUserEntity().getLastName());
-        System.out.println(commentEntity.getUserEntity().getEmail());
+        response.setLocalDateTime(commentEntity.getLocalDateTime());
 
         return response;
     }
@@ -68,7 +65,7 @@ public class CommentServiceImpl implements CommentService {
                 chatDTO.setUserName(c.getUserEntity().getUsername());
                 chatDTO.setIdChannel(c.getChannelEntity().getIdChannel());
                 chatDTO.setNameChannel(c.getChannelEntity().getNameChannel());
-                chatDTO.setLocalDateTime(LocalDateTime.now());
+                chatDTO.setLocalDateTime(c.getLocalDateTime());
                 chatDTO.setComments(c.getText());
                 commentsDTO.add(chatDTO);
             }
