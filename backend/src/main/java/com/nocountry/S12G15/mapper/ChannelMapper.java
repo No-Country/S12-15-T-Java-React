@@ -18,6 +18,7 @@ import java.util.List;
         uses = {BoardEntity.class})//TODO uses board
 public interface ChannelMapper {
 
+    @Mapping(source ="status" , target="status" )
     ChannelResponseDTO toGetChannelResponseDto(ChannelEntity channelEntity); //TODO response
     ChannelEntity toGetChannelEntity(ChannelRequestDTO channelRequestDTO);//TODO request
 

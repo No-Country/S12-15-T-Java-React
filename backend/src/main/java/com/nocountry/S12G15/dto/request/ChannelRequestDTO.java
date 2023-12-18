@@ -16,4 +16,6 @@ public class ChannelRequestDTO implements Serializable {
 
     private String nameChannel;
 
+
+
 }
