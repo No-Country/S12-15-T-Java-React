@@ -12,6 +12,7 @@ export const ShapeProjects = ({
 	styleHeader,
 	lengthData,
 	btnCreate,
+	idUser,
 }) => {
 	const buttonSeemore = lengthData > 2 ? true : false;
 	const [heightContent, setHeightContent] = useState('19.5rem');
@@ -34,7 +35,7 @@ export const ShapeProjects = ({
 			<header className={styleHeader}>
 				{name}
 				{btnCreate && (
-					<Link href="/login/1/create-workspace">
+					<Link href={`/login/${idUser}}/create-workspace`}>
 						<button className={styleProject.buttonCreate}>Crear</button>
 					</Link>
 				)}
