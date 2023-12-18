@@ -19,6 +19,12 @@
 	gap: 0.25rem;
 }
 
+.message img {
+	max-height: 250px;
+	width: auto;
+	object-fit: cover;
+}
+
 .username {
 	font-weight: 500;
 	color: var(--dark-blue);

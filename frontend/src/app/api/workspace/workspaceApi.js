@@ -14,11 +14,11 @@ export const getWorkspaceData = async (idWorkspace) => {
 			const data = await response.json();
 			return { success: true, data };
 		} else {
-			return { success: false, error: 'Error en la petición' };
+			return { success: false, error: 'Error fetching workspace data:' };
 		}
 	} catch (error) {
 		console.error(error);
-		return { success: false, error: 'Error en la petición' };
+		return { success: false, error: 'Error fetching workspace data:' };
 	}
 };
 
