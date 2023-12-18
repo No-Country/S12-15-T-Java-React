@@ -76,11 +76,10 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width:100%;
+		width: 100%;
 		height: 492px;
 		background-color: #406df3;
 		padding: 56px 32px 56px 32px;
-		
 	}
 	.banner2contenido {
 		width: 100%;
@@ -98,17 +97,16 @@
 		height: 20px;
 		color: #fff;
 		color: 'white';
-        font-Size: 24px;
-        font-Family: 'Roboto';
-        font-Weight: 500;
-        word-Wrap: break-word;
-		
+		font-size: 24px;
+		font-family: 'Roboto';
+		font-weight: 500;
+		word-wrap: break-word;
 	}
 	.card-contenedor {
 		display: flex;
 		width: 704px;
 		height: 220px;
-		display:flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		gap: 24px;
@@ -118,7 +116,7 @@
 		justify-content: center;
 		align-items: center;
 		width: 218px;
-		height:220px;
+		height: 220px;
 		flex-direction: column;
 		gap: 10px;
 		text-align: center;
@@ -126,19 +124,19 @@
 		background-color: #fff;
 		padding: 32px 12px 32px 12px;
 	}
-	.card > .rapidoImg{
+	.card > .rapidoImg {
 		width: 49px;
 		height: 32pc;
 	}
-	.card > .colaborativoImg{
+	.card > .colaborativoImg {
 		width: 55px;
 		height: 32pc;
 	}
-	.card > .intuitivoImg{
+	.card > .intuitivoImg {
 		width: 32px;
 		height: 32pc;
 	}
-	 .card-contenedor h3 {
+	.card-contenedor h3 {
 		color: #1e1e1e;
 		font-size: 24px;
 		font-family: 'Roboto';
@@ -165,25 +163,24 @@
 		background-color: #99f5d1;
 		border-radius: 4px;
 		padding: 16px;
-		color: #1E1E1E;
-        font-Size: 16px;
-        font-Family: 'Roboto';
-        font-Weight: 700;
-        text-Transform: uppercase;
-        word-Wrap: break-word;
+		color: #1e1e1e;
+		font-size: 16px;
+		font-family: 'Roboto';
+		font-weight: 700;
+		text-transform: uppercase;
+		word-wrap: break-word;
 	}
 }
 /* --------------------------------------------------------- */
-@media screen and (max-width: 300px){
+@media screen and (max-width: 300px) {
 	.Banner2-contenedorGral {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width:100%;
+		width: 100%;
 		height: 554px;
 		background-color: #406df3;
 		padding: 56px 32px 56px 32px;
-		
 	}
 	.banner2contenido {
 		width: 100%;
@@ -201,17 +198,16 @@
 		height: 20px;
 		color: #fff;
 		color: 'white';
-        font-Size: 24px;
-        font-Family: 'Roboto';
-        font-Weight: 500;
-        word-Wrap: break-word;
-		
+		font-size: 24px;
+		font-family: 'Roboto';
+		font-weight: 500;
+		word-wrap: break-word;
 	}
 	.card-contenedor {
 		display: flex;
 		width: 704px;
 		height: 220px;
-		display:flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		gap: 24px;
@@ -221,7 +217,7 @@
 		justify-content: center;
 		align-items: center;
 		width: 218px;
-		height:220px;
+		height: 220px;
 		flex-direction: column;
 		gap: 10px;
 		text-align: center;
@@ -229,19 +225,19 @@
 		background-color: #fff;
 		padding: 32px 12px 32px 12px;
 	}
-	.card > .rapidoImg{
+	.card > .rapidoImg {
 		width: 49px;
 		height: 32pc;
 	}
-	.card > .colaborativoImg{
+	.card > .colaborativoImg {
 		width: 55px;
 		height: 32pc;
 	}
-	.card > .intuitivoImg{
+	.card > .intuitivoImg {
 		width: 32px;
 		height: 32pc;
 	}
-	 .card-contenedor h3 {
+	.card-contenedor h3 {
 		color: #1e1e1e;
 		font-size: 24px;
 		font-family: 'Roboto';
@@ -268,11 +264,11 @@
 		background-color: #99f5d1;
 		border-radius: 4px;
 		padding: 16px;
-		color: #1E1E1E;
-        font-Size: 16px;
-        font-Family: 'Roboto';
-        font-Weight: 700;
-        text-Transform: uppercase;
-        word-Wrap: break-word;
+		color: #1e1e1e;
+		font-size: 16px;
+		font-family: 'Roboto';
+		font-weight: 700;
+		text-transform: uppercase;
+		word-wrap: break-word;
 	}
-} 
+}
