@@ -1,25 +1,30 @@
 import Image from 'next/image';
-import { MemberProject } from './MemberProject';
-import Link from 'next/link';
+
+// import { MemberProject } from './MemberProject';
+
 // import styleCard from '@/styles/home/projects.module.css';
 import styleCard from '@/styles/home/cardProjects.module.css';
 import { CiUser } from 'react-icons/ci';
+import Link from 'next/link';
 
 export const CardProject = ({
 	img,
 	nameProject,
-	dataMembers,
+	idSpace,
+	idUser,
+	// dataMembers,
 	nameProjectOwner,
 }) => {
-	const numberMember = dataMembers ? dataMembers.length : 1;
-	const dataMember = dataMembers ? dataMembers.slice(0, 5) : [];
+	const imgUrl = img !== null ? img : '/images/projects.jpg';
 	const projectOwner = nameProjectOwner ? nameProjectOwner : false;
+	// const numberMember = dataMembers ? dataMembers.length : 1;
+	// const dataMember = dataMembers ? dataMembers.slice(0, 5) : [];
 
 	return (
 		<main className={styleCard.card}>
 			<Image
 				className={styleCard.cardImage}
-				src={img}
+				src={imgUrl}
 				width={150}
 				height={120}
 				alt="ImageProject"
@@ -33,17 +38,23 @@ export const CardProject = ({
 					</div>
 				)}
 			</div>
-			<div className={styleCard.members}>
+			{/* <div className={styleCard.members}>
 				<div className={styleCard.memberMap}>
 					{dataMember.map((member) => (
 						<MemberProject key={member.id} img={member.imgProject} />
 					))}
 				</div>
 				<span className={styleCard.numberMember}>{numberMember} miembros</span>
-			</div>
-			<Link href="/login/a4a9853f-aea7-4c1f-8272-bbd60bb28738/home/89037cbb-4173-427e-91ff-f4174fa31542/channel/c7a46b30-412a-4b6a-a76e-bf88183057ea">
-				<button className={styleCard.buttonGetInto}> Ingresar </button>
-			</Link>
+
+			</div> */}
+			<Link 
+				href={`/login/${idUser}/home/${idSpace}/board`}
+				className={styleCard.buttonGetInto}
+			>
+				Ingresar
+				{/* <button className={styleCard.buttonGetInto}> Ingresar </button>  */}
+			</Link> 
+
 		</main>
 	);
 };
