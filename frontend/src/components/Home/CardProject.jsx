@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 // import { MemberProject } from './MemberProject';
 
 // import styleCard from '@/styles/home/projects.module.css';
@@ -44,6 +45,7 @@ export const CardProject = ({
 					))}
 				</div>
 				<span className={styleCard.numberMember}>{numberMember} miembros</span>
+
 			</div> */}
 			<Link 
 				href={`/login/${idUser}/home/${idSpace}/board`}
@@ -52,6 +54,7 @@ export const CardProject = ({
 				Ingresar
 				{/* <button className={styleCard.buttonGetInto}> Ingresar </button>  */}
 			</Link> 
+
 		</main>
 	);
 };

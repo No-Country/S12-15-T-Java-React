@@ -1,3 +1,4 @@
+import Link from 'next/link';
 function Banner() {
 	return (
 		<div className="banner-contenedorGral">
@@ -13,9 +14,11 @@ function Banner() {
 						necesitas para tu Proyecto en un solo lugar.
 					</p>
 					<div className="btncont">
-						<button className="bescubre-btn" type="submit">
-							Descubre Track
-						</button>
+						<Link href="/login">
+							<button className="bescubre-btn" type="submit">
+								Descubre Track
+							</button>
+						</Link>
 					</div>
 				</div>
 
