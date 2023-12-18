@@ -1,47 +1,57 @@
 'use client';
+import { useEffect, useState, useRef } from 'react';
 import ChannelMessage from '@/components/channel/ChannelMessage';
-import ChannelMessagesDivider from '@/components/channel/ChannelMessagesDivider';
+//import ChannelMessagesDivider from '@/components/channel/ChannelMessagesDivider';
 import ChannelWriteMessage from '@/components/channel/ChannelWriteMessage';
 import styles from '@/styles/channel.module.css';
-import { useState } from 'react';
-const message = [
-	{
-		id: 1,
-		username: 'Nombre del usuario',
-		date: '',
-		time: '10:45',
-		message: 'Texto del usuario de lo que quiera escribir',
-	},
-	{
-		id: 2,
-		username: 'Nombre del usuario',
-		date: '',
-		time: '10:45',
-		message: 'Texto del usuario de lo que quiera escribir',
-	},
-	{
-		id: 3,
-		username: 'Nombre del usuario',
-		date: '',
-		time: '10:45',
-		message: 'Texto del usuario de lo que quiera escribir',
-	},
-	{
-		id: 4,
-		username: 'Nombre del usuario',
-		date: '',
-		time: '10:45',
-		message: 'Texto del usuario de lo que quiera escribir',
-	},
-];
+import {
+	getMessages,
+	sendMessage,
+} from '@/app/api/workspace/channel/channelApi';
 
-const ChannelPage = () => {
-	const [messages, setMessages] = useState(message);
+const ChannelPage = ({ params }) => {
+	const [messages, setMessages] = useState([]);
+	const user = JSON.parse(localStorage.getItem('user'));
+	const { idChannel } = params;
+	const messagesEndRef = useRef(null);
 
-	const handleSendMessage = (newMessage) => {
-		setMessages((prevMessages) => [...prevMessages, newMessage]);
+	const scrollToBottom = () => {
+		messagesEndRef.current?.scrollIntoView({ behavior: 'auto' });
 	};
 
+	const handleSendMessage = async (newMessage) => {
+		//temporary until realtime chat / websocket / receive new message data.
+		setMessages((prevMessages) => [
+			...prevMessages,
+			{
+				comments: newMessage,
+				userName: user.email,
+				localDateTime: new Date().toISOString(),
+			},
+		]);
+		//Send the real message
+		await sendMessage(idChannel, newMessage);
+
+		// Scroll to the bottom after sending it
+	};
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await getMessages(idChannel);
+				setMessages(response.data);
+			} catch (error) {
+				console.error('Error fetching messages:', error);
+			}
+		};
+
+		fetchData();
+	}, [idChannel]);
+
+	// Auto-scroll to the last message
+	useEffect(() => {
+		scrollToBottom();
+	}, [messages]);
 	return (
 		<div className={styles.container}>
 			<div className={styles.title}>
@@ -60,13 +70,15 @@ const ChannelPage = () => {
 			</div>
 			<hr />
 			<div className={styles.messages}>
-				{messages.map((msg, index) => (
-					<div key={index}>
-						<ChannelMessage msg={msg} />
-						{index === 1 && <ChannelMessagesDivider date="11/12/23" />}
-						{index === 2 && <ChannelMessagesDivider date="Hoy" />}
-					</div>
-				))}
+				{Array.isArray(messages) &&
+					messages.map((msg) => (
+						<div key={msg.localDateTime}>
+							<ChannelMessage msg={msg} />
+							{/* {index === 1 && <ChannelMessagesDivider date="11/12/23" />}
+							{index === 2 && <ChannelMessagesDivider date="Hoy" />} */}
+						</div>
+					))}
+				<div ref={messagesEndRef} />
 			</div>
 			<div className={styles.write_message}>
 				<ChannelWriteMessage handleSendMessage={handleSendMessage} />
