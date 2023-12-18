@@ -1,7 +1,7 @@
 //import React from 'react'
 
-import '@/styles/activity.css';
-import styles from 'src/styles/activity.module.css';
+import '@/styles/activity.module.css';
+import styles from '@/styles/activity.module.css';
 
 export const RecentActivity = () => {
 	return (
