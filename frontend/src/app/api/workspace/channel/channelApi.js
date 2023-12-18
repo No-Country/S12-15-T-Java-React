@@ -15,12 +15,22 @@ export const getMessages = async (idChannel) => {
 			}
 		);
 		if (response.ok) {
-			const data = await response.json();
+			const rawData = await response.text();
 
-			const sortedData = data.sort((a, b) => {
-				return new Date(b.localDateTime) - new Date(a.localDateTime);
-			});
-			return { success: true, data: sortedData };
+			const isValidJson = rawData.trim() !== '' && rawData.startsWith('[');
+
+			if (isValidJson) {
+				const data = JSON.parse(rawData);
+
+				// Ordenar los datos por fecha
+				const sortedData = data.sort((a, b) => {
+					return new Date(b.localDateTime) - new Date(a.localDateTime);
+				});
+
+				return { success: true, data: sortedData };
+			} else {
+				return { success: false, error: 'Empty or invalid JSON response' };
+			}
 		} else {
 			return { success: false, error: 'Error fetching messages data:' };
 		}

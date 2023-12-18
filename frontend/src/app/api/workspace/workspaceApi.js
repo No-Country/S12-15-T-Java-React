@@ -56,3 +56,65 @@ export const getBoards = async (idWorkspace) => {
 		console.log(error);
 	}
 };
+
+export const createChannel = async (idWorkspace, name) => {
+	try {
+		const response = await fetch(`${apiUrl}/channel/new/${idWorkspace}`, {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ nameChannel: name }),
+		});
+		if (response.ok) {
+			const data = await response.json();
+			return { success: true, data };
+		} else {
+			return { success: false, error: 'Error creating new channel:' };
+		}
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const createBoard = async (idWorkspace, name) => {
+	try {
+		const response = await fetch(`${apiUrl}/board/register/${idWorkspace}`, {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ boardName: name }),
+		});
+		if (response.ok) {
+			const data = await response.json();
+			return { success: true, data };
+		} else {
+			return { success: false, error: 'Error creating new board:' };
+		}
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const getChannelData = async (idChannel) => {
+	try {
+		const response = await fetch(`${apiUrl}/channel/${idChannel}`, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json',
+			},
+		});
+		if (response.ok) {
+			const data = await response.json();
+			return { success: true, data };
+		} else {
+			return { success: false, error: 'Error fetching channel data:' };
+		}
+	} catch (error) {
+		console.error(error);
+		return { success: false, error: 'Error fetching channel data:' };
+	}
+};
