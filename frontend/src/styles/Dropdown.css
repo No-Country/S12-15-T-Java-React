@@ -85,7 +85,7 @@ li {
 	height: 30px;
 	background: #406df3;
 	border-radius: 4px;
-	text-align: flex-start;
+	text-align: start;
 }
 .dd-title:hover .flecha {
 	transform: rotate(0deg);
