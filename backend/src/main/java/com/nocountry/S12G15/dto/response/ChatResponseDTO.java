@@ -1,6 +1,7 @@
 package com.nocountry.S12G15.dto.response;
 
 import com.nocountry.S12G15.domain.entity.CommentEntity;
+import com.nocountry.S12G15.domain.entity.ImageEntity;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -21,4 +22,8 @@ public class ChatResponseDTO {
     private LocalDateTime localDateTime;
 
     private String comments;
+
+    private String idImage;
+
+
 }

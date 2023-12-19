@@ -3,6 +3,7 @@ package com.nocountry.S12G15.dto.response;
 
 //import com.nocountry.S12G15.domain.entity.SpaceEntity;
 
+import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import lombok.Data;
 
@@ -18,5 +19,6 @@ public class UserResponseDTO {
     private String lastName;
     private boolean disabled;
     private List<SpaceEntity> spaceEntityList;
+    private ImageEntity imageEntity;
 }
 

@@ -63,6 +63,7 @@ public class CommentServiceImpl implements CommentService {
             //if(c.getChannelEntity().getIdChannel().equals(idChannel)) {
                 chatDTO.setIdUser(c.getUserEntity().getId());
                 chatDTO.setUserName(c.getUserEntity().getUsername());
+                chatDTO.setIdImage(c.getUserEntity().getImageEntity().getIdImage());
                 chatDTO.setIdChannel(c.getChannelEntity().getIdChannel());
                 chatDTO.setNameChannel(c.getChannelEntity().getNameChannel());
                 chatDTO.setLocalDateTime(c.getLocalDateTime());
