@@ -1,9 +1,7 @@
 'use client';
 import { useState } from 'react';
 import '@/styles/passwordInput.css';
-import styles from '@/styles/login.module.css';
-
-const PasswordInput = ({ onChange, errors }) => {
+const PasswordInput = () => {
 	const [passwordVisible, setPasswordVisible] = useState(false);
 
 	const togglePasswordVisibility = () => {
@@ -16,16 +14,14 @@ const PasswordInput = ({ onChange, errors }) => {
 				type={passwordVisible ? 'text' : 'password'}
 				id="password"
 				name="password"
-				onChange={onChange}
 				placeholder="Introducir contraseña"
-				className={errors?.password && styles.error_input}
 			/>
 			<span className="toggle_password" onClick={togglePasswordVisibility}>
 				<img
 					src={
 						passwordVisible
 							? '/images/eye-off-icon.png'
-							: '/images/eye-on-icon.png'
+							: 'images/eye-on-icon.png'
 					}
 					alt="Toggle password visibility"
 				/>

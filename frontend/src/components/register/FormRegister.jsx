@@ -15,23 +15,30 @@ function FormRegister() {
 		password: '',
 		confirmPassword: '',
 	});
+	const [loading, setLoading] = useState(false);
 	const router = useRouter();
 
 // from dev branch:
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const { success, id, error } = await registerUser(
-			name,
-			email,
-			passwords.password,
-			passwords.confirmPassword
-		);
+		setLoading(true);
 
-		if (success) {
-			router.push(`/login/${id}/home`);
-			console.log('Registro exitoso');
-		} else {
+		try {
+			const { success, id, error } = await registerUser(
+				name,
+				email,
+				passwords.password,
+				passwords.confirmPassword
+			);
+
+			if (success) {
+				router.push(`/login/${id}/home`);
+				console.log('Registro exitoso');
+			} else {
+				console.error(error);
+			}
+		} catch (error) {
 			console.error(error);
 		}
 // from pre-deploy branch //TODO: fix this
@@ -51,11 +58,12 @@ function FormRegister() {
 		router.push('/login/1/home');*/
 // pre-deploy
 
+		setLoading(false);
+
 		setName('');
 		setEmail('');
 		setPasswords({ password: '', confirmPassword: '' });
 	};
-
 	return (
 		<form className={stylesRegister.form_register} onSubmit={handleSubmit}>
 			<h3 className={stylesRegister.title}>Regístrate para continuar</h3>
@@ -81,8 +89,12 @@ function FormRegister() {
 					setPasswords={setPasswords}
 				/>
 			</div>
-			<Button className={stylesRegister.button} type="submit">
-				Registrarme
+			<Button
+				className={stylesRegister.button}
+				type="submit"
+				disabled={loading}
+			>
+				{loading ? 'Cargando...' : 'Registrarme'}
 			</Button>
 		</form>
 	);

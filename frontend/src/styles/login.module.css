@@ -70,17 +70,10 @@
 	border: 1px solid var(--red);
 }
 
-.container_form .container_inputs .error_message {
-	display: flex;
-	align-self: start;
+.container_form .container_inputs .errorMessage {
 	color: var(--red);
-	font-size: 0.8rem;
-	padding: 2px 4px;
-}
-
-.error_login {
-	color: var(--red);
-	padding: 2px 4px;
+	margin-top: 5px;
+	font-size: 0.6rem;
 }
 .container_form > hr {
 	border: none;

@@ -3,29 +3,17 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
+	max-height: 27rem;
+	overflow-y: auto;
 }
 
 /*Add Card name*/
 .elementPlus {
 	display: flex;
 	align-content: center;
+	margin-top: 0.9rem;
 	gap: 0.5rem;
 	cursor: pointer;
-}
-
-.overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(
-		255,
-		255,
-		255,
-		0.8
-	); /* Puedes ajustar la opacidad y el color según tus necesidades */
-	z-index: 1;
 }
 
 .nameElementPlus {
@@ -46,6 +34,7 @@
 	padding: 0.5rem;
 	resize: none;
 	outline: none;
+	word-wrap: break-word;
 	font-family: 'Roboto', sans-serif;
 	border-radius: 0.5rem;
 	border: 1px solid var(--grey);
@@ -57,11 +46,17 @@
 	font-size: 0.75rem;
 	font-style: normal;
 	font-weight: 400;
+	border-radius: 0.5rem;
 	color: var(--white);
 	background-color: var(--blue);
 }
 
-/*Card en di*/
+/*Card*/
+.divCard {
+	max-height: 20rem;
+	overflow-y: auto;
+}
+
 .card {
 	padding: 0.5rem;
 	background: #eee;
@@ -72,6 +67,7 @@
 }
 
 .cardName {
+	word-wrap: break-word;
 	font-size: 0.75rem;
 	font-style: normal;
 	font-weight: 400;
