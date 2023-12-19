@@ -2,21 +2,26 @@
 import { useState } from 'react';
 import styleList from '@/styles/board/listBoard.module.css';
 import { FaPlus } from 'react-icons/fa';
-import ListBoard from './ListBoard';
+import { newTasks } from '@/app/api/workspace/board/boardApi';
+//import ListBoard from './ListBoard';
 
-export const AddList = () => {
+export const AddList = ({ setTasks, idBoard }) => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [inputValue, setInputValue] = useState('');
-	const [list, setList] = useState([]);
+	//const [list, setList] = useState([]);
 
 	const handleEdit = () => {
 		setIsEditing(!isEditing);
 	};
 
 	const handleSave = () => {
-		console.log(inputValue);
 		if (inputValue.trim() !== '') {
-			setList([...list, inputValue]);
+			setTasks((prevTasks) => [
+				...prevTasks,
+				{ idTask: '', name: inputValue, description: '', enabled: true },
+			]);
+			newTasks(idBoard, inputValue);
+			//setList([...list, inputValue]);
 			setInputValue('');
 			setIsEditing(false);
 		}
@@ -24,13 +29,13 @@ export const AddList = () => {
 
 	return (
 		<div className={styleList.newList}>
-			<div className={styleList.newListBoard}>
+			{/* <div className={styleList.newListBoard}>
 				{list.map((listBoard, index) => (
 					<div key={index}>
 						<ListBoard name={listBoard} />
 					</div>
 				))}
-			</div>
+			</div> */}
 			{isEditing ? (
 				<div className={styleList.enterName}>
 					<input
