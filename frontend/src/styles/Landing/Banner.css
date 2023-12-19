@@ -155,11 +155,10 @@
 		background-image: url('/images/fondo.png');
 		background-repeat: no-repeat;
 		background-size: cover;
-		
 	}
 	.banner-contenido {
 		display: flex;
-		flex-direction:column;
+		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;

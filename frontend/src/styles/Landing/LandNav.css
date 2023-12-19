@@ -53,7 +53,7 @@ Link {
 	color: #030304;
 }
 /* ------------------------------------------------------- */
-@media screen and (max-width: 300px){
+@media screen and (max-width: 300px) {
 	.contenedorGral-Navlanding {
 		display: flex;
 		justify-content: space-between;
@@ -62,11 +62,11 @@ Link {
 		height: 32px;
 		background-color: #425682;
 	}
-	.contenedor-logo-track{
+	.contenedor-logo-track {
 		display: flex;
-        width: 99px;
-        height: 26px;
-        gap: 16px;
+		width: 99px;
+		height: 26px;
+		gap: 16px;
 	}
 	.ll-btn {
 		display: flex;
@@ -75,11 +75,11 @@ Link {
 		width: 66px;
 		height: 25px;
 		background-color: #fafbfc;
-		color: #1E1E1E;
-        font-Size: 12px;
-        font-Family: 'Roboto';
-        font-Weight: 700;
-        word-Wrap: break-word;
+		color: #1e1e1e;
+		font-size: 12px;
+		font-family: 'Roboto';
+		font-weight: 700;
+		word-wrap: break-word;
 		border-radius: 4px;
 	}
 }

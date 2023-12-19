@@ -192,10 +192,9 @@
 		gap: 24px;
 		align-items: center;
 		flex-direction: column;
-		
 	}
 	.pregunta {
-		display:flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
@@ -206,7 +205,6 @@
 		font-family: 'Roboto';
 		font-weight: 700;
 		word-wrap: break-word;
-	
 	}
 	.card-contenedor {
 		width: 100%;
@@ -231,32 +229,32 @@
 		padding: 18px 8px 18px 8px;
 	}
 	/* configuracion texto de cards */
-	.card > .t-rapido{
+	.card > .t-rapido {
 		width: 63px;
 		height: 14px;
 		color: '#1E1E1E';
-        font-Size: 20px;
-        font-Family: 'Roboto';
-        font-Weight: 500;
-        word-Wrap: break-word;
+		font-size: 20px;
+		font-family: 'Roboto';
+		font-weight: 500;
+		word-wrap: break-word;
 	}
-	.card > .t-colaborativo{
+	.card > .t-colaborativo {
 		width: 114px;
 		height: 14px;
 		color: '#1E1E1E';
-        font-Size: 20px;
-        font-Family: 'Roboto';
-        font-Weight: 500;
-        word-Wrap: break-word;
+		font-size: 20px;
+		font-family: 'Roboto';
+		font-weight: 500;
+		word-wrap: break-word;
 	}
-	.card > .t-intuitivo{
+	.card > .t-intuitivo {
 		width: 73px;
 		height: 14px;
 		color: '#1E1E1E';
-        font-Size: 20px;
-        font-Family: 'Roboto';
-        font-Weight: 500;
-        word-Wrap: break-word;
+		font-size: 20px;
+		font-family: 'Roboto';
+		font-weight: 500;
+		word-wrap: break-word;
 	}
 	/* configuracion de iconos de cards */
 	.card > .rapidoImg {
@@ -272,7 +270,7 @@
 		height: 32px;
 	}
 	.card-contenedor h3 {
-	color: #1e1e1e;
+		color: #1e1e1e;
 		font-size: 24px;
 		font-family: 'Roboto';
 		font-weight: 500;
@@ -291,7 +289,7 @@
 		word-wrap: break-word;
 	}
 	.empiezaBtn {
-		display:flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
