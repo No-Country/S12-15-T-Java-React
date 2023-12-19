@@ -4,8 +4,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import '@/styles/navbar.css';
+import '@/styles/Burguer.css';
 import DdProyects from './DdProyects';
-import DdRecents from './DdRecents';
+import Burguer from './Burguer';
 
 function Navbar() {
 	const [menuVisible, setMenuVisible] = useState(false);
@@ -29,28 +30,30 @@ function Navbar() {
 						checked={menuVisible}
 						onChange={toggleMenu}
 					/>
-					<label htmlFor="btn-menu">
-						<img src="/images/Burguer.png" alt="" />
-					</label>
+
+					<div className="brg">
+						{/* contiene el burguer Button */}
+						<Burguer />
+					</div>
 				</div>
+
 				<div className={`dropdowns ${menuVisible ? 'dd-complete' : ''}`}>
 					<div className="dd-complete">
+						{/* contiene los botones proyect, recent, create */}
 						<ul className="dd-cont">
-							<li>
+							<li className="option-projet">
 								<DdProyects />
 							</li>
-							<li>
-								<DdRecents />
-							</li>
 						</ul>
-
 						<div className="btn-create">
-							<Link href="/Crear" className="create">
+							{/* contiene el boton create */}
+							<Link href="/crear" className="create">
 								Create
 							</Link>
 						</div>
 					</div>
 				</div>
+
 				<div className="logo-user">
 					<img src="/images/Usuario.png" alt="Imagen de USUARIO" />
 				</div>

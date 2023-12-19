@@ -6,24 +6,24 @@ function DdProyects() {
 			<ul className="menu">
 				<li className="dd">
 					<h2 className="dd-title">
-						Proyects
+						<Link href={'/Home'}>Proyectos Recientes</Link>
 						<img src="\images\flecha.png" className="flecha" alt="" />
 					</h2>
 
 					<ul className="submenu">
 						<li className="option">
 							<Link className="link" href="#">
-								Proyect 1
+								Proyect A
 							</Link>
 						</li>
 						<li className="option">
 							<Link className="link" href="#">
-								Proyect 2
+								Proyect B
 							</Link>
 						</li>
 						<li className="option">
 							<Link className="link" href="#">
-								Proyect 3
+								Proyect C
 							</Link>
 						</li>
 					</ul>

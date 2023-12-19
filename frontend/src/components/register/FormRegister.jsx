@@ -47,7 +47,6 @@ function FormRegister() {
 		setEmail('');
 		setPasswords({ password: '', confirmPassword: '' });
 	};
-
 	return (
 		<form className={stylesRegister.form_register} onSubmit={handleSubmit}>
 			<h3 className={stylesRegister.title}>Regístrate para continuar</h3>

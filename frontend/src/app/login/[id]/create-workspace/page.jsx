@@ -2,9 +2,10 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import FormInputGroup from '@/components/create/FormInputGroup';
-import styles from '@/styles/createworkspace.module.css';
-import Button from '@/components/Button';
 import { createWorkspace } from '@/app/api/createWorkspace/createWorkspaceApi';
+import FormGuests from '@/components/create/FormGuests';
+import Button from '@/components/Button';
+import styles from '@/styles/createworkspace.module.css';
 
 const CreateWorkSpace = () => {
 	const [proyectName, setProyectName] = useState('');
