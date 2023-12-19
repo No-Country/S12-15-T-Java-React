@@ -52,7 +52,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<ChatResponseDTO> getAllComments(String idChannel) {
 
-        List<CommentEntity> comments = commentRepository.findAll();
+        List<CommentEntity> comments = commentRepository.findAllComments(idChannel);
 
         List<ChatResponseDTO> commentsDTO = new ArrayList<>();
 
@@ -60,7 +60,7 @@ public class CommentServiceImpl implements CommentService {
 
             ChatResponseDTO chatDTO = new ChatResponseDTO();
 
-            if(c.getChannelEntity().getIdChannel().equals(idChannel)) {
+            //if(c.getChannelEntity().getIdChannel().equals(idChannel)) {
                 chatDTO.setIdUser(c.getUserEntity().getId());
                 chatDTO.setUserName(c.getUserEntity().getUsername());
                 chatDTO.setIdChannel(c.getChannelEntity().getIdChannel());
@@ -68,7 +68,7 @@ public class CommentServiceImpl implements CommentService {
                 chatDTO.setLocalDateTime(c.getLocalDateTime());
                 chatDTO.setComments(c.getText());
                 commentsDTO.add(chatDTO);
-            }
+            //}
         }
 
         return commentsDTO;
