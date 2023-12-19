@@ -42,7 +42,7 @@ public class CommentServiceImpl implements CommentService {
 
         CommentResponseDTO response = new CommentResponseDTO();
         response.setNameChannel(commentEntity.getChannelEntity().getNameChannel());
-        response.setUserName(commentEntity.getUserEntity().getUsername());
+        response.setUserName(commentEntity.getUserEntity().getRealUserName());
         response.setComment(commentEntity.getText());
         response.setLocalDateTime(commentEntity.getLocalDateTime());
 
