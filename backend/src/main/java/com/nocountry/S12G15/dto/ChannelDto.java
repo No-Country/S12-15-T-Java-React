@@ -12,6 +12,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
+//deprecated
 public class ChannelDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -23,5 +25,9 @@ public class ChannelDto implements Serializable {
     private String topic;
 
     private String notes;
+
+    private enum ChannelStatus{
+        ENABLED, DISABLED;
+    }
 
 }

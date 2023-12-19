@@ -1,18 +1,25 @@
 package com.nocountry.S12G15.controller;
 
+import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.dto.request.UserRequestDTO;
 //import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import com.nocountry.S12G15.dto.response.UserResponseDTO;
 //import com.nocountry.S12G15.service.SpaceService;
+import com.nocountry.S12G15.service.ImageService;
 import com.nocountry.S12G15.service.UserService;
 import com.nocountry.S12G15.service.impl.UserServiceImpl;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,13 +31,14 @@ public class UserController {
 
     private final UserService userService;
 
-
+    @Autowired
+    private ImageService imageService;
 
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
-
     }
+
 
     @GetMapping("/getallusers")
     public ResponseEntity<List<UserResponseDTO>> getAllUsers(){
@@ -133,6 +141,31 @@ public class UserController {
         }
         return new ResponseEntity<>(spaceResponseDTOList, HttpStatus.OK);
 
+    }
+
+    @PostMapping("/uploadPhoto")
+    public ResponseEntity<?> uploadPhoto (@RequestParam MultipartFile file, @RequestParam String idUser) {
+
+        ImageEntity imageEntity = imageService.saveImageUser(file, idUser);
+
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentContextPath()
+                .path("/v1/api/users/getPhoto")
+                .queryParam("idUser", idUser)
+                .build()
+                .toUri();
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(uri);
+    }
+
+    @GetMapping("/getPhoto")
+    public ResponseEntity<byte[]> getPhoto(@RequestParam String idUser){
+
+        byte[] image = imageService.getPhotoUser(idUser);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+
+        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(image);
     }
 
 

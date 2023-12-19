@@ -35,19 +35,16 @@ public class CommentServiceImpl implements CommentService {
 
         CommentEntity commentEntity = new CommentEntity();
         commentEntity.setText(text.getText());
+        commentEntity.setLocalDateTime(LocalDateTime.now());
         commentEntity.setUserEntity(userEntity);
         commentEntity.setChannelEntity(channelEntity);
         commentRepository.save(commentEntity);
 
         CommentResponseDTO response = new CommentResponseDTO();
         response.setNameChannel(commentEntity.getChannelEntity().getNameChannel());
-        response.setUserName(commentEntity.getUserEntity().getUsername());
+        response.setUserName(commentEntity.getUserEntity().getRealUserName());
         response.setComment(commentEntity.getText());
-
-        System.out.println(commentEntity.getUserEntity().getUsername());
-        System.out.println(commentEntity.getUserEntity().getName());
-        System.out.println(commentEntity.getUserEntity().getLastName());
-        System.out.println(commentEntity.getUserEntity().getEmail());
+        response.setLocalDateTime(commentEntity.getLocalDateTime());
 
         return response;
     }
@@ -55,7 +52,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<ChatResponseDTO> getAllComments(String idChannel) {
 
-        List<CommentEntity> comments = commentRepository.findAll();
+        List<CommentEntity> comments = commentRepository.findAllComments(idChannel);
 
         List<ChatResponseDTO> commentsDTO = new ArrayList<>();
 
@@ -63,15 +60,16 @@ public class CommentServiceImpl implements CommentService {
 
             ChatResponseDTO chatDTO = new ChatResponseDTO();
 
-            if(c.getChannelEntity().getIdChannel().equals(idChannel)) {
+            //if(c.getChannelEntity().getIdChannel().equals(idChannel)) {
                 chatDTO.setIdUser(c.getUserEntity().getId());
                 chatDTO.setUserName(c.getUserEntity().getUsername());
+                chatDTO.setIdImage(c.getUserEntity().getImageEntity().getIdImage());
                 chatDTO.setIdChannel(c.getChannelEntity().getIdChannel());
                 chatDTO.setNameChannel(c.getChannelEntity().getNameChannel());
-                chatDTO.setLocalDateTime(LocalDateTime.now());
+                chatDTO.setLocalDateTime(c.getLocalDateTime());
                 chatDTO.setComments(c.getText());
                 commentsDTO.add(chatDTO);
-            }
+            //}
         }
 
         return commentsDTO;

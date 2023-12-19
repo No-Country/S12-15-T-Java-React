@@ -1,5 +1,5 @@
 import '@/styles/Landing/LandNav.css';
-
+import Link from 'next/link';
 function LandNav() {
 	return (
 		<nav className="contenedorGral-Navlanding">
@@ -13,7 +13,9 @@ function LandNav() {
 				</div>
 			</nav>
 			<div className="contenedorBotonLogin">
-				<button className="ll-btn">Login</button>
+				<div className="ll-btn">
+					<Link href={'/login'}>Login</Link>
+				</div>
 			</div>
 		</nav>
 	);

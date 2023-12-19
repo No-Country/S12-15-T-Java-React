@@ -2,6 +2,8 @@ package com.nocountry.S12G15.dto.response;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 public class CommentResponseDTO {
 
@@ -10,6 +12,8 @@ public class CommentResponseDTO {
     private String nameChannel;
 
     private String comment;
+
+    private LocalDateTime localDateTime;
 
 
 

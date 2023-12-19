@@ -40,6 +40,7 @@ public class AuthServiceImpl implements AuthService {
         var user = UserEntity.builder()
                 .email(request.getEmail())
                 .username(request.getUsername())
+                .realUserName(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .name(request.getName())
                 .lastName(request.getLastName())
@@ -55,7 +56,7 @@ public class AuthServiceImpl implements AuthService {
         String lastName = user.getLastName();
         String name = user.getName();
         RolUser rol = user.getRolUser();
-        String userName = user.getUsername();
+        String userName = user.getRealUserName();
         return AuthResponseDTO.builder()
                 .id(id)
                 .lastName(lastName)

@@ -152,7 +152,7 @@ public class SpaceController {
     @GetMapping("/getPhoto")
     public ResponseEntity<byte[]> getPhoto(@RequestParam String idSpace){
 
-        byte[] image = imageService.getPhoto(idSpace);
+        byte[] image = imageService.getPhotoSpace(idSpace);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_JPEG);
 
