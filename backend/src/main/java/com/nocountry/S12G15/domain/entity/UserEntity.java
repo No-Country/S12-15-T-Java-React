@@ -38,6 +38,9 @@ public class UserEntity implements UserDetails {
     @Column(name = "username", nullable = false)
     private String username;
 
+    @Column(name = "realUserName", nullable = false)
+    private String realUserName;
+
     @Column(name="rol")
     @Enumerated(EnumType.STRING)
     private RolUser rolUser;

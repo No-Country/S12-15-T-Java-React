@@ -47,7 +47,7 @@ public class ActivityServiceImpl implements ActivityService {
         ActivityEntity activity = activityMapper.activityDTOToActivity(activityDTO);
         activity.setEnabled(true);
 
-        String username = userRepository.findById(idUser).get().getUsername();
+        String username = userRepository.findById(idUser).get().getRealUserName();
         activity.setUsername(username);
         ActivityEntity savedActivity = activityRepository.save(activity);
 
