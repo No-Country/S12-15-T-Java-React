@@ -6,6 +6,8 @@ import org.springframework.web.multipart.MultipartFile;
 public interface ImageService {
 
     public ImageEntity saveImageSpace(MultipartFile file, String idChannel);
+    byte[] getPhotoSpace(String idChannel);
 
-    byte[] getPhoto(String idChannel);
+    public ImageEntity saveImageUser(MultipartFile file, String idUser);
+    byte[] getPhotoUser(String idUser);
 }

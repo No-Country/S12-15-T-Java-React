@@ -72,7 +72,7 @@ public class SpaceServiceImpl implements SpaceService {
 
         //Crear un channel
         ChannelRequestDTO channelRequestDTO = new ChannelRequestDTO();
-        channelRequestDTO.setNameChannel("Demo nameChannel");
+        channelRequestDTO.setNameChannel("General");
 
 
         ChannelResponseDTO channelResponseDTO = channelService.createChannel(channelRequestDTO);
@@ -85,8 +85,8 @@ public class SpaceServiceImpl implements SpaceService {
         space.getChannels().add(channelMapper.toGetChannelEntityFromChannelResponseDTO(channelResponseDTO));
         //Create Board
         BoardDTO boardDTO = BoardDTO.builder()
-                .boardName("Demo Board")
-                .description("Demo Description")
+                .boardName("General")
+                .description("Tu Primer Tablero")
                 .build();
         BoardDTO boardDTOSaved = boardService.createBoard(boardDTO);
 
