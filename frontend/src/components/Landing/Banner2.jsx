@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 function Banner2() {
 	return (
 		<div className="Banner2-contenedorGral" id="Banner2-contenedorGral">

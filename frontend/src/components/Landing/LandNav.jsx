@@ -1,6 +1,5 @@
 import '@/styles/Landing/LandNav.css';
 import Link from 'next/link';
-
 function LandNav() {
 	return (
 		<nav className="contenedorGral-Navlanding">

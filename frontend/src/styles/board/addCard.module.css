@@ -1,0 +1,80 @@
+.fixElementPlus {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	max-height: 27rem;
+	overflow-y: auto;
+}
+
+/*Add Card name*/
+.elementPlus {
+	display: flex;
+	align-content: center;
+	margin-top: 0.9rem;
+	gap: 0.5rem;
+	cursor: pointer;
+}
+
+.nameElementPlus {
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 400;
+}
+
+.enterName {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 0.5rem;
+}
+
+.textAreaName {
+	height: 4rem;
+	padding: 0.5rem;
+	resize: none;
+	outline: none;
+	word-wrap: break-word;
+	font-family: 'Roboto', sans-serif;
+	border-radius: 0.5rem;
+	border: 1px solid var(--grey);
+	background-color: #eee;
+}
+
+.btnTextArea {
+	padding: 0.5rem;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 400;
+	border-radius: 0.5rem;
+	color: var(--white);
+	background-color: var(--blue);
+}
+
+/*Card*/
+.divCard {
+	max-height: 20rem;
+	overflow-y: auto;
+}
+
+.card {
+	padding: 0.5rem;
+	background: #eee;
+	margin-bottom: 0.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid (--grey);
+	box-shadow: 0px 0px 4px 0px var(--dark-grey);
+}
+
+.cardName {
+	word-wrap: break-word;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 400;
+}
+
+/*Icons*/
+.plus {
+	align-self: center;
+	font-size: 0.5rem;
+}

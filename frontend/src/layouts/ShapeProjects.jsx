@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import styleProject from '@/styles/home/projects.module.css';
 import { IoIosArrowDown } from 'react-icons/io';
+import Link from 'next/link';
 
 export const ShapeProjects = ({
 	name,
@@ -11,6 +12,7 @@ export const ShapeProjects = ({
 	styleHeader,
 	lengthData,
 	btnCreate,
+	idUser,
 }) => {
 	const buttonSeemore = lengthData > 2 ? true : false;
 	const [heightContent, setHeightContent] = useState('19.5rem');
@@ -33,7 +35,9 @@ export const ShapeProjects = ({
 			<header className={styleHeader}>
 				{name}
 				{btnCreate && (
-					<button className={styleProject.buttonCreate}> Crear </button>
+					<Link href={`/login/${idUser}}/create-workspace`}>
+						<button className={styleProject.buttonCreate}>Crear</button>
+					</Link>
 				)}
 			</header>
 			<div
