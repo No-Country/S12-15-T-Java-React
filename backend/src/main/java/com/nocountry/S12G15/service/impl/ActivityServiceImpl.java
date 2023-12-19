@@ -118,7 +118,7 @@ public class ActivityServiceImpl implements ActivityService {
 
     private void validate(ActivityDTO activityDTO) throws MyException {
 
-        if (activityDTO.getDescription()== null || ExceptionMethods.onlySpaces(activityDTO.getDescription())) {
+        if (activityDTO.getName()== null || ExceptionMethods.onlySpaces(activityDTO.getDescription())) {
             throw new MyException("Activity's name can't be null or empty.");
         }
     }

@@ -4,7 +4,6 @@ import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.service.ActivityService;
 import com.nocountry.S12G15.service.TaskService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +24,7 @@ public class ActivityController {
     private TaskService taskService;
 
     @PostMapping("/new/{idTask}/{idUser}")
-    public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityDTO activityDTO, @RequestParam String idTask, @RequestParam String idUser) throws MyException {
+    public ResponseEntity<ActivityDTO> createActivity(@RequestBody ActivityDTO activityDTO, @PathVariable String idTask, @PathVariable String idUser) throws MyException {
 
         if (activityDTO.getDescription() == null || activityDTO.getName() == null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
