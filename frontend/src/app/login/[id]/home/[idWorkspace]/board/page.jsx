@@ -1,3 +1,4 @@
+'use client';
 import { FaTrashAlt } from 'react-icons/fa';
 import { MdOutlineTableRows } from 'react-icons/md';
 import styleBoard from '@/styles/board/board.module.css';

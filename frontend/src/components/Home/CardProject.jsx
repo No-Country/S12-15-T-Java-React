@@ -47,14 +47,13 @@ export const CardProject = ({
 				<span className={styleCard.numberMember}>{numberMember} miembros</span>
 
 			</div> */}
-			<Link 
+			<Link
 				href={`/login/${idUser}/home/${idSpace}/board`}
 				className={styleCard.buttonGetInto}
 			>
 				Ingresar
 				{/* <button className={styleCard.buttonGetInto}> Ingresar </button>  */}
-			</Link> 
-
+			</Link>
 		</main>
 	);
 };

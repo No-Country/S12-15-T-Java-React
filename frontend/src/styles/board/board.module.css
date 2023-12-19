@@ -69,7 +69,7 @@
 	flex: 1;
 	padding: 1.25rem;
 	display: flex;
-	overflow-x: auto;
+	/* overflow-x: auto; */
 	height: calc(100vh - 9rem);
 }
 
