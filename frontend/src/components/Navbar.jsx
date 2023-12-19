@@ -6,7 +6,6 @@ import Link from 'next/link';
 import '@/styles/navbar.css';
 import '@/styles/Burguer.css';
 import DdProyects from './DdProyects';
-import DdRecents from './DdRecents';
 import Burguer from './Burguer';
 
 function Navbar() {
@@ -44,9 +43,6 @@ function Navbar() {
 						<ul className="dd-cont">
 							<li className="option-projet">
 								<DdProyects />
-							</li>
-							<li className="option-recent">
-								<DdRecents />
 							</li>
 						</ul>
 						<div className="btn-create">

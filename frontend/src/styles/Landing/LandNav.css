@@ -45,9 +45,41 @@
 	width: 77px;
 	height: 35px;
 	background-color: #fafbfc;
+	border-radius: 4px;
 }
 Link {
 	list-style: none;
 	text-decoration: none;
 	color: #030304;
+}
+/* ------------------------------------------------------- */
+@media screen and (max-width: 300px){
+	.contenedorGral-Navlanding {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: 32px;
+		background-color: #425682;
+	}
+	.contenedor-logo-track{
+		display: flex;
+        width: 99px;
+        height: 26px;
+        gap: 16px;
+	}
+	.ll-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 66px;
+		height: 25px;
+		background-color: #fafbfc;
+		color: #1E1E1E;
+        font-Size: 12px;
+        font-Family: 'Roboto';
+        font-Weight: 700;
+        word-Wrap: break-word;
+		border-radius: 4px;
+	}
 }

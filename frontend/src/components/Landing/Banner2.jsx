@@ -8,7 +8,7 @@ function Banner2() {
 				<div className="card-contenedor">
 					<div className="card">
 						<img src="/images/Rapido.png" className="rapidoImg" />
-						<h3>Rapido</h3>
+						<h3 className="t-rapido">Rapido</h3>
 						<p>
 							Realiza Proyectos de manera rapida y eficiente con Track.
 							Simplifica la gestion para un camino directo hacia el Exito.
@@ -16,7 +16,7 @@ function Banner2() {
 					</div>
 					<div className="card">
 						<img src="/images/Colaborativo.png" className="colaborativoImg" />
-						<h3>Colaborativo</h3>
+						<h3 className="t-colaborativo">Colaborativo</h3>
 						<p>
 							Crea vínculos fuertes y colabora sin esfuerzo con Track. Mejora la
 							comunicación para lograr resultados extraordinarios.
@@ -24,7 +24,7 @@ function Banner2() {
 					</div>
 					<div className="card">
 						<img src="/images/Intuitivo.png" className="intuitivoImg" />
-						<h3>Intuitivo</h3>
+						<h3 className="t-intuitivo">Intuitivo</h3>
 						<p>
 							Descubre la potencia intuitiva de Track. Simplifica cada paso del
 							proceso de gestión de proyectos.
