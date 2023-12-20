@@ -35,7 +35,7 @@ const ListBoard = ({ name, description, idTask, tasks, setTasks }) => {
 				)}
 			</header>
 			<main className={styleCard.fixElementPlus}>
-				<AddCard />
+				<AddCard idTask={idTask} />
 			</main>
 		</main>
 	);

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DndContext, closestCenter } from '@dnd-kit/core';
 import {
 	SortableContext,
@@ -9,8 +9,11 @@ import {
 import styleCard from '@/styles/board/addCard.module.css';
 import { FaPlus } from 'react-icons/fa';
 import { Card } from './Card';
+import { getListActiviy, postActivity } from '@/app/api/board/route';
 
-const AddCard = () => {
+const AddCard = ({ idTask }) => {
+	const user = localStorage.getItem('user');
+	const userData = JSON.parse(user);
 	const [isEditing, setIsEditing] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 	const [cards, setCards] = useState([
@@ -19,12 +22,31 @@ const AddCard = () => {
 		// { id: 3, name: 'prueba3' },
 	]);
 
+	useEffect(() => {
+		const fetchActivity = async () => {
+			const dataActivity = await getListActiviy(idTask);
+			console.log('DATA ACTIVITY', dataActivity);
+
+			if (dataActivity !== undefined) {
+				console.log('ENTRE');
+				setCards((prevCards) => [...prevCards, ...dataActivity]);
+			}
+			// setCards((prevCards) => [...prevCards, ...dataActivity]);
+		};
+
+		fetchActivity();
+	}, []);
+
 	const hableDragEnd = (event) => {
 		const { active, over } = event;
-
+		// console.log('ACTIVE: ', active, 'OVER: ', over);
 		setCards((cards) => {
-			const oldIndex = cards.findIndex((card) => card.id === active.id);
-			const newIndex = cards.findIndex((card) => card.id === over.id);
+			const oldIndex = cards.findIndex(
+				(card) => card.idActivity === active.idActivity
+			);
+			const newIndex = cards.findIndex(
+				(card) => card.idActivity === over.idActivity
+			);
 			return arrayMove(cards, oldIndex, newIndex);
 		});
 	};
@@ -33,20 +55,36 @@ const AddCard = () => {
 		setIsEditing(!isEditing);
 	};
 
-	const handleSave = () => {
+	const handleSave = async () => {
 		if (inputValue.trim() !== '') {
-			setCards([...cards, inputValue]);
+			const tarea = inputValue;
+			setInputValue('Subiendo tarea...');
+			const responseActivity = await postActivity(idTask, tarea, userData.id);
+			setCards([...cards, responseActivity]);
 			setInputValue('');
 			setIsEditing(false);
+			// const newCard = { id: cards.length + 1, name: inputValue };
 		}
 	};
 
+	const uniqueCards = cards.filter(
+		(card, index, self) =>
+			index === self.findIndex((c) => c.idActivity === card.idActivity)
+	);
+
 	return (
 		<DndContext collisionDetection={closestCenter} onDragEnd={hableDragEnd}>
-			<SortableContext items={cards} strategy={verticalListSortingStrategy}>
+			<SortableContext
+				items={uniqueCards}
+				strategy={verticalListSortingStrategy}
+			>
 				<div className={styleCard.divCard}>
-					{cards.map((card) => (
-						<Card key={card.id} card={card} onClick={handleToggleEdit} />
+					{uniqueCards.map((card) => (
+						<Card
+							key={card.idActivity}
+							card={card}
+							onClick={handleToggleEdit}
+						/>
 					))}
 				</div>
 			</SortableContext>
