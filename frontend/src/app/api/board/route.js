@@ -117,35 +117,33 @@ export const disableTasks = async (id) => {
 
 /*Crear Cards en las listas*/
 export const postActivity = async (idTask, name, idUser) => {
-
 	const url = `${apiUrl}/activity/new/${idTask}/${idUser}`;
 
 	try {
-	const response = await fetch(url, {
-		method: 'POST',
-		mode: 'cors',
-		body: JSON.stringify({
-			name: `${name}`,
-			description:  `${name}`
-		}),
-		headers: {
-			'Content-Type': 'application/json',
-			Authorization: `Bearer ${token}`,
-		},
-	});
+		const response = await fetch(url, {
+			method: 'POST',
+			mode: 'cors',
+			body: JSON.stringify({
+				name: `${name}`,
+				description: `${name}`,
+			}),
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`,
+			},
+		});
 
-	if (!response.ok) {
-		console.log(response);
-		throw new Error(`Error en la solicitud: ${response.status}`);
-	}
+		if (!response.ok) {
+			console.log(response);
+			throw new Error(`Error en la solicitud: ${response.status}`);
+		}
 
-	const data = await response.json();
+		const data = await response.json();
 
-	return data;
-
+		return data;
 	} catch (error) {
 		console.error('Error al realizar la solicitud:', error);
-	throw error;
+		throw error;
 	}
 };
 
@@ -170,7 +168,7 @@ export const getListActiviy = async (idTask) => {
 		const data = await response.json();
 
 		if (data === undefined) {
-			return []; 
+			return [];
 		}
 
 		return data;
