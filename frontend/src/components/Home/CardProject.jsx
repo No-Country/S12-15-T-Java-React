@@ -12,6 +12,7 @@ export const CardProject = ({
 	nameProject,
 	idSpace,
 	idUser,
+	board,
 	// dataMembers,
 	nameProjectOwner,
 }) => {
@@ -48,7 +49,7 @@ export const CardProject = ({
 
 			</div> */}
 			<Link
-				href={`/login/${idUser}/home/${idSpace}/board`}
+				href={`/login/${idUser}/home/${idSpace}/board/${board}`}
 				className={styleCard.buttonGetInto}
 			>
 				Ingresar

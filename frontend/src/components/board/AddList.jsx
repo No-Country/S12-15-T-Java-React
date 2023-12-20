@@ -2,35 +2,39 @@
 import { useState } from 'react';
 import styleList from '@/styles/board/listBoard.module.css';
 import { FaPlus } from 'react-icons/fa';
-import ListBoard from './ListBoard';
+// import ListBoard from './ListBoard';
+import { postListTask } from '@/app/api/board/route';
 
-export const AddList = () => {
+export const AddList = ({ idBoard, setTask }) => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [inputValue, setInputValue] = useState('');
-	const [list, setList] = useState([]);
+	// const [list, setList] = useState([]);
 
 	const handleEdit = () => {
 		setIsEditing(!isEditing);
 	};
 
-	const handleSave = () => {
+	const handleSave = async () => {
 		console.log(inputValue);
 		if (inputValue.trim() !== '') {
-			setList([...list, inputValue]);
 			setInputValue('');
 			setIsEditing(false);
+			const responsePostList = await postListTask(idBoard, inputValue);
+			console.log('RESPUESTA', responsePostList);
+			setTask((prevTask) => [...prevTask, responsePostList]);
+			// setList([...list, inputValue]);
 		}
 	};
 
 	return (
 		<div className={styleList.newList}>
-			<div className={styleList.newListBoard}>
-				{list.map((listBoard, index) => (
+			{/* <div className={styleList.newListBoard}>
+				{list.map((listBoard,index) => (
 					<div key={index}>
-						<ListBoard name={listBoard} />
+						<ListBoard name={inputValue} description={listBoard.description}/>
 					</div>
 				))}
-			</div>
+			</div> */}
 			{isEditing ? (
 				<div className={styleList.enterName}>
 					<input

@@ -14,9 +14,9 @@ const AddCard = () => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [inputValue, setInputValue] = useState('');
 	const [cards, setCards] = useState([
-		{ id: 1, name: 'prueba' },
-		{ id: 2, name: 'prueba2' },
-		{ id: 3, name: 'prueba3' },
+		// { id: 1, name: 'prueba' },
+		// { id: 2, name: 'prueba2' },
+		// { id: 3, name: 'prueba3' },
 	]);
 
 	const hableDragEnd = (event) => {
