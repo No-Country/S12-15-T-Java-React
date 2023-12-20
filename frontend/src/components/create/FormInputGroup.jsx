@@ -2,7 +2,7 @@ import styles from '@/styles/createworkspace.module.css';
 import InputImg from '@/components/create/InputImg';
 import BtnTrash from './BtnTrash';
 
-const FormInputGroup = () => {
+const FormInputGroup = ({ ...props }) => {
 	return (
 		<fieldset className={styles.container_form_group}>
 			<div className={styles.container_input_content}>
@@ -11,6 +11,8 @@ const FormInputGroup = () => {
 					type="text"
 					id="nameproyect"
 					name="nameproyect"
+					value={props.proyectName}
+					onChange={(e) => props.setProyectName(e.target.value)}
 					placeholder="Nombre del proyecto"
 				/>
 			</div>
@@ -20,6 +22,8 @@ const FormInputGroup = () => {
 					placeholder="Descripción"
 					id="description"
 					name="description"
+					value={props.description}
+					onChange={(e) => props.setDescription(e.target.value)}
 				></textarea>
 			</div>
 			<div className={styles.container_input_content}>

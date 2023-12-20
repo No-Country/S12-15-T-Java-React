@@ -49,7 +49,7 @@ export const Projects = ({ dataProjects, idUser }) => {
 			nameProject={project.name}
 			idSpace={project.idSpace}
 			idUser={idUser}
-			board ={project.boards[0].idBoard}
+			board={project.boards[0].idBoard}
 		/>
 	));
 

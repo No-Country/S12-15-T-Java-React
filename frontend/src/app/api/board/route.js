@@ -1,9 +1,8 @@
 //eslint-disable-next-line no-undef
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-//eslint-disable-next-line no-undef
-const token = localStorage.getItem('token');
 
 export const getTaskList = async (id) => {
+	const token = localStorage.getItem('token');
 	const url = `${apiUrl}/board/listOfEnabledTasksByIdBoard/${id}`;
 
 	try {
@@ -34,6 +33,7 @@ export const getTaskList = async (id) => {
 };
 
 export const getFindBoard = async (id) => {
+	const token = localStorage.getItem('token');
 	const url = `${apiUrl}/board/${id}`;
 
 	try {
@@ -64,6 +64,7 @@ export const getFindBoard = async (id) => {
 };
 
 export const postListTask = async (id, name) => {
+	const token = localStorage.getItem('token');
 	const url = `${apiUrl}/task/new/${id}`;
 
 	try {
@@ -94,6 +95,7 @@ export const postListTask = async (id, name) => {
 };
 
 export const disableTasks = async (id) => {
+	const token = localStorage.getItem('token');
 	const url = `${apiUrl}/task/disable/${id}`;
 	console.log('URL:', url);
 	try {

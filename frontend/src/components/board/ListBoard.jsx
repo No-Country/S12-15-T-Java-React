@@ -16,7 +16,7 @@ const ListBoard = ({ name, description, idTask, tasks, setTasks }) => {
 	};
 
 	return (
-		<main className={styleList.listBoard}>
+		<main className={styleList.listBoard} id={idTask}>
 			<header className={styleList.headerList}>
 				<span className={styleList.listName}>{name ? name : description}</span>
 				<button className={styleList.points}>

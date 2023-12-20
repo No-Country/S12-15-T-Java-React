@@ -5,12 +5,14 @@
 	max-height: 27rem;
 	margin: 0 0.5rem;
 	/* overflow-y: auto; */
-	width: 15rem;
+	width: 14rem;
+	min-width: 14rem;
 	padding: 0.5rem;
 	border-radius: 0.75rem;
 	border-top: 4px solid var(--red);
 	box-shadow: 0px 0px 4px 0px var(--dark-grey);
 	background-color: #fafbfc;
+	margin: 0 1rem;
 }
 
 .headerList {
@@ -27,6 +29,7 @@
 	font-size: 1rem;
 	font-style: normal;
 	font-weight: 700;
+	position: relative;
 }
 
 .points {
@@ -130,4 +133,17 @@
 	align-items: center;
 	font-size: 0.5rem;
 	color: var(--white);
+}
+
+.menuDelete {
+	position: absolute;
+	top: 1.8rem;
+	right: 0;
+	background-color: var(--white);
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 1rem;
+	cursor: pointer;
+	z-index: 100;
 }
