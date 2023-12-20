@@ -15,24 +15,33 @@ function FormRegister() {
 		password: '',
 		confirmPassword: '',
 	});
+	const [loading, setLoading] = useState(false);
 	const router = useRouter();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const { success, id, error } = await registerUser(
-			name,
-			email,
-			passwords.password,
-			passwords.confirmPassword
-		);
+		setLoading(true);
 
-		if (success) {
-			router.push(`/login/${id}/home`);
-			console.log('Registro exitoso');
-		} else {
+		try {
+			const { success, id, error } = await registerUser(
+				name,
+				email,
+				passwords.password,
+				passwords.confirmPassword
+			);
+
+			if (success) {
+				router.push(`/login/${id}/home`);
+				console.log('Registro exitoso');
+			} else {
+				console.error(error);
+			}
+		} catch (error) {
 			console.error(error);
 		}
+
+		setLoading(false);
 
 		setName('');
 		setEmail('');
@@ -64,8 +73,12 @@ function FormRegister() {
 					setPasswords={setPasswords}
 				/>
 			</div>
-			<Button className={stylesRegister.button} type="submit">
-				Registrarme
+			<Button
+				className={stylesRegister.button}
+				type="submit"
+				disabled={loading}
+			>
+				{loading ? 'Cargando...' : 'Registrarme'}
 			</Button>
 		</form>
 	);
