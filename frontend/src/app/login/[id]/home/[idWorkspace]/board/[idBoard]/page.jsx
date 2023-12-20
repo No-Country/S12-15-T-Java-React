@@ -1,36 +1,40 @@
 'use client';
-import { useEffect, useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { MdOutlineTableRows } from 'react-icons/md';
 import styleBoard from '@/styles/board/board.module.css';
 import Image from 'next/image';
 import ListBoard from '@/components/board/ListBoard';
 import { AddList } from '@/components/board/AddList';
-import { getTasks } from '@/app/api/workspace/board/boardApi';
+import { useEffect, useState } from 'react';
+import { getFindBoard, getTaskList } from '@/app/api/board/route';
 
 const Boardpage = ({ params }) => {
-	const [tasks, setTasks] = useState([]);
 	const { idBoard } = params;
+	const [tasks, setTasks] = useState([]);
+	const [nameBoard, setNameBoard] = useState();
 
 	useEffect(() => {
-		const fetchTasks = async () => {
+		const fetchTask = async () => {
 			try {
-				const response = await getTasks(idBoard);
-				setTasks(response.data);
+				const newTask = await getTaskList(idBoard);
+				const { boardName } = await getFindBoard(idBoard);
+				setNameBoard(boardName);
+				setTasks(newTask);
 			} catch (error) {
-				console.error('Error fetching task columns data:', error);
+				console.error('Error' + error);
 			}
 		};
-
-		fetchTasks();
-	}, [idBoard]);
+		fetchTask();
+	}, []);
 
 	return (
 		<div className={styleBoard.board}>
 			<header className={styleBoard.header}>
 				<div className={styleBoard.headerName}>
 					<MdOutlineTableRows className={styleBoard.iconBoard} />
-					<span className={styleBoard.nameBoard}>Nombre tablero</span>
+					<span className={styleBoard.nameBoard}>
+						{nameBoard === 'Demo Board' ? 'General' : nameBoard}
+					</span>
 				</div>
 				<div className={styleBoard.headerUsers}>
 					<span className={styleBoard.numberUser}>124</span>
@@ -46,17 +50,18 @@ const Boardpage = ({ params }) => {
 				</div>
 			</header>
 			<main className={styleBoard.tableBoard}>
-				{tasks &&
-					tasks.map((task) => (
+				{tasks.map((task) => (
+					<div key={task.idTask}>
 						<ListBoard
-							key={task.idTask}
-							task={task}
+							name={task.name}
+							description={task.description}
+							idTask={task.idTask}
 							tasks={tasks}
 							setTasks={setTasks}
 						/>
-					))}
-
-				<AddList setTasks={setTasks} idBoard={idBoard} />
+					</div>
+				))}
+				<AddList idBoard={idBoard} setTask={setTasks} />
 			</main>
 		</div>
 	);

@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// eslint-disable-next-line no-undef
 const token = localStorage.getItem('token');
 
 export const getWorkspaceData = async (idWorkspace) => {
