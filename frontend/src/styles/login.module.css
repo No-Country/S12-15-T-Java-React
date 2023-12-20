@@ -72,7 +72,7 @@
 
 .container_form .container_inputs .error_message {
 	display: flex;
-	align-self: start;
+	align-self: flex-start;
 	color: var(--red);
 	font-size: 0.8rem;
 	padding: 2px 4px;

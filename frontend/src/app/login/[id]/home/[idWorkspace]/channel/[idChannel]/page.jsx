@@ -12,7 +12,9 @@ import { getChannelData } from '@/app/api/workspace/workspaceApi';
 
 const ChannelPage = ({ params }) => {
 	const [messages, setMessages] = useState([]);
-	const user = JSON.parse(localStorage.getItem('user'));
+	let user;
+	if (typeof window !== 'undefined')
+		user = JSON.parse(localStorage.getItem('user'));
 	const { idChannel } = params;
 	const messagesEndRef = useRef(null);
 	const [channelName, setChannelName] = useState('');
