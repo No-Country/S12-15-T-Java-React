@@ -2,6 +2,14 @@
 
 **Track** es una completa aplicación de gestión de proyectos que te ayuda a organizar y realizar un seguimiento efectivo de tus tareas. Cada espacio de trabajo representa un proyecto independiente y se organiza en tableros y tareas. Además, cuenta con un sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
+## Despliegue del Proyecto
+
+- **Frontend:**
+  - [Track Frontend](https://s12-15-t-java-react.vercel.app) - Despliegue de la aplicación frontend.
+
+- **Backend:**
+  - [Track Backend - Documentación Swagger](http://181.15.143.132:8081/swagger-ui/index.html) - Documentación Swagger para explorar los endpoints del backend.
+
 ## 📊 Organización
 
 La aplicación se estructura de la siguiente manera:
@@ -36,21 +44,34 @@ La aplicación se estructura de la siguiente manera:
 - **Propuestas de Mejoras:**
   - [Mural](https://mur.al/): Plataforma colaborativa para la generación de ideas y propuestas de mejora.
 
+## Prototipo Funcional
+
+- **Track Behance:**
+  - [Prototipo Funcional - Behance](https://www.behance.net/gallery/187182615/Track-Proyecto-No-Country)
+
 ## Contacto del Equipo
 
 - **Grupo de Desarrollo:**
 
+  - **Team Leader:**
+    - **Billy Campagnoli**
+      - GitHub: [Bfix40](https://github.com/Bfix40)
+      - LinkedIn: [Billy Campagnoli](https://www.linkedin.com/in/billy-campagnoli-221621223/)
+      - Portfolio: [Portfolio de Billy](https://bfix40-portfolio.netlify.app/)
+      - Líder apasionado y estratega técnico. Billy guía al equipo hacia el éxito, combinando visión y experiencia para superar los desafíos de desarrollo. Su liderazgo inspirador impulsa el rendimiento del equipo.
+  
   - **Frontends:**
     - **Andrés Boni**
       - GitHub: [AndresBoni](https://github.com/AndresBoni)
       - LinkedIn: [Andrés Boni](https://www.linkedin.com/in/andresboni)
-      - Portfolio: [Boni Portfolio](https://boni.nz/)
+      - Portfolio: [Portfolio de Andrés](https://boni.nz/)
       - Apasionado por dar vida a experiencias de usuario cautivadoras y navegaciones fluidas. Siempre en busca de la combinación perfecta entre funcionalidad y belleza.
     - **David Gaviria**
       - GitHub: [davidgaviria2021](https://github.com/davidgaviria2021)
       - Constructor meticuloso de interfaces intuitivas y amigables. Cree en la magia de la interacción usuario-interfaz para llevar la usabilidad al siguiente nivel.
     - **Edwin Carmona**
       - GitHub: [ecc97](https://github.com/ecc97)
+      - LinkedIn: [Edwin Carmona](https://www.linkedin.com/in/edwin-carmona-c)
       - Explorador incansable de nuevas tecnologías y tendencias de diseño. Su misión: transformar ideas en interfaces memorables.
     - **Luciano Ponce**
       - GitHub: [Luchopst](https://github.com/Luchopst)
@@ -63,6 +84,7 @@ La aplicación se estructura de la siguiente manera:
   - **Backends:**
     - **Alejandro Domínguez**
       - GitHub: [AlejoDx](https://github.com/AlejoDx)
+      - LinkedIn: [Alejandro Dominguez](https://www.linkedin.com/in/jose-alejandro-dominguez/)
       - Arquitecto de soluciones robustas. Convierte desafíos complejos en elegantes implementaciones backend que impulsan el corazón de la aplicación.
     - **Antonio Ludueña Bereziuk**
       - GitHub: [antoluduenabereziuk21](https://github.com/antoluduenabereziuk21)
@@ -80,7 +102,7 @@ La aplicación se estructura de la siguiente manera:
     - **Luca Terzariol**
       - GitHub: [Teradriel](https://github.com/Teradriel)
       - LinkedIn: [Luca Terzariol](https://www.linkedin.com/in/luca-terzariol/)
-      - Portfolio: [Teradriel Portfolio](https://portfolio-teradriel.netlify.app/#/home)
+      - Portfolio: [Portfolio de Teradriel](https://portfolio-teradriel.netlify.app/#/home)
       - Explorador apasionado de nuevas tecnologías. Su misión: mantener el backend actualizado y listo para enfrentar los desafíos del mañana.
 
   - **QA:**
