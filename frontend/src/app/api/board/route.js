@@ -1,10 +1,8 @@
 //eslint-disable-next-line no-undef
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-//eslint-disable-next-line no-undef
-const token = localStorage.getItem('token');
 
 export const getTaskList = async (id) => {
-	// const token = localStorage.getItem('token');
+	const token = localStorage.getItem('token');
 	const url = `${apiUrl}/board/listOfEnabledTasksByIdBoard/${id}`;
 
 	try {
@@ -121,6 +119,7 @@ export const disableTasks = async (id) => {
 
 /*Crear Cards en las listas*/
 export const postActivity = async (idTask, name, idUser) => {
+	const token = localStorage.getItem('token');
 	const url = `${apiUrl}/activity/new/${idTask}/${idUser}`;
 
 	try {
@@ -153,6 +152,7 @@ export const postActivity = async (idTask, name, idUser) => {
 
 /*Traer la lista de cards de una Task*/
 export const getListActiviy = async (idTask) => {
+	const token = localStorage.getItem('token');
 	const url = `${apiUrl}/task/listOfEnabledActivitiesByIdTask/${idTask}`;
 
 	try {
