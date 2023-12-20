@@ -124,6 +124,7 @@ const ChannelEmojiPicker = ({ onEmojiClick, setIsEmojiPickerVisible }) => {
 		return () => {
 			document.removeEventListener('click', handleClickOutside);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className={styles.container} ref={pickerRef}>
