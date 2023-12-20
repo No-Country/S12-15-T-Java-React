@@ -3,7 +3,7 @@ import Link from 'next/link';
 function DdProyects() {
 	return (
 		<div>
-			<ul className="menu">
+			<ul className="menu-co">
 				<li className="dd">
 					<h2 className="dd-title">
 						<Link href={'/Home'}>Proyectos Recientes</Link>

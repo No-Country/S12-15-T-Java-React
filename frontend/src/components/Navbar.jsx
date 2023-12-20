@@ -2,11 +2,11 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import '@/styles/navbar.css';
 import '@/styles/Burguer.css';
-import DdProyects from './DdProyects';
+// import DdProyects from './DdProyects';
 import Burguer from './Burguer';
+import Link from 'next/link';
 
 function Navbar() {
 	const [menuVisible, setMenuVisible] = useState(false);
@@ -42,7 +42,42 @@ function Navbar() {
 						{/* contiene los botones proyect, recent, create */}
 						<ul className="dd-cont">
 							<li className="option-projet">
-								<DdProyects />
+								{/* <DdProyects /> */}
+								<div className="p-r " id={'pr'}>
+									<Link
+										href={
+											'https://track-flob.onrender.com/v1/api/space/listOfSpaces'
+										}
+									>
+										<h3>Proyectos Recientes</h3>
+									</Link>
+									<div className="submenu">
+										<Link
+											href={
+												'https://track-flob.onrender.com/v1/api/space/listOfSpaces'
+											}
+											className="links"
+										>
+											<h3>Proyecto A</h3>
+										</Link>
+										<Link
+											href={
+												'https://track-flob.onrender.com/v1/api/space/listOfSpaces'
+											}
+											className="links"
+										>
+											<h3>Proyecto B</h3>
+										</Link>
+										<Link
+											href={
+												'https://track-flob.onrender.com/v1/api/space/listOfSpaces'
+											}
+											className="links"
+										>
+											<h3>Proyecto C</h3>
+										</Link>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<div className="btn-create">
