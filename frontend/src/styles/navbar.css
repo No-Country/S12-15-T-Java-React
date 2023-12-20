@@ -8,10 +8,7 @@
 	justify-content: center;
 	align-items: center;
 	padding: 16px 48px 16px 48px;
-	
-	
 }
-
 
 .nav-container {
 	display: flex;
@@ -20,7 +17,6 @@
 	width: 100%;
 	height: auto;
 	gap: 10%;
-	
 }
 
 /* Logo (TRACK + IMG) */
@@ -31,43 +27,43 @@
 	gap: 14px;
 	width: 127px;
 	height: 35px;
-	color: #FAFBFC;
-    font-Size: 24px;
-    font-Family: 'Nunito';
-    font-Weight: 700;
-    word-Wrap: break-word;
+	color: #fafbfc;
+	font-size: 24px;
+	font-family: 'Nunito';
+	font-weight: 700;
+	word-wrap: break-word;
 }
 .p-r {
 	width: 200px;
 	height: 32px;
-  }
-  .p-r h3{
+}
+.p-r h3 {
 	width: 100%;
-	height:auto;
+	height: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #FAFBFC;
+	color: #fafbfc;
 	font-size: 20px;
-  }
-  
-  .p-r h3:hover {
+}
+
+.p-r h3:hover {
 	/* Propiedades específicas al hover */
 	background-color: #406df3;
 	cursor: pointer;
 	width: 100%;
-	height:auto;
+	height: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 4px;
-  }
- 
-  .submenu {
-	display: none;
-  }
+}
 
-  .p-r:hover .submenu {
+.submenu {
+	display: none;
+}
+
+.p-r:hover .submenu {
 	width: 100%;
 	height: auto;
 	display: flex;
@@ -75,12 +71,12 @@
 	justify-content: center;
 	align-items: center;
 	background-color: #1e1e1e;
-	color: #FAFBFC ;
+	color: #fafbfc;
 	gap: 10px;
 	border-radius: 4px;
 	padding: 8px;
-  }
-  .links:hover{
+}
+.links:hover {
 	background-color: #406df3;
 	width: 100%;
 	height: auto;
@@ -88,13 +84,11 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 4px;
-  }
-  
+}
 
-ul{
+ul {
 	text-decoration: none;
 	list-style: none;
-	
 }
 .title {
 	display: flex;
@@ -181,10 +175,10 @@ ul{
 }
 
 .logo-user {
-	width:100%;
+	width: 100%;
 	height: 32px;
 	display: flex;
-	justify-content:end;
+	justify-content: end;
 	align-items: center;
 }
 
@@ -199,7 +193,6 @@ ul{
 }
 .btn-menu {
 	display: none;
-	
 }
 .dd-menu {
 	display: flex;
@@ -211,31 +204,27 @@ ul{
 }
 
 /* ------------------------------------------------------------------- */
- @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 	.nav-gral {
 		width: 100%;
 		height: 59px;
-		
-		
 	}
-	
-	
+
 	.nav-container {
 		width: 481px;
 		height: 35px;
-		
 	}
-	
+
 	/* Logo (TRACK + IMG) */
 	.track {
-	width:107px ;
-	height: 35px;
+		width: 107px;
+		height: 35px;
 	}
 	.p-r {
 		width: 300px;
 		height: 28px;
 	}
-	.p-r:hover .submenu{
+	.p-r:hover .submenu {
 		width: 100%;
 		height: auto;
 		padding: 10px;
@@ -258,34 +247,30 @@ ul{
 		justify-content: center;
 		align-items: center;
 		gap: 65%;
-		
 	}
 	.track {
 		display: flex;
 		width: 99px;
 		height: 26px;
-		
 	}
-	.title{
+	.title {
 		font-size: 24px;
 	}
-	.track img{
-		width:23px ;
+	.track img {
+		width: 23px;
 		height: 26px;
 	}
-	
-	
+
 	.logo-user {
 		display: none;
 	}
-	
+
 	.btn-menu {
 		display: flex;
 		justify-content: end;
 		align-items: center;
 		width: 100%;
 		height: 30px;
-
 	}
 	/* marca del check */
 	.btn-menu input {
@@ -309,17 +294,17 @@ ul{
 		justify-content: space-around;
 		align-items: center;
 		overflow: hidden;
-	} 
-	.p-r h3{
+	}
+	.p-r h3 {
 		font-size: 12px;
 	}
-	.p-r h3:hover{
+	.p-r h3:hover {
 		background-color: #406df3;
 		border-radius: 4px;
 		width: 100%;
 		height: 24px;
 	}
-	 .dd-complete {
+	.dd-complete {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -331,21 +316,20 @@ ul{
 		height: 26px;
 		font-size: 18px;
 		background-color: #1e1e1e;
-		display:flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding: 5px 0px 5px 0px;
 		text-align: start;
 		position: relative;
 		top: 30%;
-		border: 1px solid #FAFBFC;
+		border: 1px solid #fafbfc;
 		border-radius: 4px;
-		
 	}
 	.brg {
 		width: 100%;
 		height: 100%;
 		display: flex;
 		justify-content: center;
-	} 
+	}
 }
