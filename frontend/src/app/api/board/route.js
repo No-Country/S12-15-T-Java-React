@@ -1,8 +1,10 @@
 //eslint-disable-next-line no-undef
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+//eslint-disable-next-line no-undef
+const token = localStorage.getItem('token');
 
 export const getTaskList = async (id) => {
-	const token = localStorage.getItem('token');
+	// const token = localStorage.getItem('token');
 	const url = `${apiUrl}/board/listOfEnabledTasksByIdBoard/${id}`;
 
 	try {
