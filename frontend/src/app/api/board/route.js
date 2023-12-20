@@ -7,7 +7,7 @@ export const getTaskList = async (id) => {
 	const url = `${apiUrl}/board/listOfEnabledTasksByIdBoard/${id}`;
 
 	try {
-		const response = await fetch(url, { 
+		const response = await fetch(url, {
 			method: 'GET',
 			mode: 'cors',
 			headers: {
@@ -37,7 +37,7 @@ export const getFindBoard = async (id) => {
 	const url = `${apiUrl}/board/${id}`;
 
 	try {
-		const response = await fetch(url, { 
+		const response = await fetch(url, {
 			method: 'GET',
 			mode: 'cors',
 			headers: {
@@ -64,16 +64,16 @@ export const getFindBoard = async (id) => {
 };
 
 export const postListTask = async (id, name) => {
-    const url = `${apiUrl}/task/new/${id}`;
+	const url = `${apiUrl}/task/new/${id}`;
 
 	try {
-		const response = await fetch(url, { 
+		const response = await fetch(url, {
 			method: 'POST',
 			mode: 'cors',
-            body: JSON.stringify({
-                name: `${name}`,
-                description: `${name}`
-            }),
+			body: JSON.stringify({
+				name: `${name}`,
+				description: `${name}`,
+			}),
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${token}`,
@@ -81,7 +81,7 @@ export const postListTask = async (id, name) => {
 		});
 
 		if (!response.ok) {
-            console.log(response);
+			console.log(response);
 			throw new Error(`Error en la solicitud: ${response.status}`);
 		}
 
@@ -94,23 +94,23 @@ export const postListTask = async (id, name) => {
 };
 
 export const disableTasks = async (id) => {
-    const url = `${apiUrl}/task/disable/${id}`;
-    console.log('URL:', url);
-    try {
-        const response = await fetch(url , {
-            method: 'PUT',
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
-            },
-        });
-        if (response.ok) {
-            const data = await response.json();
-            return { success: true, data };
-        } else {
-            return { success: false, error: 'Error deleting task column:' };
-        }
-    } catch (error) {
-        console.error('Error deleting task column:', error);
-    }
+	const url = `${apiUrl}/task/disable/${id}`;
+	console.log('URL:', url);
+	try {
+		const response = await fetch(url, {
+			method: 'PUT',
+			headers: {
+				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json',
+			},
+		});
+		if (response.ok) {
+			const data = await response.json();
+			return { success: true, data };
+		} else {
+			return { success: false, error: 'Error deleting task column:' };
+		}
+	} catch (error) {
+		console.error('Error deleting task column:', error);
+	}
 };

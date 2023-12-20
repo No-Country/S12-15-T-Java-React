@@ -31,5 +31,3 @@ export const getListSpace = async (id) => {
 		// throw error;
 	}
 };
-
-

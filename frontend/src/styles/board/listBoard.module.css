@@ -36,17 +36,17 @@
 }
 
 .menuDelete {
-    position: absolute;
-    top: 1.5rem;
-    right: 0;
-    background-color: var(--dark-blue);
-	color:var(--white);
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    padding: 0.5rem;
-    cursor: pointer;
-    z-index: 100;
+	position: absolute;
+	top: 1.5rem;
+	right: 0;
+	background-color: var(--dark-blue);
+	color: var(--white);
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 0.5rem;
+	cursor: pointer;
+	z-index: 100;
 }
 
 /*Add List*/
