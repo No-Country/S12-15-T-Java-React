@@ -10,40 +10,60 @@ import { registerUser } from '@/app/api/register/registerApi';
 
 function FormRegister() {
 	const [name, setName] = useState('');
+	const [lastName, setLastName] = useState('');
+	const [username, setUserName] = useState('');
 	const [email, setEmail] = useState('');
 	const [passwords, setPasswords] = useState({
 		password: '',
 		confirmPassword: '',
 	});
+
 	const [loading, setLoading] = useState(false);
+	const [registrationStatus, setRegistrationStatus] = useState({
+		success: null,
+		message: null,
+	});
+
 	const router = useRouter();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 		setLoading(true);
 
 		try {
 			const { success, id, error } = await registerUser(
 				name,
+				lastName,
+				username,
 				email,
 				passwords.password,
 				passwords.confirmPassword
 			);
 
 			if (success) {
-				router.push(`/login/${id}/home`);
+				setRegistrationStatus({ success: true, message: 'Registro exitoso' });
+				setTimeout(() => {
+					setRegistrationStatus({ success: null, message: null });
+					router.push(`/login/${id}/home`);
+				}, 2000);
 				console.log('Registro exitoso');
 			} else {
+				setRegistrationStatus({ success: false, message: `Error: ${error}` });
 				console.error(error);
 			}
 		} catch (error) {
 			console.error(error);
+			setRegistrationStatus({
+				success: false,
+				message: 'Error en la petición',
+			});
 		}
 
 		setLoading(false);
 
 		setName('');
+		setLastName('');
+		setUserName('');
 		setEmail('');
 		setPasswords({ password: '', confirmPassword: '' });
 	};
@@ -56,9 +76,25 @@ function FormRegister() {
 					type="text"
 					id="name"
 					name="name"
-					placeholder="Nombre de usuario"
+					placeholder="Introduce tu nombre"
 					value={name}
 					setInput={setName}
+				/>
+				<Input
+					type="text"
+					id="lastname"
+					name="lastname"
+					placeholder="Introduce tu apellido"
+					value={lastName}
+					setInput={setLastName}
+				/>
+				<Input
+					type="text"
+					id="username"
+					name="username"
+					placeholder="Nombre de usuario"
+					value={username}
+					setInput={setUserName}
 				/>
 				<Input
 					type="email"
@@ -80,6 +116,17 @@ function FormRegister() {
 			>
 				{loading ? 'Cargando...' : 'Registrarme'}
 			</Button>
+			{registrationStatus.success !== null && (
+				<div
+					className={
+						registrationStatus.success
+							? stylesRegister.successfulmessage
+							: stylesRegister.unsuccessfulmessage_error
+					}
+				>
+					{registrationStatus.message}
+				</div>
+			)}
 		</form>
 	);
 }
