@@ -2,6 +2,7 @@ package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.domain.entity.CommentEntity;
+import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.domain.entity.UserEntity;
 import com.nocountry.S12G15.dto.response.ChatResponseDTO;
 import com.nocountry.S12G15.dto.response.CommentResponseDTO;
@@ -63,7 +64,14 @@ public class CommentServiceImpl implements CommentService {
             //if(c.getChannelEntity().getIdChannel().equals(idChannel)) {
                 chatDTO.setIdUser(c.getUserEntity().getId());
                 chatDTO.setUserName(c.getUserEntity().getUsername());
-                chatDTO.setIdImage(c.getUserEntity().getImageEntity().getIdImage());
+                if(c.getUserEntity().getImageEntity() == null){
+                    ImageEntity im = new ImageEntity();
+                    im.setIdImage("No Image");
+                    chatDTO.setIdImage(im.getIdImage());
+                }else{
+                    chatDTO.setIdImage(c.getUserEntity().getImageEntity().getIdImage());
+                }
+
                 chatDTO.setIdChannel(c.getChannelEntity().getIdChannel());
                 chatDTO.setNameChannel(c.getChannelEntity().getNameChannel());
                 chatDTO.setLocalDateTime(c.getLocalDateTime());
