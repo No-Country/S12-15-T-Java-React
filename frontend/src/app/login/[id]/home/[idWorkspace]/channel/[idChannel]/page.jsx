@@ -24,7 +24,7 @@ const ChannelPage = ({ params }) => {
 	const handleSendMessage = async (newMessage) => {
 		//temporary until realtime chat / websocket / receive new message data.
 		setMessages((prevMessages) => [
-			...prevMessages,
+			...(prevMessages || []),
 			{
 				comments: newMessage,
 				userName: user.email,

@@ -32,7 +32,7 @@ const CreateWorkSpace = () => {
 		try {
 			setLoading(true);
 
-			const { success, idSpace, error } = await createWorkspace(
+			const { success, /*idSpace,*/ error } = await createWorkspace(
 				userId,
 				token,
 				proyectName,
@@ -40,7 +40,8 @@ const CreateWorkSpace = () => {
 			);
 
 			if (success) {
-				router.push(`/login/${userId}/home/${idSpace}/board`);
+				// router.push(`/login/${userId}/home/${idSpace}/board`);
+				router.push(`/login/${userId}/home`); //Temporary redirect to home until workspace with no board/channel id works
 				console.log('Workspace creado con éxito');
 			} else {
 				console.error(error);
