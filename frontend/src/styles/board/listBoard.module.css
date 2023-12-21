@@ -134,16 +134,3 @@
 	font-size: 0.5rem;
 	color: var(--white);
 }
-
-.menuDelete {
-	position: absolute;
-	top: 1.8rem;
-	right: 0;
-	background-color: var(--white);
-	border: 1px solid #ccc;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	padding: 1rem;
-	cursor: pointer;
-	z-index: 100;
-}

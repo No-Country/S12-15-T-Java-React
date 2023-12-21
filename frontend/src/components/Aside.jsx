@@ -24,9 +24,12 @@ export const Aside = ({ params }) => {
 	const [addBoardInput, setAddBoardInput] = useState(false);
 	const [newChannelName, setNewChannelName] = useState('');
 	const [newBoardName, setNewBoardName] = useState('');
-
+	const [loadingNewChannel, setloadingNewChannel] = useState(false);
+	const [loadingNewBoard, setloadingNewBoard] = useState(false);
 	const handleSubmitNewChannel = async () => {
 		if (newChannelName != '') {
+			setAddChanelInput(false);
+			setloadingNewChannel(true);
 			try {
 				const response = await createChannel(idWorkspace, newChannelName);
 
@@ -38,7 +41,7 @@ export const Aside = ({ params }) => {
 							nameChannel: response.data.nameChannel,
 						},
 					]);
-
+					setloadingNewChannel(false);
 					setAddChanelInput(false);
 					setNewChannelName('');
 				} else {
@@ -53,6 +56,8 @@ export const Aside = ({ params }) => {
 	};
 	const handleSubmitNewBoard = async () => {
 		if (newBoardName !== '') {
+			setAddBoardInput(false);
+			setloadingNewBoard(true);
 			try {
 				const response = await createBoard(idWorkspace, newBoardName);
 
@@ -64,7 +69,7 @@ export const Aside = ({ params }) => {
 							boardName: response.data.boardName,
 						},
 					]);
-
+					setloadingNewBoard(false);
 					setAddBoardInput(false);
 					setNewBoardName('');
 				} else {
@@ -210,7 +215,17 @@ export const Aside = ({ params }) => {
 									</div>
 								</div>
 							))}
-
+							{loadingNewChannel && (
+								<div
+									style={{
+										all: 'unset',
+										color: 'white',
+										padding: '.6rem 1.4rem',
+									}}
+								>
+									Creando canal...
+								</div>
+							)}
 							<div className="canales-tablero-agregar2">
 								<div className="icono-agregar" width="16" height="16">
 									<img
@@ -279,6 +294,17 @@ export const Aside = ({ params }) => {
 									</div>
 								</div>
 							))}
+							{loadingNewBoard && (
+								<div
+									style={{
+										all: 'unset',
+										color: 'white',
+										padding: '.6rem 1.4rem',
+									}}
+								>
+									Creando tablero...
+								</div>
+							)}
 							<div className="canales-tablero-agregar2">
 								<div className="icono-agregar2" width="16" height="17">
 									<img
@@ -286,6 +312,7 @@ export const Aside = ({ params }) => {
 										alt="Texto alternativo de la imagen"
 									/>
 								</div>
+
 								{addBoardInput ? (
 									<div className="add_new">
 										<input
