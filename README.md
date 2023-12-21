@@ -1,14 +1,14 @@
-# [Track](https://s12-15-t-java-react.vercel.app) - 🚀 Aplicación de Gestión de Proyectos con Sistema de Chat
+# [Track](https://s12-15-t-java-react-ol6n.vercel.app/) - 🚀 Aplicación de Gestión de Proyectos con Sistema de Chat
 
 **Track** es una completa aplicación de gestión de proyectos que te ayuda a organizar y realizar un seguimiento efectivo de tus tareas. Cada espacio de trabajo representa un proyecto independiente y se organiza en tableros y tareas. Además, cuenta con un sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
 ## Despliegue del Proyecto
 
 - **Frontend:**
-  - [Track Frontend](https://s12-15-t-java-react.vercel.app) - Despliegue de la aplicación frontend.
+  - [Track Frontend](https://s12-15-t-java-react-ol6n.vercel.app/) - Despliegue de la aplicación frontend.
 
 - **Backend:**
-  - [Track Backend - Documentación Swagger](http://181.15.143.132:8081/swagger-ui/index.html) - Documentación Swagger para explorar los endpoints del backend.
+  - [Track Backend - Documentación Swagger](https://track-flob.onrender.com/swagger-ui) - Documentación Swagger para explorar los endpoints del backend.
 
 ## 📊 Organización
 
@@ -49,9 +49,22 @@ La aplicación se estructura de la siguiente manera:
 - **Track Behance:**
   - [Prototipo Funcional - Behance](https://www.behance.net/gallery/187182615/Track-Proyecto-No-Country)
 
+## Documentación de QA
+
+- **Carpeta en Google Drive:**
+  - Accede a la carpeta de Google Drive que contiene la documentación de QA del proyecto.
+  - [Documentación de QA - Google Drive](https://drive.google.com/drive/folders/1lf8EsO5bFgamuqmWMcfqAXul58a0SAJx?usp=sharing) 
+
 ## Contacto del Equipo
 
 - **Grupo de Desarrollo:**
+
+  - **UX/UI:**
+    - **Augusto Hernán Mellado**
+      - LinkedIn: [Augusto Hernán Mellado](https://www.linkedin.com/in/augustomellado/)
+      - Behance: [Behance de Augusto](https://www.behance.net/augustomellado)
+      - Dribbble: [Dribbble de Augusto](https://dribbble.com/AugustoMellado)
+      - Apasionado creador de experiencias visuales cautivadoras. Augusto fusiona diseño y funcionalidad para dar vida a interfaces memorables. Su enfoque innovador y creativo transforma ideas en experiencias de usuario excepcionales.
 
   - **Team Leader:**
     - **Billy Campagnoli**
@@ -68,6 +81,7 @@ La aplicación se estructura de la siguiente manera:
       - Apasionado por dar vida a experiencias de usuario cautivadoras y navegaciones fluidas. Siempre en busca de la combinación perfecta entre funcionalidad y belleza.
     - **David Gaviria**
       - GitHub: [davidgaviria2021](https://github.com/davidgaviria2021)
+      - LinkedIn:  [David Gaviria](https://www.linkedin.com/in/omar-david-gaviria-gonzález-5bb83853/)
       - Constructor meticuloso de interfaces intuitivas y amigables. Cree en la magia de la interacción usuario-interfaz para llevar la usabilidad al siguiente nivel.
     - **Edwin Carmona**
       - GitHub: [ecc97](https://github.com/ecc97)
@@ -114,10 +128,5 @@ La aplicación se estructura de la siguiente manera:
       - LinkedIn: [Maxi Cosman](https://www.linkedin.com/in/maxi-cosman/)
       - Experto en QA. Maxi garantiza la calidad de Track explorando cada detalle. Su enfoque metódico asegura una experiencia sin errores.
 
-  - **UX/UI:**
-    - **Augusto Hernán Mellado**
-      - LinkedIn: [Augusto Hernán Mellado](https://www.linkedin.com/in/augustomellado/)
-      - Behance: [Behance de Augusto](https://www.behance.net/augustomellado)
-      - Dribbble: [Dribbble de Augusto](https://dribbble.com/AugustoMellado)
-      - Apasionado creador de experiencias visuales cautivadoras. Augusto fusiona diseño y funcionalidad para dar vida a interfaces memorables. Su enfoque innovador y creativo transforma ideas en experiencias de usuario excepcionales.
+
 
