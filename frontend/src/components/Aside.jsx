@@ -216,15 +216,7 @@ export const Aside = ({ params }) => {
 								</div>
 							))}
 							{loadingNewChannel && (
-								<div
-									style={{
-										all: 'unset',
-										color: 'white',
-										padding: '.6rem 1.4rem',
-									}}
-								>
-									Creando canal...
-								</div>
+								<div className="loading">Creando canal...</div>
 							)}
 							<div className="canales-tablero-agregar2">
 								<div className="icono-agregar" width="16" height="16">
@@ -242,12 +234,18 @@ export const Aside = ({ params }) => {
 											onChange={(e) => setNewChannelName(e.target.value)}
 										></input>
 										<div>
-											<button onClick={handleSubmitNewChannel}>Crear</button>
+											<button
+												onClick={handleSubmitNewChannel}
+												className="white-link"
+											>
+												Crear
+											</button>
 											<button
 												onClick={() => {
 													setNewChannelName('');
 													setAddChanelInput(false);
 												}}
+												className="white-link"
 											>
 												Cancelar
 											</button>
@@ -295,15 +293,7 @@ export const Aside = ({ params }) => {
 								</div>
 							))}
 							{loadingNewBoard && (
-								<div
-									style={{
-										all: 'unset',
-										color: 'white',
-										padding: '.6rem 1.4rem',
-									}}
-								>
-									Creando tablero...
-								</div>
+								<div className="loading">Creando tablero...</div>
 							)}
 							<div className="canales-tablero-agregar2">
 								<div className="icono-agregar2" width="16" height="17">
@@ -328,6 +318,7 @@ export const Aside = ({ params }) => {
 													setNewBoardName('');
 													setAddBoardInput(false);
 												}}
+												className="white-link"
 											>
 												Cancelar
 											</button>

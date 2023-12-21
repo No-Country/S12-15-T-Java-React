@@ -34,7 +34,7 @@ export const CardProject = ({
 				<span className={styleCard.cardName}>
 					<Link
 						href={`/login/${idUser}/home/${idSpace}/board/${board}`}
-						style={{ all: 'unset', cursor: 'pointer' }}
+						className={styleCard.cardNameLink}
 					>
 						{nameProject}
 					</Link>

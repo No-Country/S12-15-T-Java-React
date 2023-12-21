@@ -73,7 +73,7 @@
 	padding: 1.25rem;
 	display: flex;
 	/* overflow-x: auto; */
-	height: calc(100vh - 9rem);
+	height: calc(100% - 9rem);
 }
 
 /*Icons*/
