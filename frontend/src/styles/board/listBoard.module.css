@@ -3,7 +3,7 @@
 	flex-direction: column;
 	position: relative;
 	max-height: 27rem;
-	margin: 0 0.5rem;
+
 	/* overflow-y: auto; */
 	width: 14rem;
 	min-width: 14rem;
@@ -12,7 +12,7 @@
 	border-top: 4px solid var(--red);
 	box-shadow: 0px 0px 4px 0px var(--dark-grey);
 	background-color: #fafbfc;
-	margin: 0 1rem;
+	margin: 0 0.5rem;
 }
 
 .headerList {

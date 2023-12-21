@@ -31,7 +31,14 @@ export const CardProject = ({
 				alt="ImageProject"
 			/>
 			<div className={styleCard.cardNameProject}>
-				<span className={styleCard.cardName}> {nameProject} </span>
+				<span className={styleCard.cardName}>
+					<Link
+						href={`/login/${idUser}/home/${idSpace}/board/${board}`}
+						style={{ all: 'unset', cursor: 'pointer' }}
+					>
+						{nameProject}
+					</Link>
+				</span>
 				{projectOwner && (
 					<div className={styleCard.projectOwner}>
 						<CiUser className={styleCard.iconUser} />
