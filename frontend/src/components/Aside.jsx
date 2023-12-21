@@ -179,159 +179,160 @@ export const Aside = ({ params }) => {
 						</div>
 					</div>
 				</div>
+				<div className="scrollable-div scrollbar-div">
+					<div className="frame-737">
+						<div className="frame-748">
+							<div className="seccion-tablero">
+								<img
+									src="/images/Vector.png"
+									alt="Texto alternativo de la imagen"
+								/>
 
-				<div className="frame-737">
-					<div className="frame-748">
-						<div className="seccion-tablero">
-							<img
-								src="/images/Vector.png"
-								alt="Texto alternativo de la imagen"
-							/>
-
-							<div className="canales-comunicaci-n">
-								Canales de comunicación
+								<div className="canales-comunicaci-n">
+									Canales de comunicación
+								</div>
 							</div>
-						</div>
-						<div className="frame-749">
-							{channels.map((channel) => (
-								<div
-									className="canales-tablero-agregar"
-									key={channel.idChannel}
-								>
-									<div className="icono-chat" width="16" height="16">
+							<div className="frame-749">
+								{channels.map((channel) => (
+									<div
+										className="canales-tablero-agregar"
+										key={channel.idChannel}
+									>
+										<div className="icono-chat" width="16" height="16">
+											<img
+												src="/images/Icono_chat.png"
+												alt="Texto alternativo de la imagen"
+											/>
+										</div>
+										<div className="nombre">
+											<Link
+												href={`/login/${user.id}/home/${idWorkspace}/channel/${channel.idChannel}`}
+											>
+												{channel.nameChannel == 'Demo nameChannel'
+													? 'General'
+													: channel.nameChannel}
+											</Link>
+										</div>
+									</div>
+								))}
+								{loadingNewChannel && (
+									<div className="loading">Creando canal...</div>
+								)}
+								<div className="canales-tablero-agregar2">
+									<div className="icono-agregar" width="16" height="16">
 										<img
-											src="/images/Icono_chat.png"
+											src="/images/Icono_Agregar.png"
 											alt="Texto alternativo de la imagen"
 										/>
 									</div>
-									<div className="nombre">
-										<Link
-											href={`/login/${user.id}/home/${idWorkspace}/channel/${channel.idChannel}`}
-										>
-											{channel.nameChannel == 'Demo nameChannel'
-												? 'General'
-												: channel.nameChannel}
-										</Link>
-									</div>
-								</div>
-							))}
-							{loadingNewChannel && (
-								<div className="loading">Creando canal...</div>
-							)}
-							<div className="canales-tablero-agregar2">
-								<div className="icono-agregar" width="16" height="16">
-									<img
-										src="/images/Icono_Agregar.png"
-										alt="Texto alternativo de la imagen"
-									/>
-								</div>
-								{addChanelInput ? (
-									<div className="add_new">
-										<input
-											type="text"
-											placeholder="Escribe el nombre"
-											value={newChannelName}
-											onChange={(e) => setNewChannelName(e.target.value)}
-										></input>
-										<div>
-											<button
-												onClick={handleSubmitNewChannel}
-												className="white-link"
-											>
-												Crear
-											</button>
-											<button
-												onClick={() => {
-													setNewChannelName('');
-													setAddChanelInput(false);
-												}}
-												className="white-link"
-											>
-												Cancelar
-											</button>
+									{addChanelInput ? (
+										<div className="add_new">
+											<input
+												type="text"
+												placeholder="Escribe el nombre"
+												value={newChannelName}
+												onChange={(e) => setNewChannelName(e.target.value)}
+											></input>
+											<div>
+												<button
+													onClick={handleSubmitNewChannel}
+													className="white-link"
+												>
+													Crear
+												</button>
+												<button
+													onClick={() => {
+														setNewChannelName('');
+														setAddChanelInput(false);
+													}}
+													className="white-link"
+												>
+													Cancelar
+												</button>
+											</div>
 										</div>
-									</div>
-								) : (
-									<div
-										className="nombre"
-										onClick={() => setAddChanelInput(true)}
-									>
-										Agregar Canal
-									</div>
-								)}
+									) : (
+										<div
+											className="nombre"
+											onClick={() => setAddChanelInput(true)}
+										>
+											Agregar Canal
+										</div>
+									)}
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="frame-738">
-					<div className="frame-7492">
-						<div className="seccion-tablero">
-							<img
-								src="/images/Vector.png"
-								alt="Texto alternativo de la imagen"
-							/>
-							<div className="canales-comunicaci-n">Tableros </div>
-						</div>
-						<div className="frame-749">
-							{boards.map((board) => (
-								<div className="canales-tablero-agregar" key={board.idBoard}>
-									<div className="icono-tablero" width="16" height="15">
+					<div className="frame-738">
+						<div className="frame-7492">
+							<div className="seccion-tablero">
+								<img
+									src="/images/Vector.png"
+									alt="Texto alternativo de la imagen"
+								/>
+								<div className="canales-comunicaci-n">Tableros </div>
+							</div>
+							<div className="frame-749">
+								{boards.map((board) => (
+									<div className="canales-tablero-agregar" key={board.idBoard}>
+										<div className="icono-tablero" width="16" height="15">
+											<img
+												src="/images/Icono_tablero.png"
+												alt="Texto alternativo de la imagen"
+											/>
+										</div>
+										<div className="nombre">
+											<Link
+												href={`/login/${user.id}/home/${idWorkspace}/board/${board.idBoard}`}
+											>
+												{board.boardName == 'Demo Board'
+													? 'General'
+													: board.boardName}
+											</Link>
+										</div>
+									</div>
+								))}
+								{loadingNewBoard && (
+									<div className="loading">Creando tablero...</div>
+								)}
+								<div className="canales-tablero-agregar2">
+									<div className="icono-agregar2" width="16" height="17">
 										<img
-											src="/images/Icono_tablero.png"
+											src="/images/Icono_Agregar.png"
 											alt="Texto alternativo de la imagen"
 										/>
 									</div>
-									<div className="nombre">
-										<Link
-											href={`/login/${user.id}/home/${idWorkspace}/board/${board.idBoard}`}
-										>
-											{board.boardName == 'Demo Board'
-												? 'General'
-												: board.boardName}
-										</Link>
-									</div>
-								</div>
-							))}
-							{loadingNewBoard && (
-								<div className="loading">Creando tablero...</div>
-							)}
-							<div className="canales-tablero-agregar2">
-								<div className="icono-agregar2" width="16" height="17">
-									<img
-										src="/images/Icono_Agregar.png"
-										alt="Texto alternativo de la imagen"
-									/>
-								</div>
 
-								{addBoardInput ? (
-									<div className="add_new">
-										<input
-											type="text"
-											placeholder="Escribe el nombre"
-											value={newBoardName}
-											onChange={(e) => setNewBoardName(e.target.value)}
-										/>
-										<div>
-											<button onClick={handleSubmitNewBoard}>Crear</button>
-											<button
-												onClick={() => {
-													setNewBoardName('');
-													setAddBoardInput(false);
-												}}
-												className="white-link"
-											>
-												Cancelar
-											</button>
+									{addBoardInput ? (
+										<div className="add_new">
+											<input
+												type="text"
+												placeholder="Escribe el nombre"
+												value={newBoardName}
+												onChange={(e) => setNewBoardName(e.target.value)}
+											/>
+											<div>
+												<button onClick={handleSubmitNewBoard}>Crear</button>
+												<button
+													onClick={() => {
+														setNewBoardName('');
+														setAddBoardInput(false);
+													}}
+													className="white-link"
+												>
+													Cancelar
+												</button>
+											</div>
 										</div>
-									</div>
-								) : (
-									<div
-										className="nombre"
-										onClick={() => setAddBoardInput(true)}
-									>
-										Agregar Tablero
-									</div>
-								)}
+									) : (
+										<div
+											className="nombre"
+											onClick={() => setAddBoardInput(true)}
+										>
+											Agregar Tablero
+										</div>
+									)}
+								</div>
 							</div>
 						</div>
 					</div>

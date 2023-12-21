@@ -50,7 +50,7 @@ const Boardpage = ({ params }) => {
 					</button>
 				</div>
 			</header>
-			<main className={styleBoard.tableBoard}>
+			<main className={`${styleBoard.tableBoard} scrollbar-div`}>
 				{tasks.map((task) => (
 					<div key={task.idTask}>
 						<ListBoard

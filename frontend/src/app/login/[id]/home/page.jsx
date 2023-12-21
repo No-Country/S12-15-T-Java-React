@@ -32,7 +32,7 @@ const HomePage = ({ params }) => {
 	return (
 		<div className="container">
 			<main className={styleHome.homeShape}>
-				<spam className={styleHome.homeHello}>👋¡Hola de nuevo!</spam>
+				<span className={styleHome.homeHello}>👋¡Hola de nuevo!</span>
 				{/* <Carousel/> */}
 				<RecentActivity />
 				{/* <ResponsiveCarousel/> */}

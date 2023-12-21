@@ -21,13 +21,15 @@ function Navbar() {
 		window.location.href = '/';
 	};
 
+	const userHomeUrl = `/login/${user?.id}/home/`;
+	const userCreateWorkspaceUrl = `/login/${user?.id}/create-workspace`;
 	return (
 		<div className="nav-gral">
 			<nav className="nav-container">
 				<div className="container-menu-left">
 					<div className="track">
 						<img src="/images/logo-logo.png" alt="Logo" />
-						<Link href={`/login/${user?.id}/home/`} className="white-link">
+						<Link href={userHomeUrl} className="white-link">
 							<h1 className="title">Track</h1>
 						</Link>
 					</div>
@@ -53,7 +55,7 @@ function Navbar() {
 								<li className="option-projet">
 									{/* <DdProyects /> */}
 									<div className="btn-create" id={'pr'}>
-										<Link href={`/login/${user?.id}/home/`} className="create">
+										<Link href={userHomeUrl} className="create">
 											Proyectos Recientes
 										</Link>
 										<div className="submenu">
@@ -87,10 +89,7 @@ function Navbar() {
 							</ul>
 							<div className="btn-create">
 								{/* contiene el boton create */}
-								<Link
-									href={`/login/${user?.id}/create-workspace`}
-									className="create"
-								>
+								<Link href={userCreateWorkspaceUrl} className="create">
 									Crear
 								</Link>
 							</div>
