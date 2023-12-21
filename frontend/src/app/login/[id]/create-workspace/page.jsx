@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import FormInputGroup from '@/components/create/FormInputGroup';
 import styles from '@/styles/createworkspace.module.css';
 import Button from '@/components/Button';
@@ -61,9 +62,18 @@ const CreateWorkSpace = () => {
 					description={description}
 					setDescription={setDescription}
 				/>
-				<Button className={styles.btn_create} type="submit" disabled={loading}>
-					{loading ? 'Cargando...' : 'Crear Proyecto'}
-				</Button>
+				<div className={styles.group_btn_content}>
+					<Button
+						className={styles.btn_create}
+						type="submit"
+						disabled={loading}
+					>
+						{loading ? 'Cargando...' : 'Crear Proyecto'}
+					</Button>
+					<Link href={`/login/${userId}/home`}>
+						<Button className={styles.btn_cancel}>Cancelar</Button>
+					</Link>
+				</div>
 			</form>
 		</div>
 	);
