@@ -61,6 +61,33 @@ a:hover {
 	margin: 0 auto;
 }
 
+.scrollbar-div::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.scrollbar-div::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+}
+
+.scrollbar-div::-webkit-scrollbar-thumb {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+	background-color: #394558;
+}
+/*
+.scrollbar-div-light::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.scrollbar-div-light::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+}
+
+.scrollbar-div-light::-webkit-scrollbar-thumb {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+	background-color: var(--grey);
+} */
 @media screen and (max-width: 576px) {
 	.container {
 		margin: 0 4%;

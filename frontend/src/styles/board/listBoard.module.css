@@ -51,14 +51,18 @@
 	cursor: pointer;
 	z-index: 100;
 }
+.menuDelete:hover {
+	color: var(--light-blue);
+}
 
 /*Add List*/
 .addList {
 	display: flex;
 	align-items: center;
-	width: 15rem;
+	width: auto;
+	text-wrap: nowrap;
 	margin-right: 0.75rem;
-	padding: 0.5rem 0.75rem;
+	padding: 0.5rem 3.75rem 0.5rem 0.75rem;
 	height: fit-content;
 	gap: 0.5rem;
 	border-radius: 0.25rem;
@@ -80,7 +84,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	padding: 0.5rem;
-	width: 15rem;
+	width: 14rem;
 	height: fit-content;
 	gap: 0.5rem;
 	/* margin-left: 0.75rem; */
@@ -114,7 +118,7 @@
 /*New list*/
 .newList {
 	display: flex;
-	/* margin-left: 0.75rem; */
+	margin-left: 0.5rem;
 }
 
 .newListBoard {
