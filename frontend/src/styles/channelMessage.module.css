@@ -1,0 +1,41 @@
+.message_container {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.image_container {
+	display: flex;
+	align-items: flex-start;
+}
+
+.image {
+	width: 3rem;
+	height: 3rem;
+}
+
+.message {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.message img {
+	max-height: 250px;
+	width: auto;
+	object-fit: cover;
+}
+
+.username {
+	font-weight: 700;
+	color: var(--dark-blue);
+}
+
+.message_text {
+	font-size: 1rem;
+}
+
+.date_time {
+	color: var(--light-blue);
+	margin-left: 0.5rem;
+	font-size: 0.75rem;
+}

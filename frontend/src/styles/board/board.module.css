@@ -1,0 +1,87 @@
+.board {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 67px);
+	background-color: var(--white);
+	min-height: 100%;
+	width: 100%;
+	overflow-x: auto;
+}
+
+/*Header name board*/
+.header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 1.25rem;
+	/* position: fixed; */
+	border-bottom: 1px solid var(--grey);
+}
+
+.headerName {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nameBoard {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 0.5rem;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 400;
+}
+
+/*Header users*/
+.headerUsers {
+	display: flex;
+	flex-direction: row;
+	justify-self: center;
+	align-items: center;
+}
+
+.numberUser {
+	margin-right: 0.5rem;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 900;
+	color: var(--dark-blue);
+}
+
+.btnTrash {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 1rem;
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 0.25rem;
+	border: 2px solid var(--black);
+	background-color: var(--red);
+}
+
+/*Board*/
+.tableBoard {
+	/* padding: 1.25rem;
+	display: flex; */
+	max-width: 100%;
+	overflow-x: auto;
+	/* height: auto; */
+	/* flex: 1; */
+	padding: 1.25rem;
+	display: flex;
+	/* overflow-x: auto; */
+	height: calc(100vh - 9rem);
+}
+
+/*Icons*/
+.iconBoard {
+	font-size: 1.25rem;
+}
+
+.trash {
+	font-size: 0.75rem;
+	color: var(--white);
+}

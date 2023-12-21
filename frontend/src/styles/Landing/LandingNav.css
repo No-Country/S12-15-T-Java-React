@@ -1,0 +1,90 @@
+.contenedorGral-Navlanding {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 67px;
+	background-color: #425682;
+	padding: 1rem 4rem;
+}
+.contenedor-navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1104px;
+	width: 100%;
+}
+.contenedor-logo-track {
+	display: flex;
+	width: 120px;
+	height: 46px;
+	justify-content: center;
+	align-items: center;
+}
+
+.ll-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 23px;
+	width: 80px;
+	color: #fafbfc;
+}
+.image-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 31px;
+	height: 35px;
+}
+.contenedorBotonLogin {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 35px;
+}
+/* configuracion del boton login dentro del nav de landing */
+.ll-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 77px;
+	height: 35px;
+	background-color: #fafbfc;
+	border-radius: 4px;
+}
+Link {
+	list-style: none;
+	text-decoration: none;
+	color: #030304;
+}
+/* ------------------------------------------------------- */
+
+@media screen and (max-width: 300px) {
+	.contenedorGral-Navlanding {
+		height: 32px;
+		padding: 0.2rem;
+	}
+	.contenedor-logo-track {
+		width: 99px;
+		height: 26px;
+		gap: 16px;
+	}
+	.ll-btn {
+		width: 66px;
+		height: 25px;
+		color: #1e1e1e;
+		font-size: 12px;
+		font-family: 'Roboto';
+		font-weight: 700;
+		word-wrap: break-word;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.contenedorGral-Navlanding {
+		padding: 1rem;
+	}
+}

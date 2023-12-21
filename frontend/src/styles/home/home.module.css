@@ -1,0 +1,34 @@
+.home {
+	background-color: var(--dark-blue);
+}
+
+.homeShape {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.homeHello {
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 700;
+	color: var(--white);
+}
+
+/*Media Querys*/
+@media screen and (max-width: 730px) {
+	.homeShape {
+		padding-top: 1.25rem;
+		padding-bottom: 1.25rem;
+		gap: 1.25rem;
+	}
+
+	.homeHello {
+		line-height: normal;
+		font-size: 1.25rem;
+		color: var(--white);
+		/* color: blueviolet; */
+	}
+}

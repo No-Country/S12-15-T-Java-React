@@ -1,0 +1,49 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	background-color: var(--white);
+	color: var(--black);
+	height: calc(100vh - 67px);
+	width: 100%;
+	padding: 0 0.4rem;
+}
+
+.title {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.75rem;
+}
+
+.title .channel_icon {
+	width: 1.35rem;
+	height: 1.25rem;
+}
+.title div {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.members {
+	cursor: pointer;
+}
+
+.container hr {
+	border: none;
+	height: 1px;
+	background-color: var(--grey);
+}
+
+.messages {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	padding: 0.75rem;
+	gap: 1rem;
+	overflow-y: auto;
+}
+.write_message {
+	display: flex;
+}
