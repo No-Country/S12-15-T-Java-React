@@ -8,6 +8,7 @@ import { postListTask } from '@/app/api/board/route';
 export const AddList = ({ idBoard, setTask }) => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [inputValue, setInputValue] = useState('');
+	const [disabled, setDisabled] = useState(false);
 	// const [list, setList] = useState([]);
 
 	const handleEdit = () => {
@@ -15,13 +16,16 @@ export const AddList = ({ idBoard, setTask }) => {
 	};
 
 	const handleSave = async () => {
-		console.log(inputValue);
-		if (inputValue.trim() !== '') {
-			setInputValue('');
+		const value = inputValue;
+		setDisabled(true);
+		if (value.trim() !== '') {
+			setInputValue('Creando lista...');
+			const responsePostList = await postListTask(idBoard, value);
 			setIsEditing(false);
-			const responsePostList = await postListTask(idBoard, inputValue);
+			setDisabled(false);
 			console.log('RESPUESTA', responsePostList);
 			setTask((prevTask) => [...prevTask, responsePostList]);
+			setInputValue('');
 			// setList([...list, inputValue]);
 		}
 	};
@@ -43,16 +47,25 @@ export const AddList = ({ idBoard, setTask }) => {
 						placeholder="Introduzca el titulo de la lista..."
 						value={inputValue}
 						onChange={(e) => setInputValue(e.target.value)}
+						disabled={disabled}
 					/>
-					<button className={styleList.btnInput} onClick={handleSave}>
+					<button
+						className={styleList.btnInput}
+						onClick={handleSave}
+						disabled={disabled}
+					>
 						Añadir lista
 					</button>
 				</div>
 			) : (
-				<div className={styleList.addList} onClick={handleEdit}>
+				<button
+					className={styleList.addList}
+					onClick={() => handleEdit()}
+					disabled={disabled}
+				>
 					<FaPlus className={styleList.plus} />
 					<span className={styleList.labelAddlist}>Añade otra lista</span>
-				</div>
+				</button>
 			)}
 		</div>
 	);
