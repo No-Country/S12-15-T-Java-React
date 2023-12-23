@@ -27,6 +27,27 @@ La aplicación se estructura de la siguiente manera:
 - Seguimiento del progreso de las tareas.
 - Sistema de comunicación tipo chat integrado para una colaboración eficiente del equipo.
 
+## Configuración de Variables de Entorno
+
+A continuación, se detallan las variables de entorno utilizadas en el proyecto. Estas variables son esenciales para la configuración del frontend y el backend. Siéntete libre de configurarlas según tus necesidades.
+
+### Frontend:
+
+- `NEXT_PUBLIC_API_URL`: URL de la API (backend) para el frontend.
+- `NEXT_PUBLIC_GIPHY_API_KEY`: Clave de API de Giphy para el frontend.
+
+### Backend:
+
+- `SERVER_PORT`: Puerto en el que el servidor backend escucha las solicitudes.
+- `DATASOURCE_URL`: URL de la fuente de datos para la base de datos.
+- `DATASOURCE_USERNAME`: Nombre de usuario para la conexión a la base de datos.
+- `DATASOURCE_PASSWORD`: Contraseña para la conexión a la base de datos.
+- `JWT_SECRET`: Secreto utilizado para firmar y verificar los tokens JWT (debe ser 256 bit 32 Byte Hex).
+
+¡Te invitamos a realizar pruebas en el proyecto! Asegúrate de configurar las variables de entorno correctamente antes de comenzar. Si tienes alguna pregunta o encuentras algún problema, no dudes en contactarnos.
+
+¡Gracias por contribuir al desarrollo y mejora continua de Track!
+
 ## 🛠️ Herramientas Utilizadas
 
 - **Frontend:**
