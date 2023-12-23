@@ -1,3 +1,0 @@
-#Aqui colocariamos todos los archvios correspondientes a cors
-ademas de la configuraciones necesarias para utilizar recursos externos,
-ejemplo, swagger,firebase,BCrypt

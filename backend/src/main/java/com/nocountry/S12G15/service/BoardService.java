@@ -1,8 +1,6 @@
 package com.nocountry.S12G15.service;
 
-import com.nocountry.S12G15.domain.entity.BoardEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
-import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
 

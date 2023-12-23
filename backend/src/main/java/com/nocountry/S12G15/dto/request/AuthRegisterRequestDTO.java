@@ -1,6 +1,6 @@
 package com.nocountry.S12G15.dto.request;
 
-import com.nocountry.S12G15.enums.RolUser;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -19,8 +19,5 @@ public class AuthRegisterRequestDTO {
     private String password;
 
     private String repeatedPassword;
-
-
-    //private RolUser role;
 
 }

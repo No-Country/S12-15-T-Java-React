@@ -1,24 +1,17 @@
-package com.nocountry.S12G15.controller.dto;
+package com.nocountry.S12G15.controller;
 
-import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
-import com.nocountry.S12G15.dto.ChannelDto;
-import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.persistance.repository.SpaceRepository;
-import com.nocountry.S12G15.service.ImageService;
 import com.nocountry.S12G15.service.BoardService;
 import com.nocountry.S12G15.service.SpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.net.URI;
 import java.util.List;
 
 import static com.nocountry.S12G15.util.Constant.*;
@@ -29,9 +22,6 @@ public class BoardController {
 
     @Autowired
     private BoardService boardService;
-
-//    @Autowired
-//    private ImageService imageService;
 
     @Autowired
     private SpaceRepository spaceRepository;
@@ -122,31 +112,4 @@ public class BoardController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
-
-//    @PostMapping("/upload")
-//    public ResponseEntity<?> upLoadPhoto (@RequestParam MultipartFile file, @RequestParam String idBoard){
-//
-//        ImageEntity imageEntity = imageService.saveImage(file, idBoard);
-//
-//        URI uri = ServletUriComponentsBuilder
-//                .fromCurrentContextPath()
-//                .path("/v1/api/board/getPhoto")
-//                .queryParam("idBoard", idBoard)
-//                .build()
-//                .toUri();
-//
-//        return ResponseEntity.status(HttpStatus.CREATED).body(uri);
-//    }
-//
-//    @GetMapping("/getPhoto")
-//    public ResponseEntity<byte[]> getPhoto(@RequestParam String idBoard){
-//
-//        byte[] image = imageService.getPhoto(idBoard);
-//
-//        HttpHeaders headers = new HttpHeaders();
-//
-//        headers.setContentType(MediaType.IMAGE_JPEG);
-//
-//        return ResponseEntity.status(HttpStatus.OK).headers(headers).body(image);
-//    }
 }

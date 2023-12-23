@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.nocuntry</groupId>
 	<artifactId>S12G15</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>S12G15</name>
 	<description>Project S12-G15</description>
@@ -60,6 +60,7 @@
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
+			<version>8.2.0</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

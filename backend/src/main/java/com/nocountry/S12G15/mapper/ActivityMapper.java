@@ -3,7 +3,6 @@ package com.nocountry.S12G15.mapper;
 import com.nocountry.S12G15.domain.entity.ActivityEntity;
 import com.nocountry.S12G15.dto.ActivityDTO;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
 import java.util.List;
