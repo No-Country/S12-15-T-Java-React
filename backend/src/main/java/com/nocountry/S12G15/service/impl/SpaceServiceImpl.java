@@ -31,22 +31,14 @@ import java.util.stream.Collectors;
 @Service
 public class SpaceServiceImpl implements SpaceService {
 
-
-
-    private SpaceMapper spaceMapper;
-
-    private SpaceRepository spaceRepository;
-
-    private ChannelRepository channelRepository;
-
-    private BoardRepository boardRepository;
-
-    private BoardService boardService;
-    private ChannelService channelService;
-
-    private ChannelMapper channelMapper;
-
-    private BoardMapper boardMapper;
+    private final SpaceMapper spaceMapper;
+    private final SpaceRepository spaceRepository;
+    private final ChannelRepository channelRepository;
+    private final BoardRepository boardRepository;
+    private final BoardService boardService;
+    private final ChannelService channelService;
+    private final ChannelMapper channelMapper;
+    private final BoardMapper boardMapper;
 
     @Autowired
     public SpaceServiceImpl(SpaceMapper spaceMapper, SpaceRepository spaceRepository, ChannelRepository channelRepository, BoardRepository boardRepository, BoardService boardService, ChannelService channelService, ChannelMapper channelMapper, BoardMapper boardMapper) {
@@ -63,14 +55,12 @@ public class SpaceServiceImpl implements SpaceService {
     @Override
     public SpaceResponseDTO createSpace(SpaceRequestDTO spaceRequestDTO) throws MyException {
 
-        ///workspace, crear un channel y un tablero
         validate(spaceRequestDTO);
 
         SpaceEntity space = spaceMapper.spaceRequestDTOToSpaceEntity(spaceRequestDTO);
         space.setEnabled(true);
         space.setCreatedAt(LocalDate.now());
 
-        //Crear un channel
         ChannelRequestDTO channelRequestDTO = new ChannelRequestDTO();
         channelRequestDTO.setNameChannel("General");
 
@@ -83,7 +73,6 @@ public class SpaceServiceImpl implements SpaceService {
         space.setChannels(channelEntityList);
 
         space.getChannels().add(channelMapper.toGetChannelEntityFromChannelResponseDTO(channelResponseDTO));
-        //Create Board
         BoardDTO boardDTO = BoardDTO.builder()
                 .boardName("General")
                 .description("Tu Primer Tablero")

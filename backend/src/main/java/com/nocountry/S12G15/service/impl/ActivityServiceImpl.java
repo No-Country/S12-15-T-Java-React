@@ -10,7 +10,6 @@ import com.nocountry.S12G15.persistance.repository.ActivityRepository;
 import com.nocountry.S12G15.persistance.repository.TaskRepository;
 import com.nocountry.S12G15.persistance.repository.UserRepository;
 import com.nocountry.S12G15.service.ActivityService;
-import com.nocountry.S12G15.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +40,6 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public ActivityDTO createActivity(ActivityDTO activityDTO, String idUser) throws MyException {
         validate(activityDTO);
-
 
         //Hay que ver el retorno del UserResponseDTO
         ActivityEntity activity = activityMapper.activityDTOToActivity(activityDTO);

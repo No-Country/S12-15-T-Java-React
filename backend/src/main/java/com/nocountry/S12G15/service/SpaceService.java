@@ -1,6 +1,5 @@
 package com.nocountry.S12G15.service;
 
-
 import com.nocountry.S12G15.dto.BoardDTO;
 import com.nocountry.S12G15.dto.request.SpaceRequestDTO;
 import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
@@ -9,8 +8,6 @@ import com.nocountry.S12G15.exception.MyException;
 
 import java.util.List;
 import java.util.Optional;
-//import org.springframework.stereotype.Service;
-
 
 public interface SpaceService {
 
