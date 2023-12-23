@@ -1,10 +1,8 @@
 package com.nocountry.S12G15.mapper;
-import com.nocountry.S12G15.domain.entity.ChannelEntity;
+
 import com.nocountry.S12G15.domain.entity.SpaceEntity;
-import com.nocountry.S12G15.dto.SpaceDto;
 import com.nocountry.S12G15.dto.request.SpaceRequestDTO;
 import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
-//import com.nocountry.S12G15.dto.response.SpaceResponseDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 

@@ -20,13 +20,6 @@ public class TaskEntity {
 
     private boolean enabled;
 
-//    @Enumerated(EnumType.STRING)
-//    private TaskStatus status;
-//
-//    public enum TaskStatus{
-//        ENABLED, DISABLED
-//    }
-
     @OneToMany
     private List<ActivityEntity> activities;
 

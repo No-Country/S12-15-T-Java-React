@@ -4,7 +4,6 @@ import com.nocountry.S12G15.domain.entity.BoardEntity;
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
 
 import com.nocountry.S12G15.domain.entity.ImageEntity;
-import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

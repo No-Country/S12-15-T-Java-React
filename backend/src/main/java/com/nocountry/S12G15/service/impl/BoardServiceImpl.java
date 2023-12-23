@@ -1,11 +1,9 @@
 package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.BoardEntity;
-import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.domain.entity.TaskEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
 import com.nocountry.S12G15.dto.request.TaskRequestDTO;
-import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
 import com.nocountry.S12G15.dto.response.TaskResponseDTO;
 import com.nocountry.S12G15.exception.MyException;
 import com.nocountry.S12G15.mapper.BoardMapper;
@@ -27,15 +25,15 @@ import java.util.stream.Collectors;
 public class BoardServiceImpl implements BoardService {
 
 
-    private BoardRepository boardRepository;
+    private final BoardRepository boardRepository;
 
-    private BoardMapper boardMapper;
+    private final BoardMapper boardMapper;
 
-    private TaskRepository taskRepository;
+    private final TaskRepository taskRepository;
 
-    private TaskMapper taskMapper;
+    private final TaskMapper taskMapper;
 
-    private TaskService taskService;
+    private final TaskService taskService;
     @Autowired
     public  BoardServiceImpl(BoardRepository boardRepository, BoardMapper boardMapper, TaskRepository taskRepository, TaskMapper taskMapper, TaskService taskService){
         this.boardRepository = boardRepository;
@@ -55,7 +53,6 @@ public class BoardServiceImpl implements BoardService {
 
         BoardEntity board = boardMapper.boardDTOToBoard(boardDTO);
         board.setEnabled(true);
-        //- Con la creacion de un tablero, crear 4 task (BackLog - TODO - In Progress - Done)
 
 
         List<String> tasksNames = Arrays.asList("BackLog", "TODO", "In Progress", "Done");

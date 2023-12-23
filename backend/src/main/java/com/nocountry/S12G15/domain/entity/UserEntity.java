@@ -1,10 +1,10 @@
 package com.nocountry.S12G15.domain.entity;
 
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import com.nocountry.S12G15.enums.RolUser;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,8 +20,7 @@ import java.util.List;
 @Builder
 public class UserEntity implements UserDetails {
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @UuidGenerator
     private String id;
 
     private boolean disabled=false;
@@ -32,13 +31,14 @@ public class UserEntity implements UserDetails {
     @Column(name = "last_name", length = 95)
     private String lastName;
 
-    @Column(name = "email", unique = true, length = 110) //nullabe
+    @Column(name = "email", unique = true, length = 110)
+    @Email
     private String email;
 
     @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "realUserName", nullable = false)
+    @Column(name = "realUserName")
     private String realUserName;
 
     @Column(name="rol")

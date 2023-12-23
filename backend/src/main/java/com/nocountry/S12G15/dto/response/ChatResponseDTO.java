@@ -1,12 +1,7 @@
 package com.nocountry.S12G15.dto.response;
 
-import com.nocountry.S12G15.domain.entity.CommentEntity;
-import com.nocountry.S12G15.domain.entity.ImageEntity;
 import lombok.Data;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 public class ChatResponseDTO {
