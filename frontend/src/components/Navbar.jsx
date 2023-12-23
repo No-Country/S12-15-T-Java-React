@@ -33,7 +33,7 @@ function Navbar() {
 							<h1 className="title">Track</h1>
 						</Link>
 					</div>
-
+				</div>
 				<div className="btn-menu">
 					<input
 						type="checkbox"

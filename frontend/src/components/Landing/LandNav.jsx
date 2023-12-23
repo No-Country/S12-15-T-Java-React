@@ -9,10 +9,11 @@ function LandNav() {
 						<img src="/images/logo-logo.png" alt="Logo" />
 					</div>
 
-				<div className="ll-title">
-					<h1 className="landing-logo-title">Track</h1>
-				</div>
-			</nav>
+					<div className="ll-title">
+						<h1 className="landing-logo-title">Track</h1>
+					</div>
+				</nav>
+			</div>
 			<div className="contenedorBotonLogin">
 				<div className="ll-btn">
 					<Link href={'/login'}>Login</Link>
