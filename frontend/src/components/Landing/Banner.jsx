@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import '@/styles/Landing/Banner.css';
 
 function Banner() {
 	return (

@@ -53,6 +53,13 @@
 	font-weight: 700;
 }
 
+.cardNameLink {
+	color: var(--black);
+}
+.cardNameLink:hover {
+	color: var(--black);
+}
+
 /*Members Content*/
 .members {
 	display: flex;

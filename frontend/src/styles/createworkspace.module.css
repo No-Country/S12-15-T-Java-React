@@ -106,11 +106,17 @@
 	-moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.75);
 }
 
+.group_btn_content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 3rem;
+}
+
 .btn_create {
 	background-color: var(--blue);
 	color: var(--white);
 	width: 302px;
-	margin: 0 auto;
 	padding: 1rem 0.75rem;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
@@ -122,6 +128,25 @@
 
 .btn_create:hover {
 	background-color: var(--mazarine-blue);
+}
+
+.btn_cancel {
+	background-color: var(--red);
+	color: var(--white);
+	width: 302px;
+	padding: 1rem 0.75rem;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
+	text-align: center;
+	border: 1px solid var(--red);
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.btn_cancel:hover {
+	background-color: var(--pink);
+	color: var(--white);
 }
 
 /* Tablet */
@@ -145,6 +170,12 @@
 
 	.container_input_content label {
 		font-size: 1.25rem;
+	}
+
+	.group_btn_content {
+		flex-direction: column;
+    	align-items: center;
+		gap: 1.5rem;
 	}
 }
 
@@ -173,11 +204,17 @@
 
 	.container_input_content input,
 	.input_img,
-	.btn_create {
+	.group_btn_content a,
+	.btn_create,
+	.btn_cancel {
 		width: 100%;
 	}
 
 	.container_input_content textarea {
 		height: 75px;
+	}
+
+	.group_btn_content {
+		gap: 1rem;
 	}
 }

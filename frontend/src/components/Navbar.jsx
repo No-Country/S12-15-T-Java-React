@@ -1,6 +1,4 @@
-// components/Navbar.jsx
 'use client';
-
 import { useState } from 'react';
 import '@/styles/navbar.css';
 import '@/styles/Burguer.css';
@@ -9,19 +7,32 @@ import Burguer from './Burguer';
 import Link from 'next/link';
 
 function Navbar() {
+	let user;
+	if (typeof window !== 'undefined')
+		user = JSON.parse(localStorage.getItem('user'));
 	const [menuVisible, setMenuVisible] = useState(false);
 
 	const toggleMenu = () => {
 		setMenuVisible(!menuVisible);
 	};
 
+	const logOut = () => {
+		localStorage.clear();
+		window.location.href = '/';
+	};
+
+	const userHomeUrl = `/login/${user?.id}/home/`;
+	const userCreateWorkspaceUrl = `/login/${user?.id}/create-workspace`;
 	return (
 		<div className="nav-gral">
 			<nav className="nav-container">
-				<div className="track">
-					<img src="/images/logo-logo.png" alt="Logo" />
-					<h1 className="title">Track</h1>
-				</div>
+				<div className="container-menu-left">
+					<div className="track">
+						<img src="/images/logo-logo.png" alt="Logo" />
+						<Link href={userHomeUrl} className="white-link">
+							<h1 className="title">Track</h1>
+						</Link>
+					</div>
 
 				<div className="btn-menu">
 					<input
@@ -87,10 +98,6 @@ function Navbar() {
 							</Link>
 						</div>
 					</div>
-				</div>
-
-				<div className="logo-user">
-					<img src="/images/Usuario.png" alt="Imagen de USUARIO" />
 				</div>
 			</nav>
 		</div>

@@ -64,8 +64,7 @@
 	background: #eee;
 	margin-bottom: 0.5rem;
 	border-radius: 0.5rem;
-	border: 1px solid (--grey);
-	box-shadow: 0px 0px 4px 0px var(--dark-grey);
+	border: 1px solid var(--grey);
 	cursor: grab;
 }
 

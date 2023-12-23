@@ -1,7 +1,14 @@
 // eslint-disable-next-line no-undef
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-export async function registerUser(name, email, password, repeatedPassword) {
+export async function registerUser(
+	name,
+	lastName,
+	username,
+	email,
+	password,
+	repeatedPassword
+) {
 	try {
 		const response = await fetch(`${apiUrl}/auth/register`, {
 			method: 'POST',
@@ -9,7 +16,9 @@ export async function registerUser(name, email, password, repeatedPassword) {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				username: name,
+				name,
+				lastName,
+				username,
 				email,
 				password,
 				repeatedPassword,

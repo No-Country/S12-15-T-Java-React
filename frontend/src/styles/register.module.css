@@ -30,7 +30,7 @@
 .form_register {
 	display: flex;
 	flex-direction: column;
-	width: 302px;
+	width: 367px;
 	min-width: 100%;
 	margin-top: 2.25rem;
 }
@@ -127,7 +127,7 @@
 }
 
 .divider {
-	width: 110px;
+	width: 140px;
 	height: 0;
 	border: 1px solid var(--dark-grey);
 }
@@ -162,6 +162,24 @@
 	text-decoration: none;
 }
 
+.successfulmessage {
+	width: 100%;
+	background-color: var(--light-green);
+	color: var(--white);
+	text-align: center;
+	margin: 8px 0;
+	padding: 1rem 0;
+}
+
+.unsuccessfulmessage_error {
+	width: 100%;
+	background-color: var(--red);
+	color: var(--white);
+	text-align: center;
+	margin: 8px 0;
+	padding: 1rem 0;
+}
+
 /* Responsive */
 
 /* Tablet */
@@ -185,5 +203,13 @@
 
 	.card_register {
 		padding: 1.25rem 1.438rem;
+	}
+
+	.form_register {
+		width: 100%;
+	}
+
+	.divider {
+		width: 70px;
 	}
 }

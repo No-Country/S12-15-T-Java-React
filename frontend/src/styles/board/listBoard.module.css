@@ -3,7 +3,7 @@
 	flex-direction: column;
 	position: relative;
 	max-height: 27rem;
-	margin: 0 0.5rem;
+
 	/* overflow-y: auto; */
 	width: 14rem;
 	min-width: 14rem;
@@ -12,7 +12,7 @@
 	border-top: 4px solid var(--red);
 	box-shadow: 0px 0px 4px 0px var(--dark-grey);
 	background-color: #fafbfc;
-	margin: 0 1rem;
+	margin: 0 0.5rem;
 }
 
 .headerList {
@@ -51,14 +51,18 @@
 	cursor: pointer;
 	z-index: 100;
 }
+.menuDelete:hover {
+	color: var(--light-blue);
+}
 
 /*Add List*/
 .addList {
 	display: flex;
 	align-items: center;
-	width: 15rem;
+	width: auto;
+	text-wrap: nowrap;
 	margin-right: 0.75rem;
-	padding: 0.5rem 0.75rem;
+	padding: 0.5rem 3.75rem 0.5rem 0.75rem;
 	height: fit-content;
 	gap: 0.5rem;
 	border-radius: 0.25rem;
@@ -80,7 +84,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	padding: 0.5rem;
-	width: 15rem;
+	width: 14rem;
 	height: fit-content;
 	gap: 0.5rem;
 	/* margin-left: 0.75rem; */
@@ -114,7 +118,7 @@
 /*New list*/
 .newList {
 	display: flex;
-	/* margin-left: 0.75rem; */
+	margin-left: 0.5rem;
 }
 
 .newListBoard {
@@ -133,17 +137,4 @@
 	align-items: center;
 	font-size: 0.5rem;
 	color: var(--white);
-}
-
-.menuDelete {
-	position: absolute;
-	top: 1.8rem;
-	right: 0;
-	background-color: var(--white);
-	border: 1px solid #ccc;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	border-radius: 4px;
-	padding: 1rem;
-	cursor: pointer;
-	z-index: 100;
 }
