@@ -2,20 +2,16 @@ package com.nocountry.S12G15.service.impl;
 
 import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.dto.request.ChannelRequestDTO;
-import com.nocountry.S12G15.dto.request.PageableDto;
 import com.nocountry.S12G15.dto.response.ChannelResponseDTO;
-import com.nocountry.S12G15.exception.GenericException;
 import com.nocountry.S12G15.exception.ObjectNotFoundException;
 import com.nocountry.S12G15.mapper.ChannelMapper;
 import com.nocountry.S12G15.persistance.repository.ChannelRepository;
 import com.nocountry.S12G15.service.ChannelService;
-import com.nocountry.S12G15.util.Utility;
+//import com.nocountry.S12G15.util.Utility;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,18 +25,10 @@ public class ChannelServiceImpl implements ChannelService {
 
     private final ChannelMapper mapper;
     private final ChannelRepository channelRepository;
-    private final Utility utility;
+    //private final Utility utility;
 
     @Override
     @Transactional
-//    public ChannelResponseDTO createChannel(ChannelRequestDTO data) {
-//        ChannelEntity channelSave;
-//        channelSave = Optional.of(data)
-//                .map(mapper::toGetChannelEntity)
-//                .map(channelRepository::save)
-//                .orElseThrow(()-> new GenericException("Oops ocurrió un error", HttpStatus.BAD_REQUEST));
-//        return mapper.toGetChannelResponseDto(channelSave);
-//    }
     public ChannelResponseDTO createChannel(ChannelRequestDTO data) {
         ChannelEntity channelSave = mapper.toGetChannelEntity(data);
         channelSave.setStatus(ChannelEntity.ChannelStatus.ENABLED);
@@ -51,7 +39,6 @@ public class ChannelServiceImpl implements ChannelService {
     @Override
     @Transactional(readOnly = true)
     public Page<ChannelResponseDTO> findAll(Pageable pageable) {
-        //Pageable pageable = utility.setPageable(pageableDto);
         Page<ChannelEntity> channels = channelRepository.findAll(pageable);
 
         List<ChannelResponseDTO> responseDTOList = channels.getContent()

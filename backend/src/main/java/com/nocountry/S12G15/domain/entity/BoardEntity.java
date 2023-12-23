@@ -2,7 +2,7 @@ package com.nocountry.S12G15.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.List;
 
@@ -10,17 +10,13 @@ import java.util.List;
 @Data
 public class BoardEntity {
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
+    @UuidGenerator
     private String idBoard;
     private String boardName;
     private String description;
 
     @OneToMany
     private List<TaskEntity> tasks;
-
-//    @OneToOne
-//    protected ImageEntity imageEntity;
 
     private boolean enabled = true;
 }

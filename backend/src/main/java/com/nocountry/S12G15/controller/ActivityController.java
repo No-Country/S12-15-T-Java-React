@@ -1,4 +1,4 @@
-package com.nocountry.S12G15.controller.dto;
+package com.nocountry.S12G15.controller;
 
 import com.nocountry.S12G15.dto.ActivityDTO;
 import com.nocountry.S12G15.exception.MyException;

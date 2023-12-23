@@ -1,10 +1,8 @@
 package com.nocountry.S12G15.service.impl;
 
-import com.nocountry.S12G15.domain.entity.ChannelEntity;
 import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.domain.entity.SpaceEntity;
 import com.nocountry.S12G15.domain.entity.UserEntity;
-import com.nocountry.S12G15.persistance.repository.ChannelRepository;
 import com.nocountry.S12G15.persistance.repository.ImageRepository;
 import com.nocountry.S12G15.persistance.repository.SpaceRepository;
 import com.nocountry.S12G15.persistance.repository.UserRepository;

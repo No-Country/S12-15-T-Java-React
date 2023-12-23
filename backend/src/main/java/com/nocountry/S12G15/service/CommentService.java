@@ -4,8 +4,6 @@ package com.nocountry.S12G15.service;
 import com.nocountry.S12G15.domain.entity.CommentEntity;
 import com.nocountry.S12G15.dto.response.ChatResponseDTO;
 import com.nocountry.S12G15.dto.response.CommentResponseDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 

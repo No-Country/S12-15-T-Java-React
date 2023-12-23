@@ -1,4 +1,4 @@
-package com.nocountry.S12G15.controller.dto;
+package com.nocountry.S12G15.controller;
 import com.nocountry.S12G15.domain.entity.ImageEntity;
 import com.nocountry.S12G15.domain.entity.UserEntity;
 import com.nocountry.S12G15.dto.BoardDTO;
@@ -83,9 +83,6 @@ public class SpaceController {
         return ResponseEntity.status(HttpStatus.OK).body(channelsResponseDTO);
     }
 
-
-
-
     @GetMapping("/{idSpace}")
     public ResponseEntity<SpaceResponseDTO> findSpaceById(@PathVariable String idSpace) {
         SpaceResponseDTO spaceResponseDTO = spaceService.findSpaceById(idSpace);
@@ -109,7 +106,6 @@ public class SpaceController {
         return ResponseEntity.status(HttpStatus.OK).body(spaceResponseDTO);
     }
 
-    // Eliminando por ID
     @PutMapping("/disable/{idSpace}")
     public ResponseEntity<SpaceResponseDTO> disableSpace(@PathVariable String idSpace) {
         SpaceResponseDTO spaceResponseDTO = spaceService.findSpaceById(idSpace);
