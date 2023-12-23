@@ -11,7 +11,9 @@ import {
 } from '@/app/api/workspace/workspaceApi';
 
 export const Aside = ({ params }) => {
-	const user = JSON.parse(localStorage.getItem('user'));
+	let user;
+	if (typeof window !== 'undefined')
+		user = JSON.parse(localStorage.getItem('user'));
 	const [workspace, setWorkspace] = useState({
 		name: '',
 	});

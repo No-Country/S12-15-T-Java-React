@@ -26,6 +26,7 @@ export const Projects = ({ dataProjects, idUser }) => {
 			</ShapeProjects>
 		);
 	}
+	}
 
 	if (dataProjects === undefined) {
 		return (
@@ -33,7 +34,7 @@ export const Projects = ({ dataProjects, idUser }) => {
 				styles={styleProject.project}
 				styleHeader={styleProject.header}
 				name="Tus Proyectos"
-				lengthData={dataProjects.length}
+				lengthData={dataProjects?.length}
 				btnCreate={true}
 				idUser={idUser}
 			>
@@ -49,6 +50,7 @@ export const Projects = ({ dataProjects, idUser }) => {
 			nameProject={project.name}
 			idSpace={project.idSpace}
 			idUser={idUser}
+			board={project.boards[0].idBoard}
 		/>
 	));
 

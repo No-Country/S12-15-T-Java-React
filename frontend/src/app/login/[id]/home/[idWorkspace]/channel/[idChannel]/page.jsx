@@ -12,7 +12,9 @@ import { getChannelData } from '@/app/api/workspace/workspaceApi';
 
 const ChannelPage = ({ params }) => {
 	const [messages, setMessages] = useState([]);
-	const user = JSON.parse(localStorage.getItem('user'));
+	let user;
+	if (typeof window !== 'undefined')
+		user = JSON.parse(localStorage.getItem('user'));
 	const { idChannel } = params;
 	const messagesEndRef = useRef(null);
 	const [channelName, setChannelName] = useState('');
@@ -24,7 +26,7 @@ const ChannelPage = ({ params }) => {
 	const handleSendMessage = async (newMessage) => {
 		//temporary until realtime chat / websocket / receive new message data.
 		setMessages((prevMessages) => [
-			...prevMessages,
+			...(prevMessages || []),
 			{
 				comments: newMessage,
 				userName: user.email,

@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-undef
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const token = localStorage.getItem('token');
 
 export const getWorkspaceData = async (idWorkspace) => {
+	const token = localStorage.getItem('token');
 	try {
 		const response = await fetch(`${apiUrl}/space/${idWorkspace}`, {
 			headers: {
@@ -36,6 +36,7 @@ export const getChannels = async (idWorkspace) => {
 };
 
 export const getBoards = async (idWorkspace) => {
+	const token = localStorage.getItem('token');
 	try {
 		const response = await fetch(
 			`${apiUrl}/space/listOfEnabledBoardsByIdSpace/${idWorkspace}`,
@@ -58,6 +59,7 @@ export const getBoards = async (idWorkspace) => {
 };
 
 export const createChannel = async (idWorkspace, name) => {
+	const token = localStorage.getItem('token');
 	try {
 		const response = await fetch(`${apiUrl}/channel/new/${idWorkspace}`, {
 			method: 'POST',
@@ -79,6 +81,7 @@ export const createChannel = async (idWorkspace, name) => {
 };
 
 export const createBoard = async (idWorkspace, name) => {
+	const token = localStorage.getItem('token');
 	try {
 		const response = await fetch(`${apiUrl}/board/register/${idWorkspace}`, {
 			method: 'POST',
@@ -100,6 +103,7 @@ export const createBoard = async (idWorkspace, name) => {
 };
 
 export const getChannelData = async (idChannel) => {
+	const token = localStorage.getItem('token');
 	try {
 		const response = await fetch(`${apiUrl}/channel/${idChannel}`, {
 			headers: {

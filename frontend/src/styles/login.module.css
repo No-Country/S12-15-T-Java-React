@@ -70,7 +70,9 @@
 	border: 1px solid var(--red);
 }
 
-.container_form .container_inputs .errorMessage {
+.container_form .container_inputs .error_message {
+	display: flex;
+	align-self: flex-start;
 	color: var(--red);
 	margin-top: 5px;
 	font-size: 0.6rem;
