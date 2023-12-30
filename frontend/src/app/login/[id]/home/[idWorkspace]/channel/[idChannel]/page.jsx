@@ -9,6 +9,7 @@ import {
 	sendMessage,
 } from '@/app/api/workspace/channel/channelApi';
 import { getChannelData } from '@/app/api/workspace/workspaceApi';
+import withAuth from '@/lib/withAuth';
 
 const ChannelPage = ({ params }) => {
 	const [messages, setMessages] = useState([]);
@@ -103,4 +104,6 @@ const ChannelPage = ({ params }) => {
 	);
 };
 
-export default ChannelPage;
+const ProtectChannelAuth = withAuth(ChannelPage);
+
+export default ProtectChannelAuth;

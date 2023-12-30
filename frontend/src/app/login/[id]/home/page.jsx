@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 // import ResponsiveCarousel from '@/components/ResponsiveCarousel';
 import { RecentActivity } from '@/components/RecentActivity';
 // import Carousel from '@/components/Carousel';
+import withAuth from '@/lib/withAuth';
 
 const HomePage = ({ params }) => {
 	const { id } = params;
@@ -43,4 +44,6 @@ const HomePage = ({ params }) => {
 	);
 };
 
-export default HomePage;
+const ProtectHomePageAuth = withAuth(HomePage);
+
+export default ProtectHomePageAuth;
