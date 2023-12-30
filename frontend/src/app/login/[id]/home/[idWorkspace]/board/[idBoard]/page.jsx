@@ -7,6 +7,7 @@ import ListBoard from '@/components/board/ListBoard';
 import { AddList } from '@/components/board/AddList';
 import { useEffect, useState } from 'react';
 import { getFindBoard, getTaskList } from '@/app/api/board/route';
+import withAuth from '@/lib/withAuth';
 
 const Boardpage = ({ params }) => {
 	const { idBoard } = params;
@@ -68,4 +69,6 @@ const Boardpage = ({ params }) => {
 	);
 };
 
-export default Boardpage;
+const ProtectBoardAuth = withAuth(Boardpage);
+
+export default ProtectBoardAuth;

@@ -6,6 +6,7 @@ import FormInputGroup from '@/components/create/FormInputGroup';
 import styles from '@/styles/createworkspace.module.css';
 import Button from '@/components/Button';
 import { createWorkspace } from '@/app/api/createWorkspace/createWorkspaceApi';
+import withAuth from '@/lib/withAuth';
 
 const CreateWorkSpace = () => {
 	const [proyectName, setProyectName] = useState('');
@@ -79,4 +80,6 @@ const CreateWorkSpace = () => {
 	);
 };
 
-export default CreateWorkSpace;
+const ProtectCreateWorkSpaceAuth = withAuth(CreateWorkSpace);
+
+export default ProtectCreateWorkSpaceAuth;
